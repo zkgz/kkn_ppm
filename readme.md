@@ -1,5 +1,13 @@
+<<<<<<< HEAD
+[[[[[[[[[[[[[[[SABOTAGED]]]]]]]]]]]]]]]
+
+[[[[TESJAR]]]]
+
+[[[[[[[BAR]]]]]]]
+=======
 ## Aturan
 - Jangan upload .env
+>>>>>>> 4df2b774569ccfca93a6b95c4937556c128a10ca
 
 ## Tambahan Deo 15/07 - 22:40
 Tambahan login dan register. Untuk menggunakan, cukup dengan menjalankan :
