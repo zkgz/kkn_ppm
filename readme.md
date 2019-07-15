@@ -34,3 +34,6 @@ MAIL_USERNAME=2445212462a6b8
 MAIL_PASSWORD=3db82773467523
 MAIL_ENCRYPTION=null
 ```
+
+## Tambahan Deo 15/07 - 23:13
+Memindahkan semua view restoran kedalam satu folder
