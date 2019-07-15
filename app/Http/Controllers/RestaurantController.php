@@ -9,6 +9,7 @@ use App\Restaurant;
 class RestaurantController extends Controller
 {
     public function index(){
+        //return Restaurant::all();
         $restaurant = Restaurant::all();
         return view('restaurant', ['restaurant' => $restaurant]);
     }

@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 [[[[[[[[[[[[[[[SABOTAGED]]]]]]]]]]]]]]]
 
 [[[[TESJAR]]]]
 
 [[[[[[[BAR]]]]]]]
+=======
+## Aturan
+- Jangan upload .env
+>>>>>>> 4df2b774569ccfca93a6b95c4937556c128a10ca
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
