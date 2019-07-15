@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 ## Aturan
 - Jangan upload .env
-=======
-[[[[[[[[[[[[[[[SABOTAGED]]]]]]]]]]]]]]]
-
-[[[[TESJAR]]]]
-
->>>>>>> f3ff0e1a54bc929c5444ca2b0c7494197861c95b
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
