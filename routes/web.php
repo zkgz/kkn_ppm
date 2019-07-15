@@ -22,3 +22,6 @@ Route::get('/restaurant/delete/{id}', 'RestaurantController@delete');
 
 Route::post('/restaurant/store', 'RestaurantController@store');
 Route::put('/restaurant/update/{id}', 'RestaurantController@update');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
