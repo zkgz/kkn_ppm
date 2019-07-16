@@ -11,11 +11,12 @@ class RestaurantController extends Controller
     public function index(){
         //return Restaurant::all();
         $restaurant = Restaurant::all();
-        return view('restaurant/restaurant', ['restaurant' => $restaurant]);
+        return view('restaurant/restaurant', ['title' => 'Restaurant',
+                                            'restaurant' => $restaurant,]);
     }
 
     public function add(){
-        return view('restaurant/add_restaurant');
+        return view('restaurant/add_restaurant', ['title' => 'Add Restaurant']);
     }
 
     public function store(Request $request)
@@ -41,7 +42,8 @@ class RestaurantController extends Controller
 
     public function edit($id){
         $restaurant = Restaurant::find($id);
-        return view('restaurant/edit_restaurant', ['restaurant' => $restaurant]);
+        return view('restaurant/edit_restaurant', ['title' => 'Edit Restaurant', 
+                                                'restaurant' => $restaurant]);
     }
 
     public function update($id, Request $request){
