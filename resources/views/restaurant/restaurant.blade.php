@@ -29,13 +29,15 @@
                                 <td>{{ $rs->long }}</td>
                                 <!-- <td>{{ $rs->information }}</td> -->
                                 <td>
-                                    <a href="/restaurant/edit/{{ $rs->id }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="/restaurant/{{ $rs->id }}">Detail</a>
+                                    <!-- <a href="/restaurant/edit/{{ $rs->id }}" class="btn btn-warning btn-sm">Edit</a> -->
                                     <!-- <a href="/restaurant/delete/{{ $rs->id }}" class="btn btn-danger btn-sm">Hapus</a> -->
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $restaurant->links() }}
                 </div>
             </div>
         </div>

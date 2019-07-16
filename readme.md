@@ -40,3 +40,13 @@ MAIL_ENCRYPTION=null
 
 ## Tambahan Deo 15/07 - 23:13
 Memindahkan semua view restoran kedalam satu folder
+
+## Update Deo 16/07 12:00
+Tambahkan detail per-items, tambahkan lokasi map.
+
+## Update Deo 16/07 - 14:58
+Menambahkan pagination,
+perubahan menjadi :
+````
+$restaurant = Restaurant::paginate(25);
+````

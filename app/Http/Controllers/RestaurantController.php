@@ -10,7 +10,7 @@ class RestaurantController extends Controller
 {
     public function index(){
         //return Restaurant::all();
-        $restaurant = Restaurant::all();
+        $restaurant = Restaurant::paginate(25);
         return view('restaurant/restaurant', ['title' => 'Restaurant',
                                             'restaurant' => $restaurant,]);
     }
@@ -70,6 +70,11 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::find($id);
         $restaurant->delete();
         return redirect('/restaurant');
+    }
+
+    public function show($id){
+        $restaurant = Restaurant::find($id);
+        return view('restaurant/show_restaurant', ['title' => 'Detail', 'restaurant' => $restaurant]);
     }
 }
     
