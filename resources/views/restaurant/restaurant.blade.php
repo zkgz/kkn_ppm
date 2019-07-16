@@ -37,6 +37,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $restaurant->links() }}
                 </div>
             </div>
         </div>
