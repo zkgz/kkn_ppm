@@ -1,6 +1,9 @@
 ## Aturan
 - Jangan upload .env
 
+## Tambahan Baraq PBB 16/07 - 21:25
+Mohon bantuannya masih newbie
+
 ## Tambahan Deo 15/07 - 22:40
 Tambahan login dan register. Untuk menggunakan, cukup dengan menjalankan :
 

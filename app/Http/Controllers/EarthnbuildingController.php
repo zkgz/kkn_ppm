@@ -4,23 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Earthnbuilding;
+
 class EarthnbuildingController extends Controller
 {
     public function index(){
         $earthnbuilding = Earthnbuilding::all();
-        return view('earthnbuilding', ['earthnbuilding => $earthnbuilding']);
+        return view('earthnbuilding/pbb', ['title' => 'Pbb',
+                                            'earthnbuilding' => $earthnbuilding]);
     }
 
     public function add(){
-        return view('add_earthnbuilding');
+        return view('earthnbuilding/add_pbb', ['title' => 'Add PBB']);
     }
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required',
-            'kelurahan' => 'required',
+            'region' => 'required',
             'address' => 'required',
-            'buildingarea' => 'required',
-            'surfacearea' => 'required',
+            'building' => 'required',
+            'soil' => 'required',
             'lat' => 'required',
             'long' => 'required',
             'information' => 'required',
@@ -28,10 +31,10 @@ class EarthnbuildingController extends Controller
 
         Earthnbuilding::create([
             'name' => $request->name,
-            'kelurahan' => $request->kelurahan,
+            'region' => $request->region,
             'address' => $request->address,
-            'buildingarea' => $request->buildingarea,
-            'surfacearea' => $request->surfacearea,
+            'building' => $request->building,
+            'soil' => $request->soil,
             'lat' => $request->lat,
             'long' => $request->long,
             'information' => $request->information,
@@ -42,12 +45,40 @@ class EarthnbuildingController extends Controller
 
     public function edit($id){
         $earthnbuilding = Earthnbuilding::find($id);
-        return view('edit_pbb', [
+        return view('earthnbuilding/edit_pbb', [
             'earthnbuilding' => $earthnbuilding
         ]);
     }
 
     public function update($id, Request $request){
-        
+        $this->validate($request,[
+            'name' => 'required',
+            'region' => 'required',
+            'address' => 'required',
+            'building' => 'required',
+            'soil' => 'required',
+            'lat' => 'required',
+            'long' => 'required',
+            'information' => 'required',
+        ]);
+
+        $earthnbuilding = Earthnbuilding::find($id);
+        $earthnbuilding->name = $request->name;
+        $earthnbuilding->region = $request->region;
+        $earthnbuilding->address = $request->address;
+        $earthnbuilding->building = $request->building;
+        $earthnbuilding->soil = $request->soil;
+        $earthnbuilding->lat = $request->lat;
+        $earthnbuilding->long = $request->long;
+        $earthnbuilding->informarion = $request->informaion;
+
+        $earthnbuilding->save();
+        return redirect('/pbb');
+    }
+
+    public function delete($id){
+        $earthnbuilding = Earthnbuilding::find($id);
+        $earthnbuilding->delete();
+        return redirect('/pbb');
     }
 }

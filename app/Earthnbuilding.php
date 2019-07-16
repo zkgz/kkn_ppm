@@ -10,10 +10,10 @@ class Earthnbuilding extends Model
     use SoftDeletes;
     protected $fillable = [
         'name',
-        'kelurahan',
+        'region',
         'address',
-        'buildingarea',
-        'surfacearea',
+        'building',
+        'soil',
         'lat',
         'long',
         'information'
