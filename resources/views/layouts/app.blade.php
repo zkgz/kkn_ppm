@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                    <li class="nav-item"><a href="https://github.com/zkgz/kkn_ppm" class="btn btn-outline-primary btn-sm" target="_blank">Source code</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
