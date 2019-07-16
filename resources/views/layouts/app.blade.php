@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -72,9 +73,11 @@
             </div>
         </nav>
 
+=======
+@include('inc.header')
+        @include('inc.navbar')
+>>>>>>> 62b7e1a99bd5944d6e9eee5c8af93da2b8d24037
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
-</body>
-</html>
+@include('inc.footer')
