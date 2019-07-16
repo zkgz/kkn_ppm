@@ -71,5 +71,10 @@ class RestaurantController extends Controller
         $restaurant->delete();
         return redirect('/restaurant');
     }
+
+    public function show($id){
+        $restaurant = Restaurant::find($id);
+        return view('restaurant/show_restaurant', ['title' => 'Detail', 'restaurant' => $restaurant]);
+    }
 }
     

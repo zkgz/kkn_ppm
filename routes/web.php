@@ -25,3 +25,5 @@ Route::put('/restaurant/update/{id}', 'RestaurantController@update');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/restaurant/{id}', 'RestaurantController@show');
