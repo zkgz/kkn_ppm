@@ -2,6 +2,12 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 17/07 - 19:00
+- Ubah tampilan create
+- Tambahkan marker
+- Tambahkan clik to add marker di maps utama
+- Tambahkan maps di menu create
+- Lokasi lat, long bisa langsung diubah lewat maps di menu create
 
 ## Tambahan Deo 17/07 - 14:22
 Ubah form edit menggunakan LaravelCollective
