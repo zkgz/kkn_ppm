@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')->with('title', 'KKN PPM Unhas');
 });
 
 Route::resource('restaurant', 'RestaurantController');
