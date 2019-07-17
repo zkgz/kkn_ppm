@@ -13,8 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/restaurant', function (Request $request) {
-    return $request->restaurant();
-});
+// Route::middleware('auth:api')->get('/restaurant', function (Request $request) {
+//     return $request->restaurant();
+// });
 
-// Route::get('/restaurant', 'RestaurantController@index');
+Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
+    /*
+     * Outlets Endpoints
+     */
+    Route::get('restaurant', 'RestaurantController@index')->name('restaurant.index');
+});

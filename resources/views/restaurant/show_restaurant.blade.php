@@ -33,7 +33,9 @@
 </div>
 </div>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
 
 <style>
     #mapid { 
@@ -45,12 +47,12 @@
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
 
 <script>
-    var map = L.map('mapid').setView([{{ $restaurant->lat }}, {{ $restaurant->long }}], 16);
+    var mymap = L.map('mapid').setView([{{ $restaurant->lat }}, {{ $restaurant->long }}], 16);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    }).addTo(mymap);
 
-    L.marker([{{ $restaurant->lat }}, {{ $restaurant->long }}]).addTo(map).bindPopup('{!! $restaurant->name !!}');
+    L.marker([{{ $restaurant->lat }}, {{ $restaurant->long }}]).addTo(mymap).bindPopup('{!! $restaurant->name !!}');
 </script>
 @endsection

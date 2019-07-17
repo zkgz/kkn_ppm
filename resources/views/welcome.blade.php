@@ -1,99 +1,68 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<main class="py-4 container">
+<div class="card">
+    <div class="card-body" id="mapid"></div>
+</div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
+<style>
+    #mapid { min-height: 500px; }
+</style>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+    integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+    crossorigin=""></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    
+    var map = L.map('mapid').setView([-4.0185, 119.6710], 13);
+    var baseUrl = "{{ url('/') }}";
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    axios.get('{{ route('api.restaurant.index') }}')
+    .then(function (response) {
+        console.log(response.data);
+        L.geoJSON(response.data, {
+            pointToLayer: function(geoJsonPoint, latlng) {
+                return L.marker(latlng);
             }
+        })
+        .bindPopup(function (layer) {
+            return layer.feature.properties.map_popup_content;
+        }).addTo(map);
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 
-            .full-height {
-                height: 100vh;
-            }
+    @can('create', new App\Restaurant)
+    var theMarker;
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    map.on('click', function(e) {
+        let latitude = e.latlng.lat.toString().substring(0, 15);
+        let longitude = e.latlng.lng.toString().substring(0, 15);
 
-            .position-ref {
-                position: relative;
-            }
+        if (theMarker != undefined) {
+            map.removeLayer(theMarker);
+        };
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        var popupContent = "Your location : " + latitude + ", " + longitude + ".";
+        popupContent += '<br><a href="{{ route('outlets.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new outlet here</a>';
 
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+        theMarker = L.marker([latitude, longitude]).addTo(map);
+        theMarker.bindPopup(popupContent)
+        .openPopup();
+    });
+    @endcan
+</script>
+</main>
+@endsection
