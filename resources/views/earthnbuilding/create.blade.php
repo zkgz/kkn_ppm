@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="form-group">
-                    {{Form::submit('Simpan')}}      
+                    {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!} 
                 </div>
             
             {{ Form::close() }}
