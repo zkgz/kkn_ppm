@@ -38,7 +38,7 @@
                         <a href="/pbb/{{ $enb->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
                         {{ Form::open(['action' => ['EarthnbuildingController@destroy', $enb->id]])}}
                             {{Form::hidden('_method','DELETE')}}
-                            {!! Form::button('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {{ Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) }}
                         {{ Form::close()}}
                     </td>
                 </tr>
