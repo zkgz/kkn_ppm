@@ -3,35 +3,31 @@
         <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
-                    Edit Data Restoran
+                    Tambah Data Restoran
                 </div>
                 <div class="card-body">
                     <a href="/restaurant" class="btn btn-primary">Kembali</a>
+                    <br/>
+                    <br/>
                     
-                    <br/>
-                    <br/>
-
-                    <form method="post" action="/restaurant/{{ $restaurant->id }}">
-
-                        {{ csrf_field() }}
-                        {{ method_field('PUT') }}
-
+                    {{ Form::open(['action' => ['RestaurantController@edit', $restaurant->id]])}}
+                    
+                        {{Form::token()}}
+                        
                         <div class="form-group">
-                            <label>Nama</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nama pegawai .." value="{{ $restaurant->name }}">
+                                {{Form::label('name','Name')}}
+                                {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
                                     {{ $errors->first('name')}}
                                 </div>
                             @endif
-
                         </div>
 
                         <div class="form-group">
-                            <label>Alamat</label>
-                            <textarea name="address" class="form-control" placeholder="Alamat">{{ $restaurant->address }}</textarea>
-
+                                {{Form::label('alamat','Alamat')}}
+                                {{Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Alamat', 'value' => $restaurant->address])}}                  
                              @if($errors->has('address'))
                                 <div class="text-danger">
                                     {{ $errors->first('address')}}
@@ -41,9 +37,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Latitude</label>
-                            <input name="lat" class="form-control" placeholder="Latitude" value="{{ $restaurant->lat }}">
-
+                                {{Form::label('latitude','Latitude')}}
+                                {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat])}}                  
+                            
                              @if($errors->has('lat'))
                                 <div class="text-danger">
                                     {{ $errors->first('lat')}}
@@ -53,9 +49,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Longitude</label>
-                            <input name="long" class="form-control" placeholder="Longitude" value="{{ $restaurant->long }}">
-
+                            {{Form::label('longitude','Longitude')}}
+                            {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                  
+                            
+                            
                              @if($errors->has('long'))
                                 <div class="text-danger">
                                     {{ $errors->first('long')}}
@@ -65,9 +62,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Information</label>
-                            <textarea name="information" class="form-control" placeholder="Keterangan">{{ $restaurant->information }}</textarea>
-
+                            {{Form::label('information','Information')}}
+                            {{Form::textarea('information', '', ['class' => 'form-control', 'placeholder' => 'Keterangan', 'value' => $restaurant->information])}}                  
+                            
                              @if($errors->has('information'))
                                 <div class="text-danger">
                                     {{ $errors->first('information')}}
@@ -77,10 +74,10 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-success" value="Simpan">
+                            {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}  
                         </div>
 
-                    </form>
+                    {{ Form::close() }}
 
                 </div>
             </div>

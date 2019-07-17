@@ -2,6 +2,19 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 17/07 - 13:52
+Ubah kembali tombol, dari
+
+```
+<button type="submit" class="btn btn-primary">Simpan</button>
+```
+
+ke 
+
+```
+{!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
+```
+
 ## Tambahan Deo 17/07 - 13:02
 Perubahan lokasi tombol **Edit**, **Delete** dan **Back to index** di detail.
 Dari horizontal menjadi urutan vertikal.
