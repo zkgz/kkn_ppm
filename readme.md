@@ -16,7 +16,7 @@ menjadi :
 ```
 
 ## Tambahan Deo 17/07 - 12:00
-- Tambahkan maps
+- Tambahkan maps setiap items
 
 ## Tambahan ZKGZ 17/07 - 08:58
 - Major Bug Fixes
