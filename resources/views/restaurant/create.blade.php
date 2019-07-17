@@ -75,9 +75,7 @@
                         </div>
 
                         <div class="form-group">
-                            
-                            
-                            {{Form::submit('Simpan')}}                  
+                            <button type="submit" class="btn btn-primary">Simpan</button>                
                         </div>
 
                     {{ Form::close() }}

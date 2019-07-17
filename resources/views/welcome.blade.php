@@ -37,7 +37,7 @@
             }
         })
         .bindPopup(function (layer) {
-            return layer.feature.properties.map_popup_content;
+            return "Restoran A";
         }).addTo(map);
     })
     .catch(function (error) {

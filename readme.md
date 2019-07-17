@@ -2,7 +2,13 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
-## Tambahan 17/07 - 12:00
+## Tambahan Deo 17/07 - 12:47
+Ubah bentuk tombol submit create, dari 
+> Form::submit('simpan');
+menjadi :
+> <button type="submit" class="btn btn-primary">Simpan</button>
+
+## Tambahan Deo 17/07 - 12:00
 - Tambahkan maps
 
 ## Tambahan ZKGZ 17/07 - 08:58
