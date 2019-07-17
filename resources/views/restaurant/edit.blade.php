@@ -15,7 +15,7 @@
                         
                         <div class="form-group">
                                 {{Form::label('name','Name')}}
-                                {{Form::text('name', $restaurant->name, ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
+                                {{Form::text('name', $restaurant->name, ['class' => 'form-control', 'placeholder' => 'Nama'])}}
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
