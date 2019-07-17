@@ -2,6 +2,10 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 17/07 - 13:02
+Perubahan lokasi tombol **Edit**, **Delete** dan **Back to index** di detail.
+Dari horizontal menjadi urutan vertikal.
+
 ## Tambahan Deo 17/07 - 12:47
 Ubah bentuk tombol submit create, dari 
 
