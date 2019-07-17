@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 17/07 - 14:22
+Ubah form edit menggunakan LaravelCollective
+
 ## Tambahan Deo 17/07 - 13:52
 Ubah kembali tombol, dari
 
