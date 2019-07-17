@@ -4,11 +4,16 @@
 
 ## Tambahan Deo 17/07 - 12:47
 Ubah bentuk tombol submit create, dari 
-> Form::submit('simpan');
+
+```
+Form::submit('simpan');
+```
 
 menjadi :
 
-> <button type="submit" class="btn btn-primary">Simpan</button>
+```
+<button type="submit" class="btn btn-primary">Simpan</button>
+```
 
 ## Tambahan Deo 17/07 - 12:00
 - Tambahkan maps
