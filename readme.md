@@ -2,6 +2,10 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan ZKZG 18/07 - 19:00
+- fixed issue #7
+- Added 'View Details' in outlet pin
+
 ## Tambahan Deo 17/07 - 19:00
 - Ubah tampilan create
 - Tambahkan marker
@@ -13,7 +17,7 @@
 Ubah form edit menggunakan LaravelCollective
 
 ## Tambahan ZKGZ 17/07 - 14:08
-- Changing all submit button to Form::button()
+- Changed all submit button to Form::button()
 
 ## Tambahan Deo 17/07 - 13:52
 Ubah kembali tombol, dari
@@ -50,15 +54,15 @@ menjadi :
 
 ## Tambahan ZKGZ 17/07 - 08:58
 - Major Bug Fixes
-- Adding dependency LaravelCollective to composer.json
-- Replacing old hardcoded routes with resource routes
-- Renaming view files so that they match with resource routes
-- Changing 'add()' function from controllers to 'create()'
-- Changing 'delete()' function from controllers to 'destroy()'
-- Redirecting text links to resource routes
-- Replacing old form with form helper from LaravelCollective
-- Adding action table head in pbb index view
-- Fixing typos
+- Added dependency LaravelCollective to composer.json
+- Replaced old hardcoded routes with resource routes
+- Renamed view files so that they match with resource routes
+- Changed 'add()' function from controllers to 'create()'
+- Changed 'delete()' function from controllers to 'destroy()'
+- Redirected text links to resource routes
+- Replaced old form with form helper from LaravelCollective
+- Added action table head in pbb index view
+- Fixed typos
 
 ## Tambahan Baraq PBB 16/07 - 21:25
 Mohon bantuannya masih newbie

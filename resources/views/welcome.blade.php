@@ -37,7 +37,11 @@
             }
         })
         .bindPopup(function (layer) {
-            return "Restoran A";
+            
+            var popupContent = layer.feature.properties.name + " : " + layer.feature.properties.lat + ", " + layer.feature.properties.long + ".";
+            popupContent = popupContent.concat('<br><a href="/restaurant/', layer.feature.properties.id , '">View Details</a>');
+            
+            return popupContent;
         }).addTo(map);
     })
     .catch(function (error) {
