@@ -15,6 +15,8 @@
                         <div class="form-group">
                                 {{Form::label('name','Name')}}
                                 {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
+                                
+                                
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
@@ -39,7 +41,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                         {{Form::label('latitude','Latitude')}}
-                                        {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude'])}}                  
+                                        @if(isset($_GET["latitude"]))
+                                            {{Form::text('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude'])}}     
+                                        @else
+                                            {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude'])}}                  
+                                        @endif                  
                                     
                                     @if($errors->has('lat'))
                                         <div class="text-danger">
@@ -53,8 +59,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     {{Form::label('longitude','Longitude')}}
-                                    {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude'])}}                  
-                                    
+                                        @if(isset($_GET["longitude"]))
+                                            {{Form::text('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'longitude'])}}     
+                                        @else
+                                            {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude'])}}                  
+                                        @endif                  
                                     
                                     @if($errors->has('long'))
                                         <div class="text-danger">

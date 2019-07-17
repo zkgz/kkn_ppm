@@ -2,13 +2,12 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
-<<<<<<< HEAD
-## Tambahan ZKgZ 17/07 - 14:08
-- Changing all submit button to Form::button()
-=======
+
 ## Tambahan Deo 17/07 - 14:22
 Ubah form edit menggunakan LaravelCollective
->>>>>>> b64e1fc620652770946b4ba97da502c751525857
+
+## Tambahan ZKGZ 17/07 - 14:08
+- Changing all submit button to Form::button()
 
 ## Tambahan Deo 17/07 - 13:52
 Ubah kembali tombol, dari
