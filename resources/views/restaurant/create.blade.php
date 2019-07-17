@@ -1,14 +1,12 @@
 @extends('layouts.app')
 @section('content')
-        <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
             <div class="card mt-5">
                 <div class="card-header text-center">
                     Tambah Data Restoran
                 </div>
                 <div class="card-body">
-                    <a href="/restaurant" class="btn btn-primary">Kembali</a>
-                    <br/>
-                    <br/>
                     
                     {{ Form::open(['action' => 'RestaurantController@store'])}}
                     
@@ -29,7 +27,7 @@
 
                         <div class="form-group">
                                 {{Form::label('alamat','Alamat')}}
-                                {{Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Alamat'])}}                  
+                                {{Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Alamat', 'rows' => '4'])}}                  
                             
                              @if($errors->has('address'))
                                 <div class="text-danger">
@@ -39,37 +37,41 @@
 
                         </div>
 
-                        <div class="form-group">
-                                {{Form::label('latitude','Latitude')}}
-                                
-                                @if(isset($_GET["latitude"]))
-                                    {{Form::text('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude'])}}                  
-                                @else
-                                    {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude'])}}                  
-                                @endif
-                             @if($errors->has('lat'))
-                                <div class="text-danger">
-                                    {{ $errors->first('lat')}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        {{Form::label('latitude','Latitude')}}
+                                        @if(isset($_GET["latitude"]))
+                                            {{Form::text('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude'])}}     
+                                        @else
+                                            {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude'])}}                  
+                                        @endif                  
+                                    
+                                    @if($errors->has('lat'))
+                                        <div class="text-danger">
+                                            {{ $errors->first('lat')}}
+                                        </div>
+                                    @endif
+
                                 </div>
-                            @endif
-
-                        </div>
-
-                        <div class="form-group">
-                            {{Form::label('longitude','Longitude')}}
-
-                            @if(isset($_GET["longitude"]))
-                                {{Form::text('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'Longitude'])}}                  
-                            @else
-                                {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude'])}}                  
-                            @endif
+                            </div>
                             
-                             @if($errors->has('long'))
-                                <div class="text-danger">
-                                    {{ $errors->first('long')}}
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    {{Form::label('longitude','Longitude')}}
+                                        @if(isset($_GET["longitude"]))
+                                            {{Form::text('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'longitude'])}}     
+                                        @else
+                                            {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude'])}}                  
+                                        @endif                  
+                                    
+                                    @if($errors->has('long'))
+                                        <div class="text-danger">
+                                            {{ $errors->first('long')}}
+                                        </div>
+                                    @endif
                                 </div>
-                            @endif
-
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -83,14 +85,18 @@
                             @endif
 
                         </div>
+                        
+                        <div id="mapid"></div>
 
                         <div class="form-group">
-                            {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit('Simpan', ['class' => 'btn btn-success']) !!}
+                            <a href="/restaurant" class="btn btn-light">Cancel</a>
                         </div>
 
                     {{ Form::close() }}
-
                 </div>
             </div>
         </div>
+    </div>
+</div>
 @endsection
