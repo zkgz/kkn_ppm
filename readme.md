@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan 17/07 - 12:00
+- Tambahkan maps
+
 ## Tambahan ZKGZ 17/07 - 08:58
 - Major Bug Fixes
 - Adding dependency LaravelCollective to composer.json
