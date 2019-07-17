@@ -16,10 +16,10 @@ class CreateEarthnbuildingsTable extends Migration
         Schema::create('earthnbuildings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('kelurahan');
+            $table->string('region');
             $table->string('address');
-            $table->string('buildingarea');
-            $table->string('surfacearea');
+            $table->string('building');
+            $table->string('soil');
             $table->string('lat');
             $table->string('long');
             $table->string('information');

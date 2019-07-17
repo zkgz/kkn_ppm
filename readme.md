@@ -1,5 +1,22 @@
 ## Aturan
 - Jangan upload .env
+- Jangan upload vendor folder
+
+## Tambahan ZKGZ 17/07 - 08:58
+- Major Bug Fixes
+- Adding dependency LaravelCollective to composer.json
+- Replacing old hardcoded routes with resource routes
+- Renaming view files so that they match with resource routes
+- Changing 'add()' function from controllers to 'create()'
+- Changing 'delete()' function from controllers to 'destroy()'
+- Redirecting text links to resource routes
+- Replacing old form with form helper from LaravelCollective
+- Adding action table head in pbb index view
+- Fixing typos
+
+## Tambahan Baraq PBB 16/07 - 21:25
+Mohon bantuannya masih newbie
+Tambahan fitur pbb. Ada error pada route mohon bimbingannya senpai
 
 ## Tambahan Deo 15/07 - 22:40
 Tambahan login dan register. Untuk menggunakan, cukup dengan menjalankan :

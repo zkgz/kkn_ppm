@@ -11,12 +11,12 @@ class RestaurantController extends Controller
     public function index(){
         //return Restaurant::all();
         $restaurant = Restaurant::paginate(25);
-        return view('restaurant/restaurant', ['title' => 'Restaurant',
+        return view('restaurant.index', ['title' => 'Restaurant',
                                             'restaurant' => $restaurant,]);
     }
 
-    public function add(){
-        return view('restaurant/add_restaurant', ['title' => 'Add Restaurant']);
+    public function create(){
+        return view('restaurant.create', ['title' => 'Add Restaurant']);
     }
 
     public function store(Request $request)
@@ -42,7 +42,8 @@ class RestaurantController extends Controller
 
     public function edit($id){
         $restaurant = Restaurant::find($id);
-        return view('restaurant/edit_restaurant', ['title' => 'Edit Restaurant', 
+        
+        return view('restaurant.edit', ['title' => 'Edit Restaurant', 
                                                 'restaurant' => $restaurant]);
     }
 
@@ -66,7 +67,7 @@ class RestaurantController extends Controller
         return redirect('/restaurant');
     }
 
-    public function delete($id){
+    public function destroy($id){
         $restaurant = Restaurant::find($id);
         $restaurant->delete();
         return redirect('/restaurant');
@@ -74,7 +75,7 @@ class RestaurantController extends Controller
 
     public function show($id){
         $restaurant = Restaurant::find($id);
-        return view('restaurant/show_restaurant', ['title' => 'Detail', 'restaurant' => $restaurant]);
+        return view('restaurant.show', ['title' => 'Detail', 'restaurant' => $restaurant]);
     }
 }
     

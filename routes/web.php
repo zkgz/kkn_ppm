@@ -15,15 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/restaurant', 'RestaurantController@index');
-Route::get('/restaurant/add', 'RestaurantController@add');
-Route::get('/restaurant/edit/{id}', 'RestaurantController@edit');
-Route::get('/restaurant/delete/{id}', 'RestaurantController@delete');
+Route::resource('restaurant', 'RestaurantController');
 
-Route::post('/restaurant/store', 'RestaurantController@store');
-Route::put('/restaurant/update/{id}', 'RestaurantController@update');
+
+/**
+ * Add Route For PBB
+ */
+
+Route::resource('pbb', 'EarthnbuildingController');
+
+ /**
+  * End Route PBB
+  */
+  
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/restaurant/{id}', 'RestaurantController@show');
