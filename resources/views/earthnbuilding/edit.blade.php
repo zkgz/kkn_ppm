@@ -11,7 +11,7 @@
                 <br/>
                 <br/>
 
-                <form action="/pbb/update/{{ $earthnbuilding->id }}" method="post">
+                <form action="/pbb/{{ $earthnbuilding->id }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
@@ -91,7 +91,7 @@
 
                     <div class="form-group">
                             <label>Latitude</label>
-                            <input name="lat" class="form-control" placeholder="Latitude" value="{{ $restaurant->lat }}">
+                            <input name="lat" class="form-control" placeholder="Latitude" value="{{ $earthnbuilding->lat }}">
 
                              @if($errors->has('lat'))
                                 <div class="text-danger">
@@ -103,7 +103,7 @@
 
                         <div class="form-group">
                             <label>Longitude</label>
-                            <input name="long" class="form-control" placeholder="Longitude" value="{{ $restaurant->long }}">
+                            <input name="long" class="form-control" placeholder="Longitude" value="{{ $earthnbuilding->long }}">
 
                              @if($errors->has('long'))
                                 <div class="text-danger">
@@ -115,7 +115,7 @@
 
                         <div class="form-group">
                             <label>Information</label>
-                            <textarea name="information" class="form-control" placeholder="Keterangan">{{ $restaurant->information }}</textarea>
+                            <textarea name="information" class="form-control" placeholder="Keterangan">{{ $earthnbuilding->information }}</textarea>
 
                              @if($errors->has('information'))
                                 <div class="text-danger">

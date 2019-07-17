@@ -17,8 +17,11 @@
                 </table>
             </div>
             <div class="card-footer">
-                <a href="/restaurant/edit/{{ $restaurant->id }}" class="btn btn-warning">Edit</a>
-                <a href="/restaurant/delete/{{ $restaurant->id }}" class="btn btn-danger">Delete</a>
+                <a href="/restaurant/{{$restaurant->id}}/edit/" class="btn btn-warning">Edit</a>
+                {{ Form::open(['action' => ['RestaurantController@destroy', $restaurant->id]])}}
+                {{Form::hidden('_method','DELETE')}}
+                    <button type="submit" class="btn btn-danger btn-sm" >Hapus</button>   
+                {{ Form::close()}}
                 <a href="/restaurant" class="btn btn-link">Back to index</a>
             </div>
         </div>

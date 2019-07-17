@@ -11,7 +11,7 @@
                     <br/>
                     <br/>
 
-                    <form method="post" action="/restaurant/update/{{ $restaurant->id }}">
+                    <form method="post" action="/restaurant/{{ $restaurant->id }}">
 
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}

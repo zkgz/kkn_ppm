@@ -10,14 +10,16 @@ class EarthnbuildingController extends Controller
 {
     public function index(){
         $earthnbuilding = Earthnbuilding::all();
-        return view('earthnbuilding/pbb', ['title' => 'Pbb',
+        return view('earthnbuilding.index', ['title' => 'Pbb',
                                             'earthnbuilding' => $earthnbuilding]);
     }
 
-    public function add(){
-        return view('earthnbuilding/add_pbb', ['title' => 'Add PBB']);
+    public function create(){
+        return view('earthnbuilding.create', ['title' => 'Add PBB']);
     }
+
     public function store(Request $request){
+        
         $this->validate($request, [
             'name' => 'required',
             'region' => 'required',
@@ -45,7 +47,7 @@ class EarthnbuildingController extends Controller
 
     public function edit($id){
         $earthnbuilding = Earthnbuilding::find($id);
-        return view('earthnbuilding/edit_pbb', [
+        return view('earthnbuilding.edit', [
             'earthnbuilding' => $earthnbuilding
         ]);
     }
@@ -70,13 +72,18 @@ class EarthnbuildingController extends Controller
         $earthnbuilding->soil = $request->soil;
         $earthnbuilding->lat = $request->lat;
         $earthnbuilding->long = $request->long;
-        $earthnbuilding->informarion = $request->informaion;
+        $earthnbuilding->information = $request->information;
 
         $earthnbuilding->save();
         return redirect('/pbb');
     }
 
-    public function delete($id){
+    public function show($id){
+        $pbb = Earthnbuilding::find(id);
+        return view('earthnbuilding.show')->with('pbb', $pbb);
+    }
+
+    public function destroy($id){
         $earthnbuilding = Earthnbuilding::find($id);
         $earthnbuilding->delete();
         return redirect('/pbb');
