@@ -3,7 +3,7 @@
         <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
-                    Tambah Data Restoran
+                    Edit Data Restoran
                 </div>
                 <div class="card-body">
                     <a href="/restaurant" class="btn btn-primary">Kembali</a>
