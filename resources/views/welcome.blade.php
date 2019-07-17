@@ -44,7 +44,7 @@
         console.log(error);
     });
 
-    @can('create', new App\Restaurant)
+    
     var theMarker;
 
     map.on('click', function(e) {
@@ -56,13 +56,13 @@
         };
 
         var popupContent = "Your location : " + latitude + ", " + longitude + ".";
-        popupContent += '<br><a href="{{ route('outlets.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new outlet here</a>';
+        popupContent += '<br><a href="{{ route('restaurant.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new outlet here</a>';
 
         theMarker = L.marker([latitude, longitude]).addTo(map);
         theMarker.bindPopup(popupContent)
         .openPopup();
     });
-    @endcan
+    
 </script>
 </main>
 @endsection
