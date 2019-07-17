@@ -15,7 +15,7 @@
                         
                         <div class="form-group">
                                 {{Form::label('name','Name')}}
-                                {{Form::text('name', $restaurant->name, ['class' => 'form-control', 'placeholder' => 'Nama'])}}
+                                {{Form::text('name', $restaurant->name, ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
@@ -45,10 +45,20 @@
                             @endif
 
                         </div>
+                        <div class="form-group">
+                            {{Form::label('Longitude')}}
+                            {{Form::text('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                                              
+                             @if($errors->has('long'))
+                                <div class="text-danger">
+                                    {{ $errors->first('long')}}
+                                </div>
+                            @endif
+
+                        </div>
 
                         <div class="form-group">
-                            {{Form::label('longitude','Longitude')}}
-                            {{Form::text('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                                              
+                            {{Form::label('Information')}}
+                            {{Form::textarea('information', $restaurant->information, ['class' => 'form-control', 'placeholder' => 'information', 'value' => $restaurant->information])}} 
                              @if($errors->has('information'))
                                 <div class="text-danger">
                                     {{ $errors->first('information')}}

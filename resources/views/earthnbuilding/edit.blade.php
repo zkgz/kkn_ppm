@@ -27,7 +27,8 @@
 
                     <div class="form-group">
                         {{Form::label('Kelurahan')}}
-                        {{Form::text('region', $earthnbuilding->region, ['class' => 'form-control', 'placeholder' => 'Nama Kelurahan ..'])}}
+                        {{Form::select('region', $list_kelurahan, $earthnbuilding->region, ['class' => 'form-control', 'placeholder' => 'Pilih Kelurahan..'])}}                    
+                        
                         @if($errors->has('region'))
                             <div class="text-danger">
                                 {{ $errors->first('region') }}

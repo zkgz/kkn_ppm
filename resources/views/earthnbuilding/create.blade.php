@@ -21,7 +21,7 @@
 
                 <div class="form-group">
                     {{Form::label('Kelurahan')}}
-                    {{Form::text('region', '', ['class' => 'form-control', 'placeholder' => 'Kelurahan'])}}
+                    {{Form::select('region', $list_kelurahan, null, ['class' => 'form-control', 'placeholder' => 'Pilih Kelurahan..'])}}                    
                     @if($errors->has('region'))
                         <div class="text-danger">
                             {{ $errors->first('region')}}

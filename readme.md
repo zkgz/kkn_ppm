@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan ZKZG 18/07 - 05:30
+- fixed issue #6
+
 ## Tambahan ZKZG 18/07 - 04:15
 - fixed issue #4
 

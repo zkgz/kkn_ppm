@@ -8,6 +8,7 @@ use App\Earthnbuilding;
 
 class EarthnbuildingController extends Controller
 {
+    
     public function index(){
         $earthnbuilding = Earthnbuilding::all();
         return view('earthnbuilding.index', ['title' => 'Pbb',
@@ -15,7 +16,30 @@ class EarthnbuildingController extends Controller
     }
 
     public function create(){
-        return view('earthnbuilding.create', ['title' => 'Add PBB']);
+        $list_kelurahan = array( 'Bacukiki' => ['Galung Maloang' => 'Galung Maloang',
+                                                'Lemoe' => 'Lemoe',
+                                                'Lumpue' => 'Lumpue',
+                                                'Watang Bacukiki' => 'Watang Bacukiki'],
+                                'Bacukiki Barat' => ['Bumi Harapan' => 'Bumi Harapan',
+                                                    'Cappa Galung' => 'Cappa Galung',
+                                                    'Kampung Baru' => 'Kampung Baru',
+                                                    'Lumpue' => 'Lumpue',
+                                                    'Sumpang Minangae' => 'Sumpang Minangae',
+                                                    'Tiro Sompe' => 'Tiro Sompe'],
+                                'Soreang' => ['Bukit Harapan' => 'Bukit Harapan',
+                                            'Bukit Indah' => 'Bukit Indah',
+                                            'Kampung Pisang' => 'Kampung Pisang',
+                                            'Lakessi' => 'Lakessi',
+                                            'Ujung Baru' => 'Ujung Baru',
+                                            'Ujung Lare' => 'Ujung Lare',
+                                            'Watang Soreang' => 'Watang Soreang'],
+                                'Ujung' => ['Labukkang' => 'Labukkang',
+                                            'Lapadde' => 'Lapadde',
+                                            'Mallusetasi' => 'Mallusetasi',
+                                            'Ujung Bulu' => 'Ujung Bulu',
+                                            'Ujung Sabbang' => 'Ujung Sabbang'],
+        );
+        return view('earthnbuilding.create', ['title' => 'Add PBB', 'list_kelurahan' => $list_kelurahan]);
     }
 
     public function store(Request $request){
@@ -47,8 +71,32 @@ class EarthnbuildingController extends Controller
 
     public function edit($id){
         $earthnbuilding = Earthnbuilding::find($id);
+        $list_kelurahan = array( 'Bacukiki' => ['Galung Maloang' => 'Galung Maloang',
+                                                'Lemoe' => 'Lemoe',
+                                                'Lumpue' => 'Lumpue',
+                                                'Watang Bacukiki' => 'Watang Bacukiki'],
+                                'Bacukiki Barat' => ['Bumi Harapan' => 'Bumi Harapan',
+                                                    'Cappa Galung' => 'Cappa Galung',
+                                                    'Kampung Baru' => 'Kampung Baru',
+                                                    'Lumpue' => 'Lumpue',
+                                                    'Sumpang Minangae' => 'Sumpang Minangae',
+                                                    'Tiro Sompe' => 'Tiro Sompe'],
+                                'Soreang' => ['Bukit Harapan' => 'Bukit Harapan',
+                                            'Bukit Indah' => 'Bukit Indah',
+                                            'Kampung Pisang' => 'Kampung Pisang',
+                                            'Lakessi' => 'Lakessi',
+                                            'Ujung Baru' => 'Ujung Baru',
+                                            'Ujung Lare' => 'Ujung Lare',
+                                            'Watang Soreang' => 'Watang Soreang'],
+                                'Ujung' => ['Labukkang' => 'Labukkang',
+                                            'Lapadde' => 'Lapadde',
+                                            'Mallusetasi' => 'Mallusetasi',
+                                            'Ujung Bulu' => 'Ujung Bulu',
+                                            'Ujung Sabbang' => 'Ujung Sabbang'],
+        );
         return view('earthnbuilding.edit', [
-            'earthnbuilding' => $earthnbuilding
+            'earthnbuilding' => $earthnbuilding,
+            'list_kelurahan' => $list_kelurahan
         ]);
     }
 
@@ -75,6 +123,7 @@ class EarthnbuildingController extends Controller
         $earthnbuilding->information = $request->information;
 
         $earthnbuilding->save();
+        
         return redirect('/pbb');
     }
 
