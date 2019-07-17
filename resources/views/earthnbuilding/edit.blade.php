@@ -11,9 +11,9 @@
                 <br/>
                 <br/>
 
-                <form action="/pbb/{{ $earthnbuilding->id }}" method="post">
+                {{ Form::open(['action' => ['EarthnbuildingController@update', $earthnbuilding->id], 'method' => 'put'])}}
                     {{ csrf_field() }}
-                    {{ method_field('PUT') }}
+                    
 
                     <div class="form-group">
                         <label>Name</label>
@@ -126,7 +126,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-success" value="Simpan">
+                            {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
                         </div>
 
                 </form>

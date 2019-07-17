@@ -10,13 +10,13 @@
                     <br/>
                     <br/>
                     
-                    {{ Form::open(['action' => ['RestaurantController@edit', $restaurant->id]])}}
-                    
+                    {{ Form::open(['action' => ['RestaurantController@update', $restaurant->id], 'method' => 'put'])}}
+                        
                         {{Form::token()}}
                         
                         <div class="form-group">
                                 {{Form::label('name','Name')}}
-                                {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
+                                {{Form::text('name', $restaurant->name, ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                                 {{Form::label('alamat','Alamat')}}
-                                {{Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Alamat', 'value' => $restaurant->address])}}                  
+                                {{Form::textarea('address', $restaurant->address, ['class' => 'form-control', 'placeholder' => 'Alamat', 'value' => $restaurant->address])}}                  
                              @if($errors->has('address'))
                                 <div class="text-danger">
                                     {{ $errors->first('address')}}
@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                                 {{Form::label('latitude','Latitude')}}
-                                {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat])}}                  
+                                {{Form::text('lat', $restaurant->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat])}}                  
                             
                              @if($errors->has('lat'))
                                 <div class="text-danger">
@@ -50,7 +50,7 @@
 
                         <div class="form-group">
                             {{Form::label('longitude','Longitude')}}
-                            {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                  
+                            {{Form::text('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                  
                             
                             
                              @if($errors->has('long'))
@@ -63,7 +63,7 @@
 
                         <div class="form-group">
                             {{Form::label('information','Information')}}
-                            {{Form::textarea('information', '', ['class' => 'form-control', 'placeholder' => 'Keterangan', 'value' => $restaurant->information])}}                  
+                            {{Form::textarea('information', $restaurant->information, ['class' => 'form-control', 'placeholder' => 'Keterangan', 'value' => $restaurant->information])}}                  
                             
                              @if($errors->has('information'))
                                 <div class="text-danger">
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}  
+                            {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
                         </div>
 
                     {{ Form::close() }}

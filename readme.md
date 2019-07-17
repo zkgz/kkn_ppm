@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan ZKgZ 17/07 - 14:08
+- Changing all submit button to Form::button()
+
 ## Tambahan Deo 17/07 - 13:52
 Ubah kembali tombol, dari
 
