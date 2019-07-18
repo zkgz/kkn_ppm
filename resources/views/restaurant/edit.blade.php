@@ -36,43 +36,24 @@
 
                         </div>
 
-<<<<<<< HEAD
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                         {{Form::label('latitude','Latitude')}}
-                                        {{Form::number('lat', $restaurant->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat, 'id' => 'latitude'])}}                                              
+                                        {{Form::number('lat', $restaurant->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat, 'id' => 'latitude', 'step' => 'any'])}}                                              
                                     @if($errors->has('lat'))
                                         <div class="text-danger">
                                             {{ $errors->first('lat')}}
                                         </div>
                                     @endif
 
-=======
-                        <div class="form-group">
-                                {{Form::label('latitude','Latitude')}}
-                                {{Form::number('lat', $restaurant->lat, ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Latitude', 'value' => $restaurant->lat])}}                                              
-                             @if($errors->has('lat'))
-                                <div class="text-danger">
-                                    {{ $errors->first('lat')}}
-                                </div>
-                            @endif
-
-                        </div>
-                        <div class="form-group">
-                            {{Form::label('Longitude')}}
-                            {{Form::number('long', $restaurant->long, ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                                              
-                             @if($errors->has('long'))
-                                <div class="text-danger">
-                                    {{ $errors->first('long')}}
->>>>>>> 4cbf9c476f659496014638fa4a62d185c6092dc2
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     {{Form::label('Longitude')}}
-                                    {{Form::number('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long, 'id' => 'longitude'])}}                                              
+                                    {{Form::number('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long, 'id' => 'longitude', 'step' => 'any'])}}                                              
                                     @if($errors->has('long'))
                                         <div class="text-danger">
                                             {{ $errors->first('long')}}
