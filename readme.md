@@ -1,3 +1,6 @@
+## Under Construction
+Please wait while we are finishing our work
+
 ## Aturan
 - Jangan upload .env
 - Jangan upload vendor folder
