@@ -51,7 +51,7 @@
                     <div class="form-group">
                         {{Form::label('Luas Bangunan')}}
                         <div class="input-group">
-                            {{Form::text('building', $earthnbuilding->building, ['class' => 'form-control', 'placeholder' => '300 ..'])}}
+                            {{Form::number('building', $earthnbuilding->building, ['class' => 'form-control', 'placeholder' => '300 ..'])}}
                             @if($errors->has('building'))
                             <div class="text-danger">
                             {{ $errors->first('building') }}
@@ -68,7 +68,7 @@
                     <div class="input-group">
                         {{Form::label('Luas Tanah')}}
                         <div class="input-group">
-                            {{Form::text('soil', $earthnbuilding->soil, ['class' => 'form-control', 'placeholder' => '450 ..'])}}
+                            {{Form::number('soil', $earthnbuilding->soil, ['class' => 'form-control', 'placeholder' => '450 ..'])}}
                             @if($errors->has('soil'))
                             <div class="text-danger">
                             {{ $errors->first('soil') }}
@@ -84,7 +84,7 @@
 
                     <div class="form-group">
                         {{Form::label('Latitude')}}
-                        {{Form::text('lat', $earthnbuilding->lat, ['class' => 'form-control', 'placeholder' => 'Latitude'])}}
+                        {{Form::number('lat', $earthnbuilding->lat, ['class' => 'form-control', 'placeholder' => 'Latitude'])}}
 
                         @if($errors->has('lat'))
                             <div class="text-danger">
@@ -96,7 +96,7 @@
 
                         <div class="form-group">
                             {{Form::label('Longitude')}}
-                            {{Form::text('long', $earthnbuilding->long, ['class' => 'form-control', 'placeholder' => 'Longitude'])}}
+                            {{Form::number('long', $earthnbuilding->long, ['class' => 'form-control', 'placeholder' => 'Longitude'])}}
         
                              @if($errors->has('long'))
                                 <div class="text-danger">

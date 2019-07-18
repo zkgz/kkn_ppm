@@ -2,13 +2,16 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
-## Tambahan ZKZG 18/07 - 05:30
+## Tambahan ZKGZ
+- fixed issue #5
+
+## Tambahan ZKGZ 18/07 - 05:30
 - fixed issue #6
 
-## Tambahan ZKZG 18/07 - 04:15
+## Tambahan ZKGZ 18/07 - 04:15
 - fixed issue #4
 
-## Tambahan ZKZG 18/07 - 02:00
+## Tambahan ZKGZ 18/07 - 02:00
 - fixed issue #7
 - Added 'View Details' in outlet pin
 
