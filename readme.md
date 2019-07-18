@@ -2,6 +2,12 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan ZKGZ 19/07 04:30
+- Map now automatically centers based on object's latitude and latitude
+- Code indent cleaning
+- Put leaflet map scripts to inc folder
+- Minor bug fix
+
 ## Tambahan ZKGZ 18/07 18:50
 - Fixed Footer thingy
 - Added map marker .png to assets

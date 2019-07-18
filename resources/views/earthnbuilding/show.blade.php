@@ -18,7 +18,7 @@
                                 <tr><td>Longtitude</td><td>{{ $earthnbuilding->long }}</td></tr>
                             </tbody>
                         </table>
-
+                        
                         <div class="card-footer">
                             {{ Form::open(['action' => ['EarthnbuildingController@destroy', $earthnbuilding]])}}
                         </div>
@@ -28,3 +28,4 @@
         </div>
     </div>
 </div>
+@endsection
