@@ -2,6 +2,11 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan ZKGZ 18/07 18:50
+- Fixed Footer thingy
+- Added map marker .png to assets
+- Minor bug fix
+
 ## Tambahan Deo 18/07 - 17:18
 - Ubah asc/desc dari kyslik ke [DataTables](https://datatables.net/)
 - Sesuaikan scrip dan link css dari footer ke header.
