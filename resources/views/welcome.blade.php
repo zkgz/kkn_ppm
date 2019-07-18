@@ -37,8 +37,8 @@
             }
         })
         .bindPopup(function (layer) {
-            
-            var popupContent = layer.feature.properties.name + " : " + layer.feature.properties.lat + ", " + layer.feature.properties.long + ".";
+            console.log(layer);
+            var popupContent = "<b>" + layer.feature.properties.name + "</b>" + "<br>" + layer.feature.properties.address + ".";
             popupContent = popupContent.concat('<br><a href="/restaurant/', layer.feature.properties.id , '">View Details</a>');
             
             return popupContent;

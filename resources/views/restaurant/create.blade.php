@@ -15,8 +15,6 @@
                         <div class="form-group">
                                 {{Form::label('name','Name')}}
                                 {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
-                                
-                                
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
