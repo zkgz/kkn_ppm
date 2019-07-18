@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 11:06
+- Tambahkan menu back to home
+
 ## Tambahan ZKGZ
 - fixed issue #5
 

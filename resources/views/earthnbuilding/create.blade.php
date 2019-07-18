@@ -42,7 +42,7 @@
                     {{Form::label('Luas Bangunan')}}
                     <div class="input-group">
                         
-                        {{Form::number('building', '', ['class' => 'form-control', 'placeholder' => 'Luas Bangunan'])}}
+                        {{Form::number('building', '', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Luas Bangunan'])}}
 
                         @if($errors->has('building'))
                             <div class="text-danger">
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     {{Form::label('Luas Tanah')}}
                     <div class="input-group">                    
-                        {{Form::number('soil', '', ['class' => 'form-control', 'placeholder' => 'Luas Tanah'])}}
+                        {{Form::number('soil', '', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Luas Tanah'])}}
                         @if($errors->has('soil'))
                         <div class="text-danger">
                         {{ $errors->first('soil') }}

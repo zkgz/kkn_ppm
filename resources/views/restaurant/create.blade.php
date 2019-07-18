@@ -15,8 +15,6 @@
                         <div class="form-group">
                                 {{Form::label('name','Name')}}
                                 {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nama'])}}                  
-                                
-                                
 
                             @if($errors->has('name'))
                                 <div class="text-danger">
@@ -42,9 +40,9 @@
                                 <div class="form-group">
                                         {{Form::label('latitude','Latitude')}}
                                         @if(isset($_GET["latitude"]))
-                                            {{Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}     
+                                            {{Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}     
                                         @else
-                                            {{Form::number('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}                  
+                                            {{Form::number('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude'])}}                  
                                         @endif                  
                                     
                                     @if($errors->has('lat'))
@@ -60,9 +58,9 @@
                                 <div class="form-group">
                                     {{Form::label('longitude','Longitude')}}
                                         @if(isset($_GET["longitude"]))
-                                            {{Form::number('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'longitude', 'id' => 'longitude'])}}     
+                                            {{Form::number('long', $_GET["longitude"], ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'longitude', 'id' => 'longitude'])}}     
                                         @else
-                                            {{Form::number('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude', 'id' => 'longitude'])}}                  
+                                            {{Form::number('long', '', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude'])}}                  
                                         @endif                  
                                     
                                     @if($errors->has('long'))
