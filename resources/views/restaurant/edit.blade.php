@@ -77,7 +77,8 @@
                             @endif
 
                         </div>
-
+                    </div>
+                    <div class="card-footer">
                         <div class="form-group">
                             {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
                         </div>

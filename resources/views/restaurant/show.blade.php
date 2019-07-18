@@ -23,7 +23,7 @@
                     <button type="submit" class="btn btn-danger" >Hapus</button>
                     <a href="/restaurant" class="btn btn-link">Back to index</a>
                     <a href="/" class="btn btn-light">Home</a>
-                {{ Form::close()}}
+                {{ Form::close() }}
             </div>
         </div>
     </div>

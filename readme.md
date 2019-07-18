@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 15:02
+- Redirect ke halamana detail item setelah edit disimpan.
+
 ## Tambahan Deo 18/07 - 11:52
 - Tambahkan WYSWYG di menu informasi
 
