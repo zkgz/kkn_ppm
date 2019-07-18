@@ -22,6 +22,7 @@
                     <a href="/restaurant/{{$restaurant->id}}/edit/" class="btn btn-warning">Edit</a>
                     <button type="submit" class="btn btn-danger" >Hapus</button>
                     <a href="/restaurant" class="btn btn-link">Back to index</a>
+                    <a href="/" class="btn btn-light">Home</a>
                 {{ Form::close()}}
             </div>
         </div>
