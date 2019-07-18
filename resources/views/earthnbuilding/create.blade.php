@@ -76,9 +76,9 @@
                         <div class="form-group">
                             {{Form::label('latitude','Latitude')}}
                                 @if(isset($_GET["latitude"]))
-                                    {{Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}     
+                                    {{Form::number('lat', $_GET["latitude"], ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}     
                                     @else
-                                        {{Form::number('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}                  
+                                        {{Form::number('lat', '', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}                  
                                 @endif                  
                                     
                                 @if($errors->has('lat'))
