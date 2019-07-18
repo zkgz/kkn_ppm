@@ -2,6 +2,10 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 17:18
+- Ubah asc/desc dari kyslik ke [DataTables](https://datatables.net/)
+- Sesuaikan scrip dan link css dari footer ke header.
+
 ## Tambahan Deo 18/07 - 16:44
 - Tambahkan asc dan desc ke menu index. Tambahkan ke composer.json
 

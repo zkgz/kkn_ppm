@@ -10,7 +10,7 @@ class RestaurantController extends Controller
 {
     public function index(){
         //return Restaurant::all();
-        $restaurant = Restaurant::sortable()->paginate(25);
+        $restaurant = Restaurant::paginate(25);
         return view('restaurant.index', ['title' => 'Restaurant',
                                             'restaurant' => $restaurant,]);
     }

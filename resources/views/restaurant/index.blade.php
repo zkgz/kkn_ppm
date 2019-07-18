@@ -9,10 +9,10 @@
                     <a href="/restaurant/create" class="btn btn-primary">Input Restoran Baru</a>
                     <br/>
                     <br/>
-                    <table class="table table-sm">
+                    <table id="table" class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>@sortablelink('name', 'Name')</th>
+                                <th>Name</th>
                                 <th>Alamat</th>
                                 <th>Latitude</th>
                                 <th>Longitudes</th>
@@ -41,4 +41,10 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function() {
+                $('#table').DataTable();
+            } );
+        </script>
     @endsection
