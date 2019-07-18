@@ -94,9 +94,9 @@
                         <div class="form-group">
                             {{Form::label('longitude','Longitude')}}
                             @if(isset($_GET["longitude"]))
-                                {{Form::number('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'longitude', 'id' => 'longitude'])}}     
+                                {{Form::number('long', $_GET["longitude"], ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'longitude', 'id' => 'longitude'])}}     
                                 @else
-                                    {{Form::number('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude', 'id' => 'longitude'])}}                  
+                                    {{Form::number('long', '', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude'])}}                  
                                 @endif                  
                                     
                                 @if($errors->has('long'))
