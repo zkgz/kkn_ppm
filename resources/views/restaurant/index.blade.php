@@ -12,7 +12,7 @@
                     <table class="table table-sm">
                         <thead>
                             <tr>
-                                <th>Nama</th>
+                                <th>@sortablelink('name', 'Name')</th>
                                 <th>Alamat</th>
                                 <th>Latitude</th>
                                 <th>Longitudes</th>

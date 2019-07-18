@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 16:44
+- Tambahkan asc dan desc ke menu index
+
 ## Tambahan Deo 18/07 - 15:02
 - Redirect ke halamana detail item setelah edit disimpan.
 
