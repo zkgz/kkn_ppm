@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="card mt-5 mb-5 text-center">
-        Data Pajak Bumi dan Bangunan Kota Parepare
-    </div>
+        <div class="card mt-5">
+            <div class="card-header text-center">
+                Data Pajak Bumi dan Bangunan Kota Parepare
+            </div>
     <div class="card-body">
         <a href="/pbb/create" class="btn btn-primary btn-sm">Input PBB Baru</a>
         <br/>
@@ -45,6 +46,7 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     </div>
     </div>
     @endsection
