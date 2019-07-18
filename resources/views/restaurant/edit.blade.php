@@ -37,7 +37,7 @@
 
                         <div class="form-group">
                                 {{Form::label('latitude','Latitude')}}
-                                {{Form::text('lat', $restaurant->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat])}}                                              
+                                {{Form::number('lat', $restaurant->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat])}}                                              
                              @if($errors->has('lat'))
                                 <div class="text-danger">
                                     {{ $errors->first('lat')}}
@@ -47,7 +47,7 @@
                         </div>
                         <div class="form-group">
                             {{Form::label('Longitude')}}
-                            {{Form::text('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                                              
+                            {{Form::number('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long])}}                                              
                              @if($errors->has('long'))
                                 <div class="text-danger">
                                     {{ $errors->first('long')}}

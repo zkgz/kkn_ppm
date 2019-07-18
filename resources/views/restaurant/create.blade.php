@@ -40,9 +40,9 @@
                                 <div class="form-group">
                                         {{Form::label('latitude','Latitude')}}
                                         @if(isset($_GET["latitude"]))
-                                            {{Form::text('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}     
+                                            {{Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}     
                                         @else
-                                            {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}                  
+                                            {{Form::number('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude', 'id' => 'latitude'])}}                  
                                         @endif                  
                                     
                                     @if($errors->has('lat'))
@@ -58,9 +58,9 @@
                                 <div class="form-group">
                                     {{Form::label('longitude','Longitude')}}
                                         @if(isset($_GET["longitude"]))
-                                            {{Form::text('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'longitude', 'id' => 'longitude'])}}     
+                                            {{Form::number('long', $_GET["longitude"], ['class' => 'form-control', 'placeholder' => 'longitude', 'id' => 'longitude'])}}     
                                         @else
-                                            {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude', 'id' => 'longitude'])}}                  
+                                            {{Form::number('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude', 'id' => 'longitude'])}}                  
                                         @endif                  
                                     
                                     @if($errors->has('long'))
