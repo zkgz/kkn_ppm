@@ -2,6 +2,30 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 17:18
+- Ubah asc/desc dari kyslik ke [DataTables](https://datatables.net/)
+- Sesuaikan scrip dan link css dari footer ke header.
+
+## Tambahan Deo 18/07 - 16:44
+- Tambahkan asc dan desc ke menu index. Tambahkan ke composer.json
+
+```
+{
+    "require": {
+        "kyslik/column-sortable": "5.8.*"
+    }
+}
+```
+
+kemudian :
+> composer update
+
+## Tambahan Deo 18/07 - 15:02
+- Redirect ke halamana detail item setelah edit disimpan.
+
+## Tambahan Deo 18/07 - 11:52
+- Tambahkan WYSWYG di menu informasi
+
 ## Tambahan Baraq 18/07 - 11:03
 - Tampah dan modif popup content di index 
 - tambah "popupContent += '<br><a href="{{ route('pbb.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new PBB here</a>';"
