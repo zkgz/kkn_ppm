@@ -42,7 +42,7 @@
                     {{Form::label('Luas Bangunan')}}
                     <div class="input-group">
                         
-                        {{Form::text('building', '', ['class' => 'form-control', 'placeholder' => 'Luas Bangunan'])}}
+                        {{Form::number('building', '', ['class' => 'form-control', 'placeholder' => 'Luas Bangunan'])}}
 
                         @if($errors->has('building'))
                             <div class="text-danger">
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     {{Form::label('Luas Tanah')}}
                     <div class="input-group">                    
-                        {{Form::text('soil', '', ['class' => 'form-control', 'placeholder' => 'Luas Tanah'])}}
+                        {{Form::number('soil', '', ['class' => 'form-control', 'placeholder' => 'Luas Tanah'])}}
                         @if($errors->has('soil'))
                         <div class="text-danger">
                         {{ $errors->first('soil') }}
@@ -74,7 +74,7 @@
 
                 <div class="form-group">
                     {{Form::label('Latitude')}}
-                    {{Form::text('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude'])}}
+                    {{Form::number('lat', '', ['class' => 'form-control', 'placeholder' => 'Latitude'])}}
                     @if($errors->has('lat'))
                         <div class="text-danger">
                             {{ $errors->first('lat')}}
@@ -84,7 +84,7 @@
 
                 <div class="form-group">
                     {{Form::label('Longitude')}}
-                    {{Form::text('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude'])}}
+                    {{Form::number('long', '', ['class' => 'form-control', 'placeholder' => 'Longitude'])}}
                     @if($errors->has('long'))
                         <div class="text-danger">
                             {{ $errors->first('long')}}
