@@ -12,7 +12,7 @@
                         <tr><td>Address</td><td>{{ $restaurant->address }}</td></tr>
                         <tr><td>Latitude</td><td>{{ $restaurant->lat }}</td></tr>
                         <tr><td>Longitude</td><td>{{ $restaurant->long }}</td></tr>
-                        <tr><td>Information</td><td>{{ $restaurant->information }}</td></tr>
+                        <tr><td>Information</td><td>{!! $restaurant->information !!}</td></tr>
                     </tbody>
                 </table>
             </div>

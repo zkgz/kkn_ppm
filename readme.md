@@ -2,6 +2,9 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 11:52
+- Tambahkan WYSWYG di menu informasi
+
 ## Tambahan Deo 18/07 - 11:23
 - Merubah tampilan edit menjadi seperti tampilan create
 - Menambahkan maps di menu edit

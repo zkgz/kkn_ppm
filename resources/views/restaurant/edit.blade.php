@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                             {{Form::label('Information')}}
-                            {{Form::textarea('information', $restaurant->information, ['class' => 'form-control', 'placeholder' => 'information', 'value' => $restaurant->information])}} 
+                            {{Form::textarea('information', $restaurant->information, ['class' => 'form-control', 'placeholder' => 'information', 'value' => $restaurant->information, 'id' => 'editor', 'rows' => '6'])}} 
                              @if($errors->has('information'))
                                 <div class="text-danger">
                                     {{ $errors->first('information')}}
@@ -88,6 +88,12 @@
             </div>
         </div>
     </div>
+
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace( 'information' );
+</script>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
