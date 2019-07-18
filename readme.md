@@ -2,6 +2,10 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Baraq 18/07 - 11:03
+- Tampah dan modif popup content di index 
+- tambah "popupContent += '<br><a href="{{ route('pbb.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new PBB here</a>';"
+
 ## Tambahan Deo 18/07 - 11:23
 - Merubah tampilan edit menjadi seperti tampilan create
 - Menambahkan maps di menu edit

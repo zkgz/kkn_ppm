@@ -13,9 +13,15 @@
                                 <tr><td>Kelurahan</td><td>{{ $earthnbuilding->region }}</td></tr>
                                 <tr><td>Alamat</td><td>{{ $earthnbuilding->address }}</td></tr>
                                 <tr><td>Luas Tanah</td><td>{{ $earthnbuilding->building }}</td></tr>
-                                
+                                <tr><td>Luas Bangunan</td><td>{{ $earthnbuilding->soil }}</td></tr>
+                                <tr><td>Latitude</td><td>{{ $earthnbuilding->lat }}</td></tr>
+                                <tr><td>Longtitude</td><td>{{ $earthnbuilding->long }}</td></tr>
                             </tbody>
                         </table>
+
+                        <div class="card-footer">
+                            {{ Form::open(['action' => ['EarthnbuildingController@destroy', $earthnbuilding]])}}
+                        </div>
                     </div>
                 </div>
             </div>
