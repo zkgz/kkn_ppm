@@ -90,7 +90,7 @@
                     </div>
                     <div class="card-footer">
                         <div class="form-group">
-                            {!! Form::submit('Simpan', ['class' => 'btn btn-success']) !!}
+                            {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
                             <a href="/restaurant" class="btn btn-light">Cancel</a>
                         </div>
 

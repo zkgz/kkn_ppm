@@ -2,6 +2,11 @@
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 18/07 - 11:23
+- Merubah tampilan edit menjadi seperti tampilan create
+- Menambahkan maps di menu edit
+- Menambahkan edit koordinat dari maps
+
 ## Tambahan Deo 18/07 - 11:06
 - Tambahkan menu back to home
 
