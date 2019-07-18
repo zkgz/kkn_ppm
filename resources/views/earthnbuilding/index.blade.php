@@ -9,7 +9,7 @@
         <a href="/pbb/create" class="btn btn-primary btn-sm">Input PBB Baru</a>
         <br/>
         <br/>
-        <table class="table table-hover table-bordered table-striped">
+        <table id="table" class="table table-hover table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Nama</th>
