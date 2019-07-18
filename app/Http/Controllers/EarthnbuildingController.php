@@ -9,6 +9,9 @@ use App\Earthnbuilding;
 class EarthnbuildingController extends Controller
 {
     
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     public function index(){
         $earthnbuilding = Earthnbuilding::all();
         return view('earthnbuilding.index', ['title' => 'Pbb',
