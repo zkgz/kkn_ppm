@@ -3,7 +3,18 @@
 - Jangan upload vendor folder
 
 ## Tambahan Deo 18/07 - 16:44
-- Tambahkan asc dan desc ke menu index
+- Tambahkan asc dan desc ke menu index. Tambahkan ke composer.json
+
+```
+{
+    "require": {
+        "kyslik/column-sortable": "5.8.*"
+    }
+}
+```
+
+kemudian :
+> composer update
 
 ## Tambahan Deo 18/07 - 15:02
 - Redirect ke halamana detail item setelah edit disimpan.
