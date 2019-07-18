@@ -64,7 +64,7 @@ class RestaurantController extends Controller
         $restaurant->information = $request->information;
 
         $restaurant->save();
-        return redirect('/restaurant');
+        return redirect('restaurant/'.$id);
     }
 
     public function destroy($id){
