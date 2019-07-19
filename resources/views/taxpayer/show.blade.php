@@ -20,7 +20,7 @@
                 <div class="card-footer">
                     {{ Form::open(['action' => ['TaxpayerController@destroy', $taxpayer->id]]) }}
                     {{ Form::hidden('_method','DELETE') }}
-                    <a href="/taxpayer/{{$taxpayer->id}}/edit/?longitude={{$taxpayer->long}}&latitude={{$taxpayer->lat}}" class="btn btn-warning">Edit</a>
+                    <a href="/taxpayer/{{$taxpayer->id}}/edit/" class="btn btn-warning">Edit</a>
                     <button type="submit" class="btn btn-danger" >Delete</button>
                     <a href="/taxpayer" class="btn btn-link">Back to Index</a>
                     <a href="/" class="btn btn-light">Home</a>

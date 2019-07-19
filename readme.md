@@ -13,6 +13,10 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan ZKGZ 20/07 - 01:10
+- Removed GET elements from taxpayer routes
+- Minor bug fix
+
 ## Tambahan Deo 19/07 - 17:33
 - Tambahkan type ke database, jalankan :
 > php artisan migrate
