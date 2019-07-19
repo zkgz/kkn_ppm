@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 <main class="py-4 container">
     <div class="card">
         <div class="card-body" id="mapid"></div>
@@ -40,14 +40,12 @@
                 console.log(layer);
                 var popupContent = "<b>" + layer.feature.properties.name + "</b>" + "<br>" + layer.feature.properties.address + ".";
                 popupContent = popupContent.concat('<br><a href="/restaurant/', layer.feature.properties.id , '">View Details</a>');
-                
                 return popupContent;
             }).addTo(map);
         })
         .catch(function (error) {
             console.log(error);
         });
-        
         
         var theMarker;
         
@@ -70,4 +68,5 @@
         
     </script>
 </main>
+
 @endsection
