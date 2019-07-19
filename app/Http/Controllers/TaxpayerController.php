@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\taxpayer;
+use App\Taxpayer;
 
 class TaxpayerController extends Controller{
 
@@ -13,7 +13,7 @@ class TaxpayerController extends Controller{
     }
 
     public function index(){
-        $taxpayer = taxpayer::paginate(25);
+        $taxpayer = Taxpayer::paginate(25);
         return view('taxpayer.index', ['title' => 'Taxpayer', 'taxpayer' => $taxpayer,]);
     }
 
@@ -30,7 +30,7 @@ class TaxpayerController extends Controller{
             'information' => 'required'
     	]);
  
-        taxpayer::create([
+        Taxpayer::create([
     		'name' => $request->name,
             'address' => $request->address,
             'lat' => $request->lat,
