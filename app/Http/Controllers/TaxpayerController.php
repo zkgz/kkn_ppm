@@ -23,19 +23,23 @@ class TaxpayerController extends Controller{
 
     public function store(Request $request){
     	$this->validate($request,[
-    		'name' => 'required',
-            'address' => 'required',
-            'lat' => 'required',
-            'long' => 'required',
-            'information' => 'required'
+            'name'          => 'required',
+            'type'          => 'required',
+            'region'        => 'required',
+            'address'       => 'required',
+            'lat'           => 'required',
+            'long'          => 'required',
+            'information'   => 'required'
     	]);
  
         Taxpayer::create([
-    		'name' => $request->name,
-            'address' => $request->address,
-            'lat' => $request->lat,
-            'long' => $request->long,
-            'information' => $request->information
+            'name'          => $request->name,
+            'type'          => $request->type,
+            'region'        => $request->region,
+            'address'       => $request->address,
+            'lat'           => $request->lat,
+            'long'          => $request->long,
+            'information'   => $request->information
     	]);
  
     	return redirect('/taxpayer');
@@ -50,6 +54,8 @@ class TaxpayerController extends Controller{
     public function update($id, Request $request){
         $this->validate($request,[
             'name'          => 'required',
+            'type'          => 'required',
+            'region'        => 'required',
             'address'       => 'required',
             'lat'           => 'required',
             'long'          => 'required',
@@ -58,6 +64,8 @@ class TaxpayerController extends Controller{
     
         $taxpayer = Taxpayer::find($id);
         $taxpayer->name           = $request->name;
+        $taxpayer->type           = $request->type;
+        $taxpayer->region         = $request->region;
         $taxpayer->address        = $request->address;
         $taxpayer->lat            = $request->lat;
         $taxpayer->long           = $request->long;

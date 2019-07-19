@@ -19,8 +19,11 @@
     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
     crossorigin=""></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    @include('inc.marker')
+
     <script>
-        
+
         var map = L.map('mapid').setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
         

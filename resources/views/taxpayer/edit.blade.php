@@ -25,6 +25,35 @@
                     </div>
                     @endif
                 </div>
+
+                <div class="form-group">
+                    {{ Form::label('type','Type') }}
+                    {{ Form::select('type',
+                        array(
+                            'Property Taxes', 
+                            'Restaurant',
+                            'Hotel',
+                            'Parking'
+                        ), $taxpayer->type, ['class' => 'form-control', 'id' => 'type'])
+                    }}
+
+                    @if($errors->has('type'))
+                    <div class="text-danger">
+                        {{ $errors->first('type') }}
+                    </div>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    {{ Form::label('region', 'Region') }}
+                    {{ Form::text('region', $taxpayer->region, ['class' => 'form-control', 'placeholder' => 'Region']) }}
+
+                    @if($errors->has('region'))
+                    <div class="text-danger">
+                        {{ $errors->first('region')}}
+                    </div>
+                    @endif
+                </div>
                 
                 <div class="form-group">
                     {{ Form::label('alamat','Alamat') }}
