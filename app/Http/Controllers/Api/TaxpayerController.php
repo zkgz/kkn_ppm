@@ -22,7 +22,7 @@ class TaxpayerController extends Controller
         $geoJSONdata = $taxpayers->map(function ($taxpayer) {
             return [
                 'type'       => 'Feature',
-                'properties' => new taxpayerResource($taxpayer),
+                'properties' => new TaxpayerResource($taxpayer),
                 'geometry'   => [
                     'type'        => 'Point',
                     'coordinates' => [
