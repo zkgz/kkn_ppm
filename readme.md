@@ -5,8 +5,13 @@ Please wait while we are finishing our work
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Tambahan Deo 19/07 14:51
+- Delete PBB
+- Sesuaikan beberapa nama
+
 ## Tambahan Deo 19/07 14:32
 - Satukan semua pajak menjadi **Taxpayer**
+
 Catatan :
 - Ubah nama database menjadi 'taxpayers'
 
