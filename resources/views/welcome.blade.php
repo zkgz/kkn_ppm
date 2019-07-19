@@ -2,6 +2,13 @@
 @section('content')
 
 <main class="py-4 container">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" onchange=check()>
+        <label class="form-check-label" for="defaultCheck1">
+            Batas
+        </label>
+    </div>
+
     <div class="card">
         <div class="card-body" id="mapid"></div>
     </div>
@@ -19,6 +26,7 @@
     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
     crossorigin=""></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
 
     @include('inc.marker')
 
@@ -26,11 +34,12 @@
 
         var map = L.map('mapid').setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
-        
+        var geojsonLayer = new L.GeoJSON.AJAX("assets/parepare.geojson");
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
-        
+
         axios.get('{{ route('api.taxpayer.index') }}')
         .then(function (response) {
             console.log(response.data);
@@ -52,6 +61,15 @@
         
         var theMarker;
         
+        function check() {
+            if (document.getElementById("defaultCheck1").checked == true){
+                console.log(geojsonLayer);
+                geojsonLayer.addTo(map).bindPopup(e.feature.).openPopup();
+            }else{
+                geojsonLayer.removeFrom(map);
+            }
+        }
+
         map.on('click', function(e) {
             let latitude = e.latlng.lat.toString().substring(0, 15);
             let longitude = e.latlng.lng.toString().substring(0, 15);
