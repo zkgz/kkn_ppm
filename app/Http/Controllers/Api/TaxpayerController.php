@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\taxpayer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\taxpayer as TaxpayerResource;
+use App\Http\Resources\Taxpayer as TaxpayerResource;
 
 class TaxpayerController extends Controller
 {
@@ -17,7 +17,7 @@ class TaxpayerController extends Controller
      */
     public function index(Request $request)
     {
-        $taxpayers = taxpayer::all();
+        $taxpayers = Taxpayer::all();
 
         $geoJSONdata = $taxpayers->map(function ($taxpayer) {
             return [

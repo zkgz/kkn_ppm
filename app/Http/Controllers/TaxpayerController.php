@@ -42,7 +42,7 @@ class TaxpayerController extends Controller{
     }
 
     public function edit($id){
-        $taxpayer = taxpayer::find($id);
+        $taxpayer = Taxpayer::find($id);
         
         return view('taxpayer.edit', ['title' => 'Edit Taxpayer', 'taxpayer' => $taxpayer]);
     }
@@ -56,7 +56,7 @@ class TaxpayerController extends Controller{
             'information'   => 'required'
         ]);
     
-        $taxpayer = taxpayer::find($id);
+        $taxpayer = Taxpayer::find($id);
         $taxpayer->name           = $request->name;
         $taxpayer->address        = $request->address;
         $taxpayer->lat            = $request->lat;
@@ -68,13 +68,13 @@ class TaxpayerController extends Controller{
     }
 
     public function destroy($id){
-        $taxpayer = taxpayer::find($id);
+        $taxpayer = Taxpayer::find($id);
         $taxpayer->delete();
         return redirect('/taxpayer');
     }
 
     public function show($id){
-        $taxpayer = taxpayer::find($id);
+        $taxpayer = Taxpayer::find($id);
         return view('taxpayer.show', ['title' => 'Detail', 'taxpayer' => $taxpayer]);
     }
 }
