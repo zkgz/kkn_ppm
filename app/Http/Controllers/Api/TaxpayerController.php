@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Restaurant;
+use App\taxpayer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Restaurant as RestaurantResource;
+use App\Http\Resources\Taxpayer as TaxpayerResource;
 
-class RestaurantController extends Controller
+class TaxpayerController extends Controller
 {
     /**
      * Get outlet listing on Leaflet JS geoJSON data structure.
@@ -17,17 +17,17 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
-        $restaurants = Restaurant::all();
+        $taxpayers = Taxpayer::all();
 
-        $geoJSONdata = $restaurants->map(function ($restaurant) {
+        $geoJSONdata = $taxpayers->map(function ($taxpayer) {
             return [
                 'type'       => 'Feature',
-                'properties' => new RestaurantResource($restaurant),
+                'properties' => new TaxpayerResource($taxpayer),
                 'geometry'   => [
                     'type'        => 'Point',
                     'coordinates' => [
-                        $restaurant->long,
-                        $restaurant->lat,
+                        $taxpayer->long,
+                        $taxpayer->lat,
                     ],
                 ],
             ];

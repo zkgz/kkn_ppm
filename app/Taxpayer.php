@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 //use Kyslik\ColumnSortable\Sortable;
 
-class Restaurant extends Model
+class Taxpayer extends Model
 {
     use SoftDeletes;
     //use Sortable;

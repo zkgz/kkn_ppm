@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 <main class="py-4 container">
     <div class="card">
         <div class="card-body" id="mapid"></div>
@@ -28,7 +28,7 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         
-        axios.get('{{ route('api.restaurant.index') }}')
+        axios.get('{{ route('api.taxpayer.index') }}')
         .then(function (response) {
             console.log(response.data);
             L.geoJSON(response.data, {
@@ -39,15 +39,13 @@
             .bindPopup(function (layer) {
                 console.log(layer);
                 var popupContent = "<b>" + layer.feature.properties.name + "</b>" + "<br>" + layer.feature.properties.address + ".";
-                popupContent = popupContent.concat('<br><a href="/restaurant/', layer.feature.properties.id , '">View Details</a>');
-                
+                popupContent = popupContent.concat('<br><a href="/taxpayer/', layer.feature.properties.id , '">View Details</a>');
                 return popupContent;
             }).addTo(map);
         })
         .catch(function (error) {
             console.log(error);
         });
-        
         
         var theMarker;
         
@@ -60,8 +58,7 @@
             };
             
             var popupContent = "Your location : " + latitude + ", " + longitude + ".";
-            popupContent += '<br><a href="{{ route('restaurant.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new Restaurant here</a>';
-            popupContent += '<br><a href="{{ route('pbb.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new PBB here</a>';
+            popupContent += '<br><a href="{{ route('taxpayer.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new taxpayer here</a>';
             
             theMarker = L.marker([latitude, longitude]).addTo(map);
             theMarker.bindPopup(popupContent)
@@ -70,4 +67,5 @@
         
     </script>
 </main>
+
 @endsection

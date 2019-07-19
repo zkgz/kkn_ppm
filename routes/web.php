@@ -15,18 +15,7 @@ Route::get('/', function () {
     return view('welcome')->with('title', 'KKN PPM Unhas');
 });
 
-Route::resource('restaurant', 'RestaurantController');
-
-
-/**
- * Add Route For PBB
- */
-
-Route::resource('pbb', 'EarthnbuildingController');
-
- /**
-  * End Route PBB
-  */
+Route::resource('taxpayer', 'TaxpayerController');
   
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
