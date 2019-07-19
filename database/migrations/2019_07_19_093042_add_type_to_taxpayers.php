@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddLatitudeToTaxpayersTable extends Migration
+class AddTypeToTaxpayers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddLatitudeToTaxpayersTable extends Migration
     public function up()
     {
         Schema::table('taxpayers', function (Blueprint $table) {
-            $table->double('latitude', 16, 12)->after('longitude');
-            $table->string('information')->nullable()->change();
-            $table->string('type');
+            $table->string('type')->after('name');
         });
     }
 
@@ -28,8 +26,7 @@ class AddLatitudeToTaxpayersTable extends Migration
     public function down()
     {
         Schema::table('taxpayers', function (Blueprint $table) {
-            $table->dropColumn('latitude');
-            $table->string('information')->change();
+            //
         });
     }
 }

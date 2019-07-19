@@ -21,7 +21,6 @@ class CreateTaxpayersTable extends Migration
             $table->double('longitude', 16, 12);
             $table->integer('pajak_per_bulan')->nullable();
             $table->integer('potensi_pajak_per_bulan')->nullable();
-            $table->string('information');
         });
     }
 
