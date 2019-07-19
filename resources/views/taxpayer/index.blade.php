@@ -26,7 +26,7 @@
                         <td>{{ $rs->type }}</td>
                         <td>{{ $rs->address }}</td>
                         <td>
-                            <a href="/taxpayer/{{ $rs->id }}?longitude={{$rs->long}}&latitude={{$rs->lat}}">Details</a>
+                            <a href="/taxpayer/{{ $rs->id }}">Details</a>
                         </td>
                     </tr>
                     @endforeach

@@ -8,7 +8,7 @@ crossorigin=""/>
 integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
 crossorigin=""></script>
 <script>
-    var mapCenter = [{{ request('latitude', '-4.0185') }}, {{ request('longitude', '119.6710') }}];
+    var mapCenter = [{{  $taxpayer->lat  }}, {{ $taxpayer->long }}];
     var map = L.map('mapid').setView(mapCenter, 12);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
