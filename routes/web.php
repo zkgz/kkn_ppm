@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome')->with('title', 'KKN PPM Unhas');
 });
 
-Route::resource('restaurant', 'RestaurantController');
+Route::resource('taxpayer', 'TaxpayerController');
 
 
 /**

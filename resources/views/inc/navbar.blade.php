@@ -28,8 +28,8 @@
                 @endif
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" href="/restaurant" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
-                        Restaurant <span class="caret"></span>
+                    <a class="nav-link" href="/taxpayer" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                        Taxpayer <span class="caret"></span>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Restaurant;
+use App\taxpayer;
 
-class RestaurantController extends Controller{
+class TaxpayerController extends Controller{
 
     public function __construct() {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
     public function index(){
-        $restaurant = Restaurant::paginate(25);
-        return view('restaurant.index', ['title' => 'Restaurant', 'restaurant' => $restaurant,]);
+        $taxpayer = taxpayer::paginate(25);
+        return view('taxpayer.index', ['title' => 'taxpayer', 'taxpayer' => $taxpayer,]);
     }
 
     public function create(){
-        return view('restaurant.create', ['title' => 'Add Restaurant']);
+        return view('taxpayer.create', ['title' => 'Add taxpayer']);
     }
 
     public function store(Request $request){
@@ -30,7 +30,7 @@ class RestaurantController extends Controller{
             'information' => 'required'
     	]);
  
-        Restaurant::create([
+        taxpayer::create([
     		'name' => $request->name,
             'address' => $request->address,
             'lat' => $request->lat,
@@ -38,13 +38,13 @@ class RestaurantController extends Controller{
             'information' => $request->information
     	]);
  
-    	return redirect('/restaurant');
+    	return redirect('/taxpayer');
     }
 
     public function edit($id){
-        $restaurant = Restaurant::find($id);
+        $taxpayer = taxpayer::find($id);
         
-        return view('restaurant.edit', ['title' => 'Edit Restaurant', 'restaurant' => $restaurant]);
+        return view('taxpayer.edit', ['title' => 'Edit taxpayer', 'taxpayer' => $taxpayer]);
     }
 
     public function update($id, Request $request){
@@ -56,26 +56,26 @@ class RestaurantController extends Controller{
             'information'   => 'required'
         ]);
     
-        $restaurant = Restaurant::find($id);
-        $restaurant->name           = $request->name;
-        $restaurant->address        = $request->address;
-        $restaurant->lat            = $request->lat;
-        $restaurant->long           = $request->long;
-        $restaurant->information    = $request->information;
+        $taxpayer = taxpayer::find($id);
+        $taxpayer->name           = $request->name;
+        $taxpayer->address        = $request->address;
+        $taxpayer->lat            = $request->lat;
+        $taxpayer->long           = $request->long;
+        $taxpayer->information    = $request->information;
 
-        $restaurant->save();
-        return redirect('restaurant/'.$id);
+        $taxpayer->save();
+        return redirect('taxpayer/'.$id);
     }
 
     public function destroy($id){
-        $restaurant = Restaurant::find($id);
-        $restaurant->delete();
-        return redirect('/restaurant');
+        $taxpayer = taxpayer::find($id);
+        $taxpayer->delete();
+        return redirect('/taxpayer');
     }
 
     public function show($id){
-        $restaurant = Restaurant::find($id);
-        return view('restaurant.show', ['title' => 'Detail', 'restaurant' => $restaurant]);
+        $taxpayer = taxpayer::find($id);
+        return view('taxpayer.show', ['title' => 'Detail', 'taxpayer' => $taxpayer]);
     }
 }
     

@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 
-                {{ Form::open(['action' => 'RestaurantController@store']) }}
+                {{ Form::open(['action' => 'TaxpayerController@store']) }}
                 {{ Form::token() }}
                 
                 <div class="form-group">
@@ -91,7 +91,7 @@
             <div class="card-footer">
                 <div class="form-group">
                     {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
-                    <a href="/restaurant" class="btn btn-light">Cancel</a>
+                    <a href="/taxpayer" class="btn btn-light">Cancel</a>
                 </div>
                 
                 {{ Form::close() }}

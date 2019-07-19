@@ -8,16 +8,16 @@
                 Edit Data Restoran
             </div>
             <div class="card-body">
-                <a href="/restaurant/{{$restaurant->id}}" class="btn btn-primary">Kembali</a>
+                <a href="/taxpayer/{{$taxpayer->id}}" class="btn btn-primary">Kembali</a>
                 <br/>
                 <br/>
-                {{ Form::open(['action' => ['RestaurantController@update', $restaurant->id], 'method' => 'put'])}}
+                {{ Form::open(['action' => ['TaxpayerController@update', $taxpayer->id], 'method' => 'put'])}}
                 
                 {{ Form::token() }}
                 
                 <div class="form-group">
                     {{ Form::label('name','Name') }}
-                    {{ Form::text('name', $restaurant->name, ['class' => 'form-control', 'placeholder' => 'Nama']) }}                  
+                    {{ Form::text('name', $taxpayer->name, ['class' => 'form-control', 'placeholder' => 'Nama']) }}                  
                     
                     @if($errors->has('name'))
                     <div class="text-danger">
@@ -28,7 +28,7 @@
                 
                 <div class="form-group">
                     {{ Form::label('alamat','Alamat') }}
-                    {{ Form::textarea('address', $restaurant->address, ['class' => 'form-control', 'placeholder' => 'Alamat', 'value' => $restaurant->address]) }}                  
+                    {{ Form::textarea('address', $taxpayer->address, ['class' => 'form-control', 'placeholder' => 'Alamat', 'value' => $taxpayer->address]) }}                  
                     @if($errors->has('address'))
                     <div class="text-danger">
                         {{ $errors->first('address') }}
@@ -41,7 +41,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {{ Form::label('latitude','Latitude') }}
-                            {{ Form::number('lat', $restaurant->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $restaurant->lat, 'id' => 'latitude', 'step' => 'any']) }}                                              
+                            {{ Form::number('lat', $taxpayer->lat, ['class' => 'form-control', 'placeholder' => 'Latitude', 'value' => $taxpayer->lat, 'id' => 'latitude', 'step' => 'any']) }}                                              
                             @if($errors->has('lat'))
                             <div class="text-danger">
                                 {{ $errors->first('lat') }}
@@ -54,7 +54,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             {{ Form::label('Longitude') }}
-                            {{ Form::number('long', $restaurant->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $restaurant->long, 'id' => 'longitude', 'step' => 'any']) }}                                              
+                            {{ Form::number('long', $taxpayer->long, ['class' => 'form-control', 'placeholder' => 'Longitude', 'value' => $taxpayer->long, 'id' => 'longitude', 'step' => 'any']) }}                                              
                             @if($errors->has('long'))
                             <div class="text-danger">
                                 {{ $errors->first('long') }}
@@ -70,7 +70,7 @@
                 
                 <div class="form-group">
                     {{ Form::label('Information') }}
-                    {{ Form::textarea('information', $restaurant->information, ['class' => 'form-control', 'placeholder' => 'information', 'value' => $restaurant->information, 'id' => 'editor', 'rows' => '6']) }} 
+                    {{ Form::textarea('information', $taxpayer->information, ['class' => 'form-control', 'placeholder' => 'information', 'value' => $taxpayer->information, 'id' => 'editor', 'rows' => '6']) }} 
                     @if($errors->has('information'))
                     <div class="text-danger">
                         {{ $errors->first('information') }}

@@ -7,7 +7,7 @@
             Data Restoran di Kota Parepare
         </div>
         <div class="card-body">
-            <a href="/restaurant/create" class="btn btn-primary">Input Restoran Baru</a>
+            <a href="/taxpayer/create" class="btn btn-primary">Input Restoran Baru</a>
             <br/>
             <br/>
             <table id="table" class="table table-striped table-bordered">
@@ -21,14 +21,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($restaurant as $rs)
+                    @foreach($taxpayer as $rs)
                     <tr>
                         <td>{{ $rs->name }}</td>
                         <td>{{ $rs->address }}</td>
                         <td>{{ $rs->lat }}</td>
                         <td>{{ $rs->long }}</td>
                         <td>
-                            <a href="/restaurant/{{ $rs->id }}?longitude={{$rs->long}}&latitude={{$rs->lat}}">Details</a>
+                            <a href="/taxpayer/{{ $rs->id }}?longitude={{$rs->long}}&latitude={{$rs->lat}}">Details</a>
                         </td>
                     </tr>
                     @endforeach
