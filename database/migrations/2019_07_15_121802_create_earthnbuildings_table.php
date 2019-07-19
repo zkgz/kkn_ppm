@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaxpayersTable extends Migration
+class CreateEarthnbuildingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateTaxpayersTable extends Migration
      */
     public function up()
     {
-        Schema::create('taxpayers', function (Blueprint $table) {
+        Schema::create('earthnbuildings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('region');
             $table->string('address');
+            $table->string('building');
+            $table->string('soil');
             $table->string('lat');
             $table->string('long');
             $table->string('information');
@@ -32,6 +35,6 @@ class CreateTaxpayersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taxpayers');
+        Schema::dropIfExists('earthnbuildings');
     }
 }
