@@ -13,10 +13,9 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Alamat</th>
+                        <th>Address</th>
                         <th>Latitude</th>
                         <th>Longitudes</th>
-                        <!-- <th>Information</th> -->
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -27,11 +26,8 @@
                         <td>{{ $rs->address }}</td>
                         <td>{{ $rs->lat }}</td>
                         <td>{{ $rs->long }}</td>
-                        <!-- <td>{{ $rs->information }}</td> -->
                         <td>
-                            <a href="/restaurant/{{ $rs->id }}?longitude={{$rs->long}}&latitude={{$rs->lat}}">Detail</a>
-                            <!-- <a href="/restaurant/edit/{{ $rs->id }}" class="btn btn-warning btn-sm">Edit</a> -->
-                            <!-- <a href="/restaurant/delete/{{ $rs->id }}" class="btn btn-danger btn-sm">Hapus</a> -->
+                            <a href="/restaurant/{{ $rs->id }}?longitude={{$rs->long}}&latitude={{$rs->lat}}">Details</a>
                         </td>
                     </tr>
                     @endforeach
@@ -44,7 +40,6 @@
                     <th></th>
                 </tfoot>
             </table>
-            
         </div>
     </div>
 </div>
