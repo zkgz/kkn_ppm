@@ -16,17 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('taxpayer', 'TaxpayerController');
-
-
-/**
- * Add Route For PBB
- */
-
-Route::resource('pbb', 'EarthnbuildingController');
-
- /**
-  * End Route PBB
-  */
   
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

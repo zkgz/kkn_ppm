@@ -59,7 +59,6 @@
             
             var popupContent = "Your location : " + latitude + ", " + longitude + ".";
             popupContent += '<br><a href="{{ route('taxpayer.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new taxpayer here</a>';
-            popupContent += '<br><a href="{{ route('pbb.create') }}?latitude=' + latitude + '&longitude=' + longitude + '">Add new PBB here</a>';
             
             theMarker = L.marker([latitude, longitude]).addTo(map);
             theMarker.bindPopup(popupContent)
