@@ -6,25 +6,22 @@ use Illuminate\Http\Request;
 
 use App\Restaurant;
 
-class RestaurantController extends Controller
-{
+class RestaurantController extends Controller{
 
     public function __construct() {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
+
     public function index(){
-        //return Restaurant::all();
         $restaurant = Restaurant::paginate(25);
-        return view('restaurant.index', ['title' => 'Restaurant',
-                                            'restaurant' => $restaurant,]);
+        return view('restaurant.index', ['title' => 'Restaurant', 'restaurant' => $restaurant,]);
     }
 
     public function create(){
         return view('restaurant.create', ['title' => 'Add Restaurant']);
     }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
     	$this->validate($request,[
     		'name' => 'required',
             'address' => 'required',
@@ -47,25 +44,24 @@ class RestaurantController extends Controller
     public function edit($id){
         $restaurant = Restaurant::find($id);
         
-        return view('restaurant.edit', ['title' => 'Edit Restaurant', 
-                                                'restaurant' => $restaurant]);
+        return view('restaurant.edit', ['title' => 'Edit Restaurant', 'restaurant' => $restaurant]);
     }
 
     public function update($id, Request $request){
         $this->validate($request,[
-            'name' => 'required',
-            'address' => 'required',
-            'lat' => 'required',
-            'long' => 'required',
-            'information' => 'required'
+            'name'          => 'required',
+            'address'       => 'required',
+            'lat'           => 'required',
+            'long'          => 'required',
+            'information'   => 'required'
         ]);
     
         $restaurant = Restaurant::find($id);
-        $restaurant->name = $request->name;
-        $restaurant->address = $request->address;
-        $restaurant->lat = $request->lat;
-        $restaurant->long = $request->long;
-        $restaurant->information = $request->information;
+        $restaurant->name           = $request->name;
+        $restaurant->address        = $request->address;
+        $restaurant->lat            = $request->lat;
+        $restaurant->long           = $request->long;
+        $restaurant->information    = $request->information;
 
         $restaurant->save();
         return redirect('restaurant/'.$id);
