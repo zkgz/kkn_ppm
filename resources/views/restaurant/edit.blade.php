@@ -90,7 +90,6 @@
     </div>
 </div>
 
-
 @include('inc.ckeditor')
 @include('inc.map')
 @endsection
