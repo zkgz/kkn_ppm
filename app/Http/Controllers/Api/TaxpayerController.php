@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\taxpayer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\taxpayer as taxpayerResource;
+use App\Http\Resources\taxpayer as TaxpayerResource;
 
 class TaxpayerController extends Controller
 {
