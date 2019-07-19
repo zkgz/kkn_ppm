@@ -18,7 +18,7 @@ class TaxpayerController extends Controller{
     }
 
     public function create(){
-        return view('taxpayer.create', ['title' => 'Add taxpayer']);
+        return view('taxpayer.create', ['title' => 'Add Taxpayer']);
     }
 
     public function store(Request $request){
@@ -44,7 +44,7 @@ class TaxpayerController extends Controller{
     public function edit($id){
         $taxpayer = taxpayer::find($id);
         
-        return view('taxpayer.edit', ['title' => 'Edit taxpayer', 'taxpayer' => $taxpayer]);
+        return view('taxpayer.edit', ['title' => 'Edit Taxpayer', 'taxpayer' => $taxpayer]);
     }
 
     public function update($id, Request $request){
