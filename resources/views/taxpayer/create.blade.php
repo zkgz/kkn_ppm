@@ -27,10 +27,10 @@
                     {{ Form::label('type','Type') }}
                     {{ Form::select('type', 
                         array(
-                            'property'  => 'Property Taxes', 
-                            'restaurant'=> 'Restaurant',
-                            'hotel'     => 'Hotel',
-                            'parking'   => 'Parking'
+                            'Property'  => 'Property Taxes', 
+                            'Restaurant'=> 'Restaurant',
+                            'Hotel'     => 'Hotel',
+                            'Parking'   => 'Parking'
                         ), null, ['class' => 'form-control', 'id' => 'type'])
                     }}
 
