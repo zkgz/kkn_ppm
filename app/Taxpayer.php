@@ -3,14 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-//use Kyslik\ColumnSortable\Sortable;
 
 class Taxpayer extends Model
 {
-    use SoftDeletes;
-    //use Sortable;
-    protected $fillable = ['name','address', 'lat', 'long', 'information'];
-    protected $dates = ['deleted_at'];
+    protected $table = 'taxpayers';    
+    protected $fillable = ['name','region', 'street', 'longitude', 'latitude', 'pajak_per_bulan', 'potensi_pajak_per_bulan', 'information'];
+    public $timestamps = false;
     //public $sortable = ['name', 'address'];
 }

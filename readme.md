@@ -5,6 +5,23 @@ Please wait while we are finishing our work
 - Jangan upload .env
 - Jangan upload vendor folder
 
+## Documentations
+- Readme formatting docs from [Github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
+- Laravel documentation from [Laravel](https://laravel.com/docs/5.8)
+- Bootstrap 4 documentation from [Bootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction)
+- Form documentation from [LaravelCollective](https://github.com/LaravelCollective/docs/blob/5.6/html.md)
+- Datatable documentation from [Datatable](https://datatables.net/examples/index)
+- Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
+
+## Tambahan ZKGZ 19/07 16:10
+- Added Documentation section to readme
+- Added dependency `doctrine/dbal`, run `composer install`
+- Dropped restaurants and earthnbuildings table
+- Added taxpayers table, run `php artisan migrate`
+- Fixed Taxpayer Model
+- Major bug fix
+
+
 ## Tambahan Deo 19/07 14:51
 - Delete PBB
 - Sesuaikan beberapa nama
