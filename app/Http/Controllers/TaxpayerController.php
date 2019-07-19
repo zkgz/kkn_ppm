@@ -14,7 +14,7 @@ class TaxpayerController extends Controller{
 
     public function index(){
         $taxpayer = taxpayer::paginate(25);
-        return view('taxpayer.index', ['title' => 'taxpayer', 'taxpayer' => $taxpayer,]);
+        return view('taxpayer.index', ['title' => 'Taxpayer', 'taxpayer' => $taxpayer,]);
     }
 
     public function create(){
