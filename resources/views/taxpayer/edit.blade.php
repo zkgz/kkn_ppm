@@ -30,10 +30,10 @@
                     {{ Form::label('type','Type') }}
                     {{ Form::select('type',
                         array(
-                            'Property Taxes', 
-                            'Restaurant',
-                            'Hotel',
-                            'Parking'
+                            'Property'  => 'Property Taxes', 
+                            'Restaurant'=> 'Restaurant',
+                            'Hotel'     => 'Hotel',
+                            'Parking'   => 'Parking'
                         ), $taxpayer->type, ['class' => 'form-control', 'id' => 'type'])
                     }}
 
