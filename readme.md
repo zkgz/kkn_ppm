@@ -14,7 +14,7 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
 ## Tambahan Deo 19/07 - 17:33
-- Tambahkan type ke database, jalankan
+- Tambahkan type ke database, jalankan :
 > php artisan migrate
 
 ## Tambahan ZKGZ 19/07 16:10
