@@ -61,10 +61,17 @@
         
         var theMarker;
         
+        // Untuk bin popup
+        // function onEachFeature(feature, layer) {
+        //     // does this feature have a property named popupContent?
+        //     if (feature.properties && feature.properties.popupContent) {
+        //         layer.bindPopup(feature.properties.popupContent);
+        //     }
+        // }
+
         function check() {
             if (document.getElementById("defaultCheck1").checked == true){
-                console.log(geojsonLayer);
-                geojsonLayer.addTo(map).bindPopup(e.feature.).openPopup();
+                geojsonLayer.addTo(map);
             }else{
                 geojsonLayer.removeFrom(map);
             }
