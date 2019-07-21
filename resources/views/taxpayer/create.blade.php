@@ -106,7 +106,7 @@
                 
                 <div class="form-group">
                     {{ Form::label('information','Information') }}
-                    {{ Form::textarea('information', '', ['class' => 'form-control', 'placeholder' => 'Keterangan']) }}                  
+                    {{ Form::textarea('information', '', ['class' => 'form-control', 'placeholder' => 'Keterangan', 'id' => 'information']) }}                  
                     
                     @if($errors->has('information'))
                     <div class="text-danger">
