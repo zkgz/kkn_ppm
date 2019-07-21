@@ -34,7 +34,7 @@
 
         var map = L.map('mapid').setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
-        var geojsonLayer = new L.GeoJSON.AJAX("assets/parepare.geojson");
+        var geojsonLayer = new L.GeoJSON.AJAX("{{asset('parepare.geojson')}}");
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

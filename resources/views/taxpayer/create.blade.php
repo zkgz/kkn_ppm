@@ -9,12 +9,12 @@
             </div>
             <div class="card-body">
                 
-                {{ Form::open(['action' => 'TaxpayerController@store']) }}
+                {{ Form::open(['action' => 'TaxpayerController@store', 'enctype' => 'multipart/form-data']) }}
                 {{ Form::token() }}
                 
                 <div class="form-group">
                     {{ Form::label('name','Name') }}
-                    {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nama']) }}                  
+                    {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name']) }}                  
                     
                     @if($errors->has('name'))
                     <div class="text-danger">
@@ -114,6 +114,17 @@
                     </div>
                     @endif
                     
+                </div>
+
+                <div class="form-group">
+                    {{ Form::label('photo', 'Photo') }}
+                    {!! Form::file('photo') !!}
+
+                    @if($errors->has('photo'))
+                    <div class="text-danger">
+                        {{ $errors->first('photo') }}
+                    </div>
+                    @endif
                 </div>
                 
             </div>

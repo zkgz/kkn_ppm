@@ -4,6 +4,10 @@
    crossorigin=""/>
 <script src="{{ asset('js/leaflet.js') }}"></script>
 
+<!-- Gesture Handling -->
+<link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+<script src="//unpkg.com/leaflet-gesture-handling"></script>
+
 <!-- Style untuk maps (tinggi) -->
 <style> #mapid { height: 300px; } </style>
 
@@ -12,7 +16,7 @@
     var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
     console.log(mapCenter);
     
-    var map = L.map('mapid').setView(mapCenter, 12);
+    var map = L.map('mapid', {gestureHandling: true}).setView(mapCenter, 12);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -19,3 +19,6 @@ Route::resource('taxpayer', 'TaxpayerController');
   
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/upload', 'TaxpayerController@upload');
+Route::post('/upload/proses', 'TaxpayerController@proses_upload');
