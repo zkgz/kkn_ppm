@@ -69,8 +69,17 @@ class TaxpayerController extends Controller{
             'address'       => 'required',
             'lat'           => 'required',
             'long'          => 'required',
-            'information'   => 'required'
+            'information'   => 'required',
+            'photo'         => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('photo');
+		$photo_name = time()."_".$file->getClientOriginalName();
+ 
+      	// isi dengan nama folder tempat kemana file diupload
+		$upload_folder = 'data_file';
+		$file->move($upload_folder,$photo_name);
     
         $taxpayer = Taxpayer::find($id);
         $taxpayer->name           = $request->name;
@@ -80,6 +89,7 @@ class TaxpayerController extends Controller{
         $taxpayer->lat            = $request->lat;
         $taxpayer->long           = $request->long;
         $taxpayer->information    = $request->information;
+        $taxpayer->photo          = $photo_name;
 
         $taxpayer->save();
         return redirect('taxpayer/'.$id);

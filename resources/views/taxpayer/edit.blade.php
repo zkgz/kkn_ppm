@@ -11,8 +11,8 @@
                 <a href="/taxpayer/{{$taxpayer->id}}" class="btn btn-primary">Kembali</a>
                 <br/>
                 <br/>
-                {{ Form::open(['action' => ['TaxpayerController@update', $taxpayer->id], 'method' => 'put'])}}
-                
+
+                {{ Form::open(['action' => ['TaxpayerController@update', $taxpayer->id], 'enctype' => 'multipart/form-data', 'method' => 'put'])}}
                 {{ Form::token() }}
                 
                 <div class="form-group">
@@ -107,6 +107,18 @@
                     @endif
                     
                 </div>
+
+                <div class="form-group">
+                    {{ Form::label('photo', 'Photo') }}
+                    {!! Form::file('photo') !!}
+
+                    @if($errors->has('photo'))
+                    <div class="text-danger">
+                        {{ $errors->first('photo') }}
+                    </div>
+                    @endif
+                </div>
+
             </div>
             <div class="card-footer">
                 <div class="form-group">
