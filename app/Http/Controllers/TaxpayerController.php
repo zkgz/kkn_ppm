@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Taxpayer;
+use File;
 
 class TaxpayerController extends Controller{
 
@@ -98,6 +99,10 @@ class TaxpayerController extends Controller{
     public function destroy($id){
         $taxpayer = Taxpayer::find($id);
         $taxpayer->delete();
+
+        // Delete file
+        File::delete('data_file/'.$taxpayer->photo);
+
         return redirect('/taxpayer');
     }
 
