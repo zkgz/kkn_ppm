@@ -9,11 +9,12 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
-## Tambahan ZKGZ 20/07 - 10:15
+## Tambahan ZKGZ 22/07 - 10:15
 - Fixed issue #11
+- Added default value for pajak_per_bulan and potensi_pajak_per_bulan columns
 - Minor bug fix
 
-## Tambahan ZKGZ 20/07 - 09:10
+## Tambahan ZKGZ 22/07 - 09:10
 - Removed Aturan section in Readme
 - Changed photo column to be nullable (run `php artisan migrate`)
 
