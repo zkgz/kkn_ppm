@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Taxpayer;
+use File;
 
 class TaxpayerController extends Controller{
 
@@ -29,9 +30,18 @@ class TaxpayerController extends Controller{
             'address'       => 'required',
             'lat'           => 'required',
             'long'          => 'required',
-            'information'   => 'required'
+            'information'   => 'required',
+            'photo'         => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
     	]);
  
+        // menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('photo');
+		$photo_name = time()."_".$file->getClientOriginalName();
+ 
+      	// isi dengan nama folder tempat kemana file diupload
+		$upload_folder = 'data_file';
+		$file->move($upload_folder,$photo_name);
+
         Taxpayer::create([
             'name'          => $request->name,
             'type'          => $request->type,
@@ -39,7 +49,8 @@ class TaxpayerController extends Controller{
             'address'       => $request->address,
             'lat'           => $request->lat,
             'long'          => $request->long,
-            'information'   => $request->information
+            'information'   => $request->information,
+            'photo'         => $photo_name
     	]);
  
     	return redirect('/taxpayer');
@@ -59,8 +70,17 @@ class TaxpayerController extends Controller{
             'address'       => 'required',
             'lat'           => 'required',
             'long'          => 'required',
-            'information'   => 'required'
+            'information'   => 'required',
+            'photo'         => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('photo');
+		$photo_name = time()."_".$file->getClientOriginalName();
+ 
+      	// isi dengan nama folder tempat kemana file diupload
+		$upload_folder = 'data_file';
+		$file->move($upload_folder,$photo_name);
     
         $taxpayer = Taxpayer::find($id);
         $taxpayer->name           = $request->name;
@@ -70,6 +90,7 @@ class TaxpayerController extends Controller{
         $taxpayer->lat            = $request->lat;
         $taxpayer->long           = $request->long;
         $taxpayer->information    = $request->information;
+        $taxpayer->photo          = $photo_name;
 
         $taxpayer->save();
         return redirect('taxpayer/'.$id);
@@ -78,6 +99,10 @@ class TaxpayerController extends Controller{
     public function destroy($id){
         $taxpayer = Taxpayer::find($id);
         $taxpayer->delete();
+
+        // Delete file
+        File::delete('data_file/'.$taxpayer->photo);
+
         return redirect('/taxpayer');
     }
 

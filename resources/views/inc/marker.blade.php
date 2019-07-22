@@ -9,7 +9,7 @@
             popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
         }
     });
-
+ 
     var hotelIcon       = new LeafIcon({iconUrl: "{{ asset('map-marker/hotel-64.png') }}" }),
         propertyIcon    = new LeafIcon({iconUrl: "{{ asset('map-marker/hotel-64.png') }}" }),
         parkingIcon     = new LeafIcon({iconUrl: "{{ asset('map-marker/hotel-64.png') }}" }),

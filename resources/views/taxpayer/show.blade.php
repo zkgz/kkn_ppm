@@ -10,10 +10,12 @@
                     <table class="table table-sm">
                         <tbody>
                             <tr><td>Name</td><td>{{ $taxpayer->name }}</td></tr>
+                            <tr><td>Type</td><td>{{ $taxpayer->type }}</td></tr>
                             <tr><td>Address</td><td>{{ $taxpayer->address }}</td></tr>
                             <tr><td>Latitude</td><td>{{ $taxpayer->lat }}</td></tr>
                             <tr><td>Longitude</td><td>{{ $taxpayer->long }}</td></tr>
                             <tr><td>Informations</td><td>{!! $taxpayer->information !!}</td></tr>
+                            <tr><td>Photo</td><td><img class="rounded mx-auto d-block" width="350px" src="{!! url('/data_file/'.$taxpayer->photo) !!}"></td></tr>
                         </tbody>
                     </table>
                 </div>

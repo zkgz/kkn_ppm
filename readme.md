@@ -13,6 +13,11 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan Deo 21/07 - 18:34
+- Add semua js dan css ke folder public
+- Ubah link js dan css menjadi link local
+- Rapikan beberapa koding
+
 ## Tambahan ZKGZ 20/07 - 01:10
 - Removed GET elements from taxpayer routes
 - Minor bug fix
