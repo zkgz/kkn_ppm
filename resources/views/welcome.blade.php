@@ -19,11 +19,11 @@
     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
     crossorigin=""></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    
     @include('inc.marker')
-
+    @include('inc.geojson')
     <script>
-
+        
         var map = L.map('mapid').setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
         
@@ -49,6 +49,20 @@
         .catch(function (error) {
             console.log(error);
         });
+
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.pajak_per_bulan),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+
+        L.geoJson(statesData, {style: style}).addTo(map);
+        
         
         var theMarker;
         
@@ -67,7 +81,16 @@
             theMarker.bindPopup(popupContent)
             .openPopup();
         });
-        
+        function getColor(pajak) {
+            return  pajak > 50000000 ? '#8c2d04' :
+                    pajak > 25000000  ? '#d94801' :
+                    pajak > 10000000  ? '#f16913' :
+                    pajak > 5000000  ? '#fd8d3c' :
+                    pajak > 2500000   ? '#fdae6b' :
+                    pajak > 1000000   ? '#fdd0a2' :
+                    pajak > 500000   ? '#fee6ce' :
+                                   '#fff5eb';
+        }
     </script>
 </main>
 

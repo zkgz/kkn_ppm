@@ -7,10 +7,11 @@ crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
 integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
 crossorigin=""></script>
+
 <script>
     
     var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
-    console.log(mapCenter);
+    
     
     var map = L.map('mapid').setView(mapCenter, 12);
     
@@ -27,6 +28,7 @@ crossorigin=""></script>
         .openPopup();
         return false;
     };
+
     
     map.on('click', function(e) {
         let lat = e.latlng.lat.toString().substring(0, 15);
