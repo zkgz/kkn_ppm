@@ -31,6 +31,8 @@ class TaxpayerController extends Controller{
             'lat'           => 'required',
             'long'          => 'required',
             'information'   => 'required',
+            'pajak_per_bulan'   => 'nullable',
+            'potensi_pajak_per_bulan'   => 'nullable',
             'photo'         => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048',
     	]);
  
@@ -39,21 +41,23 @@ class TaxpayerController extends Controller{
         if(!is_null($file))
 		    $photo_name = time()."_".$file->getClientOriginalName();
         else
-        $photo_name = null;
+            $photo_name = null;
       	// isi dengan nama folder tempat kemana file diupload
         $upload_folder = 'data_file';
         if(!is_null($file))
 		    $file->move($upload_folder,$photo_name);
 
         Taxpayer::create([
-            'name'          => $request->name,
-            'type'          => $request->type,
-            'region'        => $request->region,
-            'address'       => $request->address,
-            'lat'           => $request->lat,
-            'long'          => $request->long,
-            'information'   => $request->information,
-            'photo'         => $photo_name
+            'name'                       => $request->name,
+            'type'                       => $request->type,
+            'region'                     => $request->region,
+            'address'                    => $request->address,
+            'lat'                        => $request->lat,
+            'long'                       => $request->long,
+            'pajak_per_bulan'            => $request->pajak_per_bulan,
+            'potensi_pajak_per_bulan'    => $request->potensi_pajak_per_bulan,
+            'information'                => $request->information,
+            'photo'                      => $photo_name
     	]);
  
     	return redirect('/taxpayer');
@@ -67,33 +71,41 @@ class TaxpayerController extends Controller{
 
     public function update($id, Request $request){
         $this->validate($request,[
-            'name'          => 'required',
-            'type'          => 'required',
-            'region'        => 'required',
-            'address'       => 'required',
-            'lat'           => 'required',
-            'long'          => 'required',
-            'information'   => 'required',
-            'photo'         => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048',
+            'name'                       => 'required',
+            'type'                       => 'required',
+            'region'                     => 'required',
+            'address'                    => 'required',
+            'lat'                        => 'required',
+            'long'                       => 'required',
+            'information'                => 'required',
+            'pajak_per_bulan'            => 'nullable',
+            'potensi_pajak_per_bulan'    => 'nullable',
+            'photo'                      => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         // menyimpan data file yang diupload ke variabel $file
-		$file = $request->file('photo');
-		$photo_name = time()."_".$file->getClientOriginalName();
- 
-      	// isi dengan nama folder tempat kemana file diupload
-		$upload_folder = 'data_file';
-		$file->move($upload_folder,$photo_name);
+        $file = $request->file('photo');
+        if(!is_null($file))
+           $photo_name = time()."_".$file->getClientOriginalName();
+        else
+            $photo_name = null;
+
+         // isi dengan nama folder tempat kemana file diupload
+        $upload_folder = 'data_file';
+        if(!is_null($file))
+           $file->move($upload_folder,$photo_name);
     
         $taxpayer = Taxpayer::find($id);
-        $taxpayer->name           = $request->name;
-        $taxpayer->type           = $request->type;
-        $taxpayer->region         = $request->region;
-        $taxpayer->address        = $request->address;
-        $taxpayer->lat            = $request->lat;
-        $taxpayer->long           = $request->long;
-        $taxpayer->information    = $request->information;
-        $taxpayer->photo          = $photo_name;
+        $taxpayer->name                     = $request->name;
+        $taxpayer->type                     = $request->type;
+        $taxpayer->region                   = $request->region;
+        $taxpayer->address                  = $request->address;
+        $taxpayer->lat                      = $request->lat;
+        $taxpayer->long                     = $request->long;
+        $taxpayer->information              = $request->information;
+        $taxpayer->pajak_per_bulan          = $request->pajak_per_bulan;
+        $taxpayer->potensi_pajak_per_bulan  = $request->potensi_pajak_per_bulan;
+        $taxpayer->photo                    = $photo_name;
 
         $taxpayer->save();
         return redirect('taxpayer/'.$id);

@@ -103,6 +103,34 @@
                 
                 <div id="mapid" class="rounded"></div>
                 <hr>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ Form::label('Pajak Per Bulan') }}
+                            {{ Form::number('pajak_per_bulan', '', ['class' => 'form-control', 'placeholder' => 'Pajak Per Bulan', 'step' => 'any']) }}
+                            @if($errors->has('pajak_per_bulan'))
+                            <div class="text-danger">
+                                {{ $errors->first('pajak_per_bulan') }}
+                            </div>
+                            @endif
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ Form::label('Potensi Pajak Per Bulan') }}
+                            {{ Form::number('potensi_pajak_per_bulan', '', ['class' => 'form-control', 'placeholder' => 'Potensi Pajak Per Bulan', 'step' => 'any']) }}
+                            @if($errors->has('potensi_pajak_per_bulan'))
+                            <div class="text-danger">
+                                {{ $errors->first('potensi_pajak_per_bulan') }}
+                            </div>
+                            @endif
+                            
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="form-group">
                     {{ Form::label('information','Information') }}
