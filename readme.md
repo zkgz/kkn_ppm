@@ -1,10 +1,6 @@
 ## Under Construction
 Please wait while we are finishing our work
 
-## Aturan
-- Jangan upload .env
-- Jangan upload vendor folder
-
 ## Documentations
 - Readme formatting docs from [Github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 - Laravel documentation from [Laravel](https://laravel.com/docs/5.8)
@@ -12,6 +8,11 @@ Please wait while we are finishing our work
 - Form documentation from [LaravelCollective](https://github.com/LaravelCollective/docs/blob/5.6/html.md)
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
+
+## Tambahan ZKGZ 20/07 - 09:10
+- Removed Aturan section in Readme
+- Changed photo column to be nullable (run `php artisan migrate`)
+
 
 ## Tambahan Deo 21/07 - 18:34
 - Add semua js dan css ke folder public
