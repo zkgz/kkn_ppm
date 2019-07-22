@@ -11,6 +11,7 @@
                         <tbody>
                             <tr><td>Name</td><td>{{ $taxpayer->name }}</td></tr>
                             <tr><td>Type</td><td>{{ $taxpayer->type }}</td></tr>
+                            <tr><td>Region</td><td>{{ $taxpayer->region }}</td></tr>
                             <tr><td>Address</td><td>{{ $taxpayer->address }}</td></tr>
                             <tr><td>Latitude</td><td>{{ $taxpayer->lat }}</td></tr>
                             <tr><td>Longitude</td><td>{{ $taxpayer->long }}</td></tr>

@@ -46,7 +46,30 @@
 
                 <div class="form-group">
                     {{ Form::label('region', 'Region') }}
-                    {{ Form::text('region', $taxpayer->region, ['class' => 'form-control', 'placeholder' => 'Region']) }}
+                    {{ Form::select('region',[
+                        'Bacukiki' => ['Galung Maloang' => 'Galung Maloang',
+                                        'Lemoe' => 'Lemoe',
+                                        'Lumpue' => 'Lumpue',
+                                        'Watang Bacukiki' => 'Watang Bacukiki',],
+                        'Bacukiki Barat' => ['Bumi Harapan' => 'Bumi Harapan',
+                                        'Cappa Galung' => 'Cappa Galung',
+                                        'Kampung Baru' => 'Kampung Baru',
+                                        'Lumpue' => 'Lumpue',
+                                        'Sumpang Minangae' => 'Sumpang Minangae',
+                                        'Tiro Sompe' => 'Tiro Sompe'],
+                        'Soreang' =>  ['Bukit Harapan' => 'Bukit Harapan',
+                                        'Bukit Indah' => 'Bukit Indah',
+                                        'Kampung Pisang' => 'Kampung Pisang',
+                                        'Lakessi' => 'Lakessi',
+                                        'Ujung Baru' => 'Ujung Baru',
+                                        'Ujung Lare' => 'Ujung Lare',
+                                        'Watang Soreang' => 'Watang Soreang'],
+                        'Ujung' => ['Labukkang' => 'Labukkang',
+                                    'Lapadde' => 'Lapadde',
+                                    'Mallusetasi' => 'Mallusetasi',
+                                    'Ujung Bulu' => 'Ujung Bulu',
+                                'Ujung Sabbang' => 'Ujung Sabbang'],
+                        ], $taxpayer->region, ['class' => 'form-control', 'placeholder' => '--Pilih Kelurahan--']) }}
 
                     @if($errors->has('region'))
                     <div class="text-danger">

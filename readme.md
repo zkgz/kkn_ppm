@@ -9,6 +9,10 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan ZKGZ 22/07 - 11:00
+- Changed region (kelurahan) form to dropdown list
+- Added region to taxpayer details (show) view
+
 ## Tambahan ZKGZ 22/07 - 10:15
 - Fixed issue #11
 - Added default value for pajak_per_bulan and potensi_pajak_per_bulan columns
