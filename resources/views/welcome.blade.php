@@ -30,9 +30,13 @@
 
     @include('inc.marker')
     @include('inc.geojson')
+    <!-- Gesture Handling -->
+    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
+    <script src="//unpkg.com/leaflet-gesture-handling"></script>
+
     <script>
         
-        var map = L.map('mapid').setView([-4.0185, 119.6710], 13);
+        var map = L.map('mapid', {gestureHandling: true}).setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
         var geojsonLayer = new L.GeoJSON.AJAX("{{asset('parepare.geojson')}}");
 
