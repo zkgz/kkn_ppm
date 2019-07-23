@@ -13,6 +13,10 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan Deo 23/07 - 20:33
+- Fix footer bug.
+- Fix TaxpayerControlle@stat bug when no data in database.
+
 ## Tambahan ZKGZ 23/07 - 14:20
 - Changed `strict` value from `config/database.php` to `true`
 - Added stats page
