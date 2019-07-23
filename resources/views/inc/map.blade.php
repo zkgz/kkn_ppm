@@ -14,8 +14,6 @@
 <script>
     
     var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
-    
-    
     var map = L.map('mapid', {gestureHandling: true}).setView(mapCenter, 12);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -23,15 +21,6 @@
     }).addTo(map);
     
     var marker = L.marker(mapCenter).addTo(map);
-    
-    function updateMarker(lat, lng) {
-        marker
-        .setLatLng([lat, lng])
-        .bindPopup("Your location :  " + marker.getLatLng().toString())
-        .openPopup();
-        return false;
-    };
-
     
     map.on('click', function(e) {
         let lat = e.latlng.lat.toString().substring(0, 15);

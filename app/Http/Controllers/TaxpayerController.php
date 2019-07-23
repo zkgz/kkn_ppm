@@ -42,8 +42,10 @@ class TaxpayerController extends Controller{
 		    $photo_name = time()."_".$file->getClientOriginalName();
         else
             $photo_name = null;
-      	// isi dengan nama folder tempat kemana file diupload
+          
+            // isi dengan nama folder tempat kemana file diupload
         $upload_folder = 'data_file';
+
         if(!is_null($file))
 		    $file->move($upload_folder,$photo_name);
 
@@ -65,7 +67,6 @@ class TaxpayerController extends Controller{
 
     public function edit($id){
         $taxpayer = Taxpayer::find($id);
-        
         return view('taxpayer.edit', ['title' => 'Edit Taxpayer', 'taxpayer' => $taxpayer]);
     }
 

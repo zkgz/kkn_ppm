@@ -2,12 +2,6 @@
 @section('content')
 
 <main class="py-4 container">
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" onchange=check()>
-        <label class="form-check-label" for="defaultCheck1">
-            Batas
-        </label>
-    </div>
 
     <div class="card">
         <div class="card-body" id="mapid"></div>
@@ -38,7 +32,7 @@
         
         var map = L.map('mapid', {gestureHandling: true}).setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
-        var geojsonLayer = new L.GeoJSON.AJAX("{{asset('parepare.geojson')}}");
+        var regionLayout = L.geoJson(statesData);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -74,8 +68,13 @@
             };
         }
 
-        L.geoJson(statesData, {style: style}).addTo(map);
-        
+        var totalLayout =L.geoJson(statesData, {style: style});
+        var restaurantLayout =L.geoJson(statesData, {style: style});
+        var hotelLayout =L.geoJson(statesData, {style: style});
+        var parkirLayout =L.geoJson(statesData, {style: style});
+        var taxpayerLayout =L.geoJson(statesData, {style: style});
+       
+
         
         var theMarker;
         
@@ -87,13 +86,7 @@
         //     }
         // }
 
-        function check() {
-            if (document.getElementById("defaultCheck1").checked == true){
-                geojsonLayer.addTo(map);
-            }else{
-                geojsonLayer.removeFrom(map);
-            }
-        }
+        
 
         map.on('click', function(e) {
             let latitude = e.latlng.lat.toString().substring(0, 15);
@@ -120,6 +113,23 @@
                     pajak > 500000   ? '#fee6ce' :
                                    '#fff5eb';
         }
+
+
+        var layer = {
+            "KELURAHAN" : regionLayout,
+            "TOTAL " : totalLayout,
+            "RESTAURANT" : restaurantLayout,
+            "HOTEL" : hotelLayout,
+            "PARKIR" : parkirLayout,
+            "PBB":taxpayerLayout
+        };
+
+    
+        L.control.layers(layer).addTo(map);
+
+        
+
+
     </script>
 </main>
 

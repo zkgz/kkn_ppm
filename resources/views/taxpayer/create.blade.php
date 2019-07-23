@@ -26,47 +26,55 @@
                 <div class="form-group">
                     {{ Form::label('type','Type') }}
                     {{ Form::select('type', 
-                    array(
-                    'Property'  => 'Property Taxes', 
-                    'Restaurant'=> 'Restaurant',
-                    'Hotel'     => 'Hotel',
-                    'Parking'   => 'Parking'
-                    ), null, ['class' => 'form-control', 'id' => 'type'])
+                        array(
+                            'Property'  => 'Property Taxes', 
+                            'Restaurant'=> 'Restaurant',
+                            'Hotel'     => 'Hotel',
+                            'Parking'   => 'Parking'
+                        ), null, ['class' => 'form-control', 'id' => 'type'])
                 }}
                 
                 @if($errors->has('type'))
-                <div class="text-danger">
-                    {{ $errors->first('type')}}
-                </div>
+                    <div class="text-danger">
+                        {{ $errors->first('type')}}
+                    </div>
                 @endif
             </div>
             
             <div class="form-group">
                 {{ Form::label('region', 'Region') }}
                 {{ Form::select('region',[
-                'Bacukiki' => ['Galung Maloang' => 'Galung Maloang',
-                                'Lemoe' => 'Lemoe',
-                                'Lumpue' => 'Lumpue',
-                                'Watang Bacukiki' => 'Watang Bacukiki',],
-                'Bacukiki Barat' => ['Bumi Harapan' => 'Bumi Harapan',
-                                'Cappa Galung' => 'Cappa Galung',
-                                'Kampung Baru' => 'Kampung Baru',
-                                'Lumpue' => 'Lumpue',
-                                'Sumpang Minangae' => 'Sumpang Minangae',
-                                'Tiro Sompe' => 'Tiro Sompe'],
-                'Soreang' =>  ['Bukit Harapan' => 'Bukit Harapan',
-                                'Bukit Indah' => 'Bukit Indah',
-                                'Kampung Pisang' => 'Kampung Pisang',
-                                'Lakessi' => 'Lakessi',
-                                'Ujung Baru' => 'Ujung Baru',
-                                'Ujung Lare' => 'Ujung Lare',
-                                'Watang Soreang' => 'Watang Soreang'],
-                'Ujung' => ['Labukkang' => 'Labukkang',
-                            'Lapadde' => 'Lapadde',
-                            'Mallusetasi' => 'Mallusetasi',
-                            'Ujung Bulu' => 'Ujung Bulu',
-                        'Ujung Sabbang' => 'Ujung Sabbang'],
-                ], null, ['class' => 'form-control', 'placeholder' => '--Pilih Kelurahan--']) }}
+                    'Bacukiki' => [
+                                'Galung Maloang'    => 'Galung Maloang',
+                                'Lemoe'             => 'Lemoe',
+                                'Lumpue'            => 'Lumpue',
+                                'Watang Bacukiki'   => 'Watang Bacukiki',
+                                ],
+                    'Bacukiki Barat' => [
+                                'Bumi Harapan'      => 'Bumi Harapan',
+                                'Cappa Galung'      => 'Cappa Galung',
+                                'Kampung Baru'      => 'Kampung Baru',
+                                'Lumpue'            => 'Lumpue',
+                                'Sumpang Minangae'  => 'Sumpang Minangae',
+                                'Tiro Sompe'        => 'Tiro Sompe'
+                                ],
+                    'Soreang' =>  [
+                                'Bukit Harapan'     => 'Bukit Harapan',
+                                'Bukit Indah'       => 'Bukit Indah',
+                                'Kampung Pisang'    => 'Kampung Pisang',
+                                'Lakessi'           => 'Lakessi',
+                                'Ujung Baru'        => 'Ujung Baru',
+                                'Ujung Lare'        => 'Ujung Lare',
+                                'Watang Soreang'    => 'Watang Soreang'
+                                ],
+                    'Ujung' => [
+                                'Labukkang'         => 'Labukkang',
+                                'Lapadde'           => 'Lapadde',
+                                'Mallusetasi'       => 'Mallusetasi',
+                                'Ujung Bulu'        => 'Ujung Bulu',
+                                'Ujung Sabbang'     => 'Ujung Sabbang'
+                                ],
+                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region']) }}
                 
                 @if($errors->has('region'))
                 <div class="text-danger">
@@ -98,9 +106,9 @@
                         @endif                  
                         
                         @if($errors->has('lat'))
-                        <div class="text-danger">
-                            {{ $errors->first('lat')}}
-                        </div>
+                            <div class="text-danger">
+                                {{ $errors->first('lat')}}
+                            </div>
                         @endif
                         
                     </div>
@@ -116,9 +124,9 @@
                         @endif                  
                         
                         @if($errors->has('long'))
-                        <div class="text-danger">
-                            {{ $errors->first('long') }}
-                        </div>
+                            <div class="text-danger">
+                                {{ $errors->first('long') }}
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -133,9 +141,9 @@
                         {{ Form::label('Pajak Per Bulan') }}
                         {{ Form::number('pajak_per_bulan', '', ['class' => 'form-control', 'placeholder' => 'Pajak Per Bulan', 'step' => 'any']) }}
                         @if($errors->has('pajak_per_bulan'))
-                        <div class="text-danger">
-                            {{ $errors->first('pajak_per_bulan') }}
-                        </div>
+                            <div class="text-danger">
+                                {{ $errors->first('pajak_per_bulan') }}
+                            </div>
                         @endif
                         
                     </div>
@@ -146,9 +154,9 @@
                         {{ Form::label('Potensi Pajak Per Bulan') }}
                         {{ Form::number('potensi_pajak_per_bulan', '', ['class' => 'form-control', 'placeholder' => 'Potensi Pajak Per Bulan', 'step' => 'any']) }}
                         @if($errors->has('potensi_pajak_per_bulan'))
-                        <div class="text-danger">
-                            {{ $errors->first('potensi_pajak_per_bulan') }}
-                        </div>
+                            <div class="text-danger">
+                                {{ $errors->first('potensi_pajak_per_bulan') }}
+                            </div>
                         @endif
                         
                     </div>
@@ -160,9 +168,9 @@
                 {{ Form::textarea('information', '', ['class' => 'form-control', 'placeholder' => 'Keterangan', 'id' => 'information']) }}                  
                 
                 @if($errors->has('information'))
-                <div class="text-danger">
-                    {{ $errors->first('information') }}
-                </div>
+                    <div class="text-danger">
+                        {{ $errors->first('information') }}
+                    </div>
                 @endif
                 
             </div>
@@ -172,20 +180,19 @@
                 {!! Form::file('photo') !!}
                 
                 @if($errors->has('photo'))
-                <div class="text-danger">
-                    {{ $errors->first('photo') }}
-                </div>
+                    <div class="text-danger">
+                        {{ $errors->first('photo') }}
+                    </div>
                 @endif
             </div>
-            
+        
+            {{ Form::close() }}
         </div>
         <div class="card-footer">
             <div class="form-group">
                 {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
                 <a href="/taxpayer" class="btn btn-light">Cancel</a>
             </div>
-            
-            {{ Form::close() }}
         </div>
     </div>
 </div>
@@ -194,4 +201,5 @@
 
 @include('inc.ckeditor')
 @include('inc.map')
+@include('inc.updateMarker')
 @endsection

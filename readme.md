@@ -1,3 +1,7 @@
+<h1 align="center">
+    KKN PPM Pemetaan Spasial Potensi Pendapatan Daerah Kota Parepare
+</h1>
+
 ## Under Construction
 Please wait while we are finishing our work
 
@@ -13,6 +17,9 @@ Please wait while we are finishing our work
 - Changed `strict` value from `config/database.php` to `true`
 - Added stats page
 - Set default value for longitude and latitude form in create view
+
+## Tambahan Deo 22/07 - 11:51
+- Add Gesture Controller to welcome.blade.php
 
 ## Tambahan ZKGZ 22/07 - 11:00
 - Changed region (kelurahan) form to dropdown list
