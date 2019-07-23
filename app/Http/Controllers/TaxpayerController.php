@@ -129,7 +129,9 @@ class TaxpayerController extends Controller{
 
     public function stats() {
         $tp = Taxpayer::all();
-        
+
+        $taxpayers = [];
+
         foreach($tp as $key => $value) {
             $taxpayers[$value->region]['Restaurant'] = 0;
             $taxpayers[$value->region]['Parking'] = 0;
@@ -137,9 +139,11 @@ class TaxpayerController extends Controller{
             $taxpayers[$value->region]['Hotel'] = 0;
             $taxpayers[$value->region]['Region'] = $value->region;
         }
+        
         foreach($tp as $key => $value) {
             $taxpayers[$value->region][$value->type] += $value->pajak_per_bulan;
         }
-        return view('taxpayer.stats',['title' => 'Statistics', 'taxpayers' => $taxpayers]);
+        
+        return view('taxpayer.stats', ['title' => 'Statistics', 'taxpayers' => $taxpayers]);
     }
 }

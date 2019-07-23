@@ -5,6 +5,18 @@
             <small>Copyright &copy; Team KKN PPM Program Pemetaan Spasial Pendapatan Daerah Kota Parepare</small>
         </div>
     </footer>
+
+    <style>
+        #sticky-footer{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem;
+            background-color: #efefef;
+            text-align: center;
+        }
+    </style>
     
     <!-- jQuery first, then Popper, then Bootstrap -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
