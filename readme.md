@@ -1,4 +1,6 @@
-# KKN PPM Pemetaan Spasial Potensi Pendapatan Daerah Kota Parepare
+<h1 align="center">
+    KKN PPM Pemetaan Spasial Potensi Pendapatan Daerah Kota Parepare
+</h1>
 
 ## Under Construction
 Please wait while we are finishing our work
