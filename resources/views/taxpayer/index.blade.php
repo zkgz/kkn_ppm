@@ -8,7 +8,6 @@
         </div>
         <div class="card-body">
             <a href="/taxpayer/create" class="btn btn-primary">Input Restoran Baru</a>
-            <a class="btn btn-success" href="javascript:void(0)" id="createNewProduct"> Create New Product</a>
             <br/>
             <br/>
             <table id="table" class="table table-striped table-bordered">
@@ -42,5 +41,4 @@
         </div>
     </div>
 </div>
-@include('ajax.create')
 @endsection
