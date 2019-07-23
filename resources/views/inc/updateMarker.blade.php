@@ -8,5 +8,4 @@ function updateMarker(lat, lng) {
         return false;
     };
 
-
 </script>

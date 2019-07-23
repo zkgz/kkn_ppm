@@ -9,6 +9,9 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan Deo 22/07 - 11:51
+- Add Gesture Controller to welcome.blade.php
+
 ## Tambahan ZKGZ 22/07 - 11:00
 - Changed region (kelurahan) form to dropdown list
 - Added region to taxpayer details (show) view
