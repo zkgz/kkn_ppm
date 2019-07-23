@@ -24,13 +24,7 @@
     
     var marker = L.marker(mapCenter).addTo(map);
     
-    function updateMarker(lat, lng) {
-        marker
-        .setLatLng([lat, lng])
-        .bindPopup("Your location :  " + marker.getLatLng().toString())
-        .openPopup();
-        return false;
-    };
+    
 
     
     map.on('click', function(e) {

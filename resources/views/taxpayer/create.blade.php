@@ -194,4 +194,5 @@
 
 @include('inc.ckeditor')
 @include('inc.map')
+@include('inc.updateMarker')
 @endsection
