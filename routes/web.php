@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome')->with('title', 'KKN PPM Unhas');
 });
-
+Route::get('/taxpayer/stats', 'TaxpayerController@stats');
 Route::resource('taxpayer', 'TaxpayerController');
   
 Auth::routes();

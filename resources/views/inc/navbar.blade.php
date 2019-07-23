@@ -29,6 +29,11 @@
                 @endif
                 @else
                 <li class="nav-item">
+                    <a class="nav-link" href="/taxpayer/stats" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                        Stats <span class="caret"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/taxpayer" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                         Taxpayer <span class="caret"></span>
                     </a>

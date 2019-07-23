@@ -10,7 +10,7 @@ use File;
 class TaxpayerController extends Controller{
 
     public function __construct() {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'stats']]);
     }
 
     public function index(){
@@ -125,5 +125,20 @@ class TaxpayerController extends Controller{
         $taxpayer = Taxpayer::find($id);
         return view('taxpayer.show', ['title' => 'Detail', 'taxpayer' => $taxpayer]);
     }
+
+    public function stats() {
+        $tp = Taxpayer::all();
+        
+        foreach($tp as $key => $value) {
+            $taxpayers[$value->region]['Restaurant'] = 0;
+            $taxpayers[$value->region]['Parking'] = 0;
+            $taxpayers[$value->region]['Property'] = 0;
+            $taxpayers[$value->region]['Hotel'] = 0;
+            $taxpayers[$value->region]['Region'] = $value->region;
+        }
+        foreach($tp as $key => $value) {
+            $taxpayers[$value->region][$value->type] += $value->pajak_per_bulan;
+        }
+        return view('taxpayer.stats',['title' => 'Statistics', 'taxpayers' => $taxpayers]);
+    }
 }
-    
