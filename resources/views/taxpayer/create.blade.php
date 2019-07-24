@@ -74,14 +74,20 @@
                                 'Ujung Bulu'        => 'Ujung Bulu',
                                 'Ujung Sabbang'     => 'Ujung Sabbang'
                                 ],
-                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region']) }}
+                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region', 'id' => 'region']) }}
                 
+                    <script>
+                        var e = document.getElementById("region");
+                        var strUser = e.options[e.selectedIndex].value;
+                        console.log(strUser);
+                    </script>
                 @if($errors->has('region'))
                 <div class="text-danger">
                     {{ $errors->first('region') }}
                 </div>
                 @endif
             </div>
+            
             
             <div class="form-group">
                 {{ Form::label('alamat','Alamat') }}
