@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 
-                {{ Form::open(['action' => 'TaxpayerController@store', 'enctype' => 'multipart/form-data']) }}
+                {{ Form::open(['action' => 'TaxpayerController@store', ]) }}
                 {{ Form::token() }}
                 
                 <div class="form-group">
@@ -47,7 +47,7 @@
                     'Bacukiki' => [
                                 'Galung Maloang'    => 'Galung Maloang',
                                 'Lemoe'             => 'Lemoe',
-                                'Lumpue'            => 'Lumpue',
+                                'Lompoe'            => 'Lompoe',
                                 'Watang Bacukiki'   => 'Watang Bacukiki',
                                 ],
                     'Bacukiki Barat' => [
@@ -191,14 +191,13 @@
                     </div>
                 @endif
             </div>
-        
-            {{ Form::close() }}
         </div>
         <div class="card-footer">
             <div class="form-group">
                 {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
                 <a href="/taxpayer" class="btn btn-light">Cancel</a>
             </div>
+            {{ Form::close() }}
         </div>
     </div>
 </div>

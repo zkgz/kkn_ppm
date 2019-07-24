@@ -13,6 +13,27 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan ZKGZ 24/07 - 16:30
+- Changed map type to non-labeled map
+- Added Legend to map
+- Added Hover effects to map
+
+## Tambahan ZKGZ 24/07 - 15:30
+- Fixed issue #9
+
+## Update Deo 24/07 - 12:48
+- Update maps from `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png` ke `https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png`
+
+## Tambahan ZKGZ 24/07 - 06:00
+- Rescaled min-height of `<main>`
+- Fixed Create view bug
+- Changed Welcome view route to HomeController
+- Map regions will now automatically change color based on their own pajak_per_bulan
+
+## Tambahan Deo 23/07 - 20:33
+- Fix footer bug.
+- Fix TaxpayerControlle@stat bug when no data in database.
+
 ## Tambahan ZKGZ 23/07 - 14:20
 - Changed `strict` value from `config/database.php` to `true`
 - Added stats page

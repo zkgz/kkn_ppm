@@ -1,10 +1,4 @@
     </div>
-
-    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
-        <div class="container text-center">
-            <small>Copyright &copy; Team KKN PPM Program Pemetaan Spasial Pendapatan Daerah Kota Parepare</small>
-        </div>
-    </footer>
     
     <!-- jQuery first, then Popper, then Bootstrap -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
@@ -17,7 +11,7 @@
 
     <!-- Script for datatables -->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function(){
             var table = $('#table').DataTable();
             $('#table tfoot th').each( function () {
                 var title = $(this).text();
@@ -37,6 +31,17 @@
             });
         });
     </script>
+
+    <footer class="py-4 bg-dark text-white-50">
+        <div class="text-center">
+            <small>Copyright &copy; Team KKN PPM Program Pemetaan Spasial Pendapatan Daerah Kota Parepare</small>
+        </div>
+    </footer>
+
+    <style>
+        main{
+            min-height: 540px;
+        }
+    </style>
 </body>
 </html>
-
