@@ -29,11 +29,11 @@
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
 
     <script>
-        
+        // https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
         var map = L.map('mapid', {gestureHandling: true}).setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
         var regionLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}");
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
@@ -72,8 +72,6 @@
         var parkirLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
         var taxpayerLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
         
-
-        
         var theMarker;
         
         // Untuk bin popup
@@ -83,8 +81,6 @@
         //         layer.bindPopup(feature.properties.popupContent);
         //     }
         // }
-
-        
 
         map.on('click', function(e) {
             let latitude = e.latlng.lat.toString().substring(0, 15);
@@ -101,6 +97,7 @@
             theMarker.bindPopup(popupContent)
             .openPopup();
         });
+
         function getColor(pajak) {
             return  pajak > 50000000 ? '#8c2d04' :
                     pajak > 25000000  ? '#d94801' :
@@ -112,7 +109,6 @@
                                    '#fff5eb';
         }
 
-
         var layer = {
             "KELURAHAN" : regionLayout,
             "TOTAL " : totalLayout,
@@ -122,11 +118,7 @@
             "PBB":taxpayerLayout
         };
 
-    
         L.control.layers(layer).addTo(map);
-
-        
-
 
     </script>
 </main>
