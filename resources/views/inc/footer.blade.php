@@ -40,7 +40,7 @@
 
     <style>
         main{
-            min-height: 480px;
+            min-height: 540px;
         }
     </style>
 </body>

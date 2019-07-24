@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome')->with('title', 'KKN PPM Unhas');
-});
+Route::get('/', 'HomeController@welcome');
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/taxpayer/stats', 'TaxpayerController@stats');
 Route::resource('taxpayer', 'TaxpayerController');
   
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/upload', 'TaxpayerController@upload');
 Route::post('/upload/proses', 'TaxpayerController@proses_upload');

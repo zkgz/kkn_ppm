@@ -143,7 +143,26 @@ class TaxpayerController extends Controller{
         foreach($tp as $key => $value) {
             $taxpayers[$value->region][$value->type] += $value->pajak_per_bulan;
         }
-        
+        $this->updateData($taxpayers);
         return view('taxpayer.stats', ['title' => 'Statistics', 'taxpayers' => $taxpayers]);
+    }
+
+    private function updateData($taxpayers) {
+        $jsonString = file_get_contents('parepare.json');
+        $decoded = json_decode($jsonString, true);
+        $i = 0;
+        foreach($decoded["features"] as & $kelurahan) {
+            $decoded["features"][$i]["properties"]["pajak_per_bulan"] = 0;
+            foreach($taxpayers as $taxpayer) {
+                if($decoded["features"][$i]["properties"]["NAME_4"] == $taxpayer['Region']) {
+                    $decoded["features"][$i]["properties"]["pajak_per_bulan"] = $taxpayer['Parking'] + $taxpayer['Hotel'] + $taxpayer['Property'] + $taxpayer['Restaurant'];
+                    break;
+                }
+            }
+            $i++;
+        }
+
+        $newJsonString = json_encode($decoded);
+        file_put_contents('taxpayer.json', $newJsonString);
     }
 }

@@ -23,7 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
 
     @include('inc.marker')
-    @include('inc.geojson')
+   
     <!-- Gesture Handling -->
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
@@ -32,15 +32,13 @@
         
         var map = L.map('mapid', {gestureHandling: true}).setView([-4.0185, 119.6710], 13);
         var baseUrl = "{{ url('/') }}";
-        var regionLayout = L.geoJson(statesData);
-
+        var regionLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}");
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
         axios.get('{{ route('api.taxpayer.index') }}')
         .then(function (response) {
-            console.log(response.data);
             L.geoJSON(response.data, {
                 pointToLayer: function(geoJsonPoint, latlng) {
                     return L.marker(latlng);
@@ -68,12 +66,12 @@
             };
         }
 
-        var totalLayout =L.geoJson(statesData, {style: style});
-        var restaurantLayout =L.geoJson(statesData, {style: style});
-        var hotelLayout =L.geoJson(statesData, {style: style});
-        var parkirLayout =L.geoJson(statesData, {style: style});
-        var taxpayerLayout =L.geoJson(statesData, {style: style});
-       
+        var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
+        var restaurantLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
+        var hotelLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
+        var parkirLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
+        var taxpayerLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style});
+        
 
         
         var theMarker;

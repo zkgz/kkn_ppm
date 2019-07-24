@@ -13,6 +13,11 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan ZKGZ 24/07 - 06:00
+- Rescaled min-height of `<main>`
+- Fixed Create view bug
+- Changed Welcome view route to HomeController
+- 
 ## Tambahan Deo 23/07 - 20:33
 - Fix footer bug.
 - Fix TaxpayerControlle@stat bug when no data in database.
