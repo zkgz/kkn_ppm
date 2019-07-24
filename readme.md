@@ -13,11 +13,14 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Update Deo 24/07 - 12:48
+- Update maps from `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png` ke `https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png`
+
 ## Tambahan ZKGZ 24/07 - 06:00
 - Rescaled min-height of `<main>`
 - Fixed Create view bug
 - Changed Welcome view route to HomeController
-- 
+
 ## Tambahan Deo 23/07 - 20:33
 - Fix footer bug.
 - Fix TaxpayerControlle@stat bug when no data in database.
