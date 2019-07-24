@@ -81,7 +81,11 @@
         //         layer.bindPopup(feature.properties.popupContent);
         //     }
         // }
-
+        map.on('popupclose', function(e) {
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+        });
         map.on('click', function(e) {
             let latitude = e.latlng.lat.toString().substring(0, 15);
             let longitude = e.latlng.lng.toString().substring(0, 15);
