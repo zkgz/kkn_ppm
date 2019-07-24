@@ -2,7 +2,7 @@
 @section('content')
 
 <main class="py-4 container">
-
+    
     <div class="card">
         <div class="card-body" id="mapid"></div>
     </div>
@@ -21,13 +21,13 @@
     crossorigin=""></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
-
+    
     @include('inc.marker')
-   
+    
     <!-- Gesture Handling -->
     <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css" type="text/css">
     <script src="//unpkg.com/leaflet-gesture-handling"></script>
-
+    
     <script>
         // https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
         var map = L.map('mapid', {gestureHandling: true}).setView([-4.0185, 119.6710], 13);
@@ -36,12 +36,37 @@
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
         }).addTo(map);
+        
+        var Icons = L.Icon.extend({
+            options: {
+                shadowUrl: '{{URL::asset("/map-marker/shadow-64.png")}}',
+                iconSize:     [32, 32],
+                shadowSize:   [32, 32],
+                iconAnchor:   [16, 32],
+                shadowAnchor: [16, 32],
+                popupAnchor:  [-3, -76]
+            }
+        });
+        var restaurantIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/restaurant-64.png")}}'}),
+            propertyIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/property-64.png")}}'}),
+            parkingIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/parking-64.png")}}'}),
+            hotelIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/hotel-64.png")}}'});
 
         axios.get('{{ route('api.taxpayer.index') }}')
         .then(function (response) {
             L.geoJSON(response.data, {
                 pointToLayer: function(geoJsonPoint, latlng) {
-                    return L.marker(latlng);
+                    console.log(geoJsonPoint.properties.type);
+                    if(geoJsonPoint.properties.type == "Property")
+                        return L.marker(latlng, {icon: propertyIcon});
+                    else if(geoJsonPoint.properties.type == "Restaurant")
+                        return L.marker(latlng, {icon: restaurantIcon});
+                    else if(geoJsonPoint.properties.type == "Parking")
+                        return L.marker(latlng, {icon: parkingIcon});
+                    else if(geoJsonPoint.properties.type == "Hotel")
+                        return L.marker(latlng, {icon: hotelIcon});
+                    else
+                        return L.marker(latlng);
                 }
             })
             .bindPopup(function (layer) {
@@ -54,7 +79,7 @@
         .catch(function (error) {
             console.log(error);
         });
-
+        
         function style(feature) {
             return {
                 fillColor: getColor(feature.properties.pajak_per_bulan),
@@ -65,7 +90,7 @@
                 fillOpacity: 0.7
             };
         }
-
+        
         var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
         var restaurantLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
         var hotelLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
@@ -74,19 +99,13 @@
         
         var theMarker;
         
-        // Untuk bin popup
-        // function onEachFeature(feature, layer) {
-        //     // does this feature have a property named popupContent?
-        //     if (feature.properties && feature.properties.popupContent) {
-        //         layer.bindPopup(feature.properties.popupContent);
-        //     }
-        // }
         map.on('popupclose', function(e) {
             if (theMarker != undefined) {
                 map.removeLayer(theMarker);
             };
         });
         map.on('click', function(e) {
+            console.log(e);
             let latitude = e.latlng.lat.toString().substring(0, 15);
             let longitude = e.latlng.lng.toString().substring(0, 15);
             
@@ -101,18 +120,18 @@
             theMarker.bindPopup(popupContent)
             .openPopup();
         });
-
+        
         function getColor(pajak) {
             return  pajak > 50000000 ? '#8c2d04' :
-                    pajak > 25000000  ? '#d94801' :
-                    pajak > 10000000  ? '#f16913' :
-                    pajak > 5000000  ? '#fd8d3c' :
-                    pajak > 2500000   ? '#fdae6b' :
-                    pajak > 1000000   ? '#fdd0a2' :
-                    pajak > 500000   ? '#fee6ce' :
-                                   '#fff5eb';
+            pajak > 25000000  ? '#d94801' :
+            pajak > 10000000  ? '#f16913' :
+            pajak > 5000000  ? '#fd8d3c' :
+            pajak > 2500000   ? '#fdae6b' :
+            pajak > 1000000   ? '#fdd0a2' :
+            pajak > 500000   ? '#fee6ce' :
+            '#fff5eb';
         }
-
+        
         var layer = {
             "KELURAHAN" : regionLayout,
             "TOTAL " : totalLayout,
@@ -121,39 +140,39 @@
             "PARKIR" : parkirLayout,
             "PBB":taxpayerLayout
         };
-
+        
         L.control.layers(layer).addTo(map);
-
-
+        
+        
         
         var legend = L.control({position: 'bottomright'});
         legend.onAdd = function (map) {
-
+            
             var div = L.DomUtil.create('div', 'info legend'),
-                grades = [0, 500000, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000],
-                labels = [];
-
+            grades = [0, 500000, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000],
+            labels = [];
+            
             // loop through our density intervals and generate a label with a colored square for each interval
             for (var i = 0; i < grades.length; i++) {
                 div.innerHTML +=
-                    '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
-                    grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
             }
-
+            
             return div;
         };
         legend.addTo(map);
-
+        
         function highlightFeature(e) {
             var layer = e.target;
-
+            
             layer.setStyle({
                 weight: 5,
                 color: '#666',
                 dashArray: '',
                 fillOpacity: 0.7
             });
-
+            
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
                 layer.bringToFront();
             }
@@ -171,7 +190,7 @@
         function zoomToFeature(e) {
             map.fitBounds(e.target.getBounds());
         }
-
+        
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature,
@@ -179,25 +198,24 @@
                 click: zoomToFeature
             });
         }
-
+        
         var info = L.control();
-
+        
         info.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
             this.update();
             return this._div;
         };
-
+        
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
-            console.log(props);
             this._div.innerHTML = '<h4>Pajak Per Bulan</h4>' +  (props ?
-                '<b>' + props.NAME_4 + '</b><br />' + props.pajak_per_bulan + ' pajak per bulan'
-                : 'Hover over a region');
+            '<b>' + props.NAME_4 + '</b><br />' + props.pajak_per_bulan + ' pajak per bulan'
+            : 'Hover over a region');
         };
-
+        
         info.addTo(map);
-
+        
     </script>
     <style>
         .legend i {

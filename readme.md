@@ -13,6 +13,10 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan ZKGZ 25/07 - 02:00
+- Added shadow map marker
+- Added custom icons
+
 ## Tambahan ZKGZ 24/07 - 16:30
 - Changed map type to non-labeled map
 - Added Legend to map
