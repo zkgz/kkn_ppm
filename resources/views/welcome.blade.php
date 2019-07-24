@@ -104,22 +104,22 @@
 
         function getColor(pajak) {
             return  pajak > 50000000 ? '#8c2d04' :
-                    pajak > 25000000  ? '#d94801' :
-                    pajak > 10000000  ? '#f16913' :
+                    pajak > 25000000 ? '#d94801' :
+                    pajak > 10000000 ? '#f16913' :
                     pajak > 5000000  ? '#fd8d3c' :
-                    pajak > 2500000   ? '#fdae6b' :
-                    pajak > 1000000   ? '#fdd0a2' :
+                    pajak > 2500000  ? '#fdae6b' :
+                    pajak > 1000000  ? '#fdd0a2' :
                     pajak > 500000   ? '#fee6ce' :
-                                   '#fff5eb';
+                                       '#fff5eb' ;
         }
 
         var layer = {
-            "KELURAHAN" : regionLayout,
-            "TOTAL " : totalLayout,
+            "KELURAHAN"  : regionLayout,
+            "TOTAL "     : totalLayout,
             "RESTAURANT" : restaurantLayout,
-            "HOTEL" : hotelLayout,
-            "PARKIR" : parkirLayout,
-            "PBB":taxpayerLayout
+            "HOTEL"      : hotelLayout,
+            "PARKIR"     : parkirLayout,
+            "PBB"        :taxpayerLayout
         };
 
         L.control.layers(layer).addTo(map);
