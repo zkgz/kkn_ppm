@@ -5,9 +5,13 @@
     
     <div class="card">
         <div class="card-body" id="mapid"></div>
+        <div id="mySidenav" class="sidenav bg-dark text-white">
     </div>
     <style>
-        #mapid { min-height: 500px; }
+        #mapid { 
+            min-height: 500px; 
+            transition: margin-left .5s;
+        }
     </style>
     @include('inc.leaflet.imports')
     @include('inc.leaflet.base')
@@ -15,6 +19,7 @@
     @include('inc.leaflet.layers')
     @include('inc.leaflet.icons')
     @include('inc.leaflet.maps')
+    @include('inc.leaflet.sidebar')
 
     @include('inc.leaflet.gesture')
     @include('inc.leaflet.removeMarkerOnPopupClose')
@@ -22,8 +27,9 @@
     @include('inc.leaflet.popupCreateTaxpayer')
     @include('inc.leaflet.legend')
     @include('inc.leaflet.hover')
-
-
+    
+    
+        
     <script>
         
         nonLabeledWorldStreet.addTo(map);
