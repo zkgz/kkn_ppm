@@ -2,11 +2,22 @@
 @section('content')
 
 <main class="py-4 container">
-    
-    <div class="card">
-        <div class="card-body" id="mapid"></div>
-        <div id="mySidenav" class="sidenav bg-dark text-white">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Maps</div>
+                <div class="card-body" id="mapid"></div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Information</div>
+                <div class="card-body" id="mapid"></div>
+            </div>
+        </div>
     </div>
+
     <style>
         #mapid { 
             min-height: 500px; 
@@ -15,21 +26,17 @@
     </style>
     @include('inc.leaflet.imports')
     @include('inc.leaflet.base')
-
     @include('inc.leaflet.layers')
     @include('inc.leaflet.icons')
     @include('inc.leaflet.maps')
     @include('inc.leaflet.sidebar')
-
     @include('inc.leaflet.gesture')
     @include('inc.leaflet.removeMarkerOnPopupClose')
     @include('inc.leaflet.style')
     @include('inc.leaflet.popupCreateTaxpayer')
     @include('inc.leaflet.legend')
     @include('inc.leaflet.hover')
-    
-    
-        
+
     <script>
         
         nonLabeledWorldStreet.addTo(map);

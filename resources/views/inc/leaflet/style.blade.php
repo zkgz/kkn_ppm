@@ -13,10 +13,12 @@
         box-shadow: 0 0 15px rgba(0,0,0,0.2);
         border-radius: 5px;
     }
+
     .info h4 {
         margin: 0 0 5px;
         color: #777;
     }
+    
     .leaflet-popup-pane, .leaflet-control {
         cursor: auto;
     }

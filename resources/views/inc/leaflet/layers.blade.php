@@ -34,8 +34,7 @@
         //infosidebar.updatesidebar(layer.feature.properties);
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("mapid").style.marginLeft = "250px";
-        info.updatesidebar(layer.feature.properties);
-        
+        info.updatesidebar(layer.feature.properties); 
     }
 
     function highlightNear(e) {
@@ -51,7 +50,6 @@
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
         }
-        
     }
 
     function resetHighlight(e) {
@@ -65,7 +63,6 @@
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mapid").style.marginLeft = "0";
         info.updatesidebar();
-       
     }
 
     function closesidebar(){
@@ -87,6 +84,7 @@
     function zoomToFeature(e) {
         map.fitBounds(e.target.getBounds());
     }
+
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover : highlightNear,
@@ -94,6 +92,7 @@
             click: highlightFeature
         });
     }
+
     function style(feature) {
         return {
             fillColor: getColor(feature.properties.pajak_per_bulan),
@@ -104,4 +103,5 @@
             fillOpacity: 0.7
         };
     }
+    
 </script>

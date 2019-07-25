@@ -108,7 +108,7 @@
                         @if(isset($_GET["latitude"]))
                         {{ Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Latitude', 'id' => 'latitude']) }}     
                         @else
-                        {{ Form::number('lat', -4.0185, ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude']) }}                  
+                        {{ Form::number('lat', '-4.0', ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude']) }}                  
                         @endif                  
                         
                         @if($errors->has('lat'))
@@ -126,7 +126,7 @@
                         @if(isset($_GET["longitude"]))
                         {{ Form::number('long', $_GET["longitude"], ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'longitude', 'id' => 'longitude']) }}     
                         @else
-                        {{ Form::number('long', 119.6710, ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude']) }}                  
+                        {{ Form::number('long', '119.6', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude']) }}                  
                         @endif                  
                         
                         @if($errors->has('long'))
