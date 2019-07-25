@@ -5,7 +5,7 @@
     <div class="col-md-5">
         <div class="card mt-5">
             <div class="card-header text-center">
-                Tambah Data Restoran
+                Add New Data
             </div>
             <div class="card-body">
                 
