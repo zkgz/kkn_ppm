@@ -13,6 +13,10 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 
+## Tambahan Deo 15/07 - 17:34
+- Add minZoom
+- Change welcome view
+
 ## Tambahan ZKGZ 25/07 - 08:00
 - Refactor leaflet directories
 - Minor bug fix
