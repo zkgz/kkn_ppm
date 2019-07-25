@@ -3,18 +3,18 @@
     var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
     var restaurantLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
     var hotelLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
-    var parkirLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
-    var taxpayerLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
+    var parkingLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
+    var propertyLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
     
     var layer = {
         "KELURAHAN"  : regionLayout,
         "TOTAL "     : totalLayout,
         "RESTAURANT" : restaurantLayout,
         "HOTEL"      : hotelLayout,
-        "PARKIR"     : parkirLayout,
-        "PBB"        :taxpayerLayout
+        "PARKIR"     : parkingLayout,
+        "PBB"        : propertyLayout
     };
-    L.control.layers(layer).addTo(map);
+    L.control.layers(layer, overlayMaps).addTo(map);
     
     function highlightFeature(e) {
         var layer = e.target;
@@ -36,8 +36,8 @@
         totalLayout.resetStyle(e.target);
         restaurantLayout.resetStyle(e.target);
         hotelLayout.resetStyle(e.target);
-        parkirLayout.resetStyle(e.target);
-        taxpayerLayout.resetStyle(e.target);
+        parkingLayout.resetStyle(e.target);
+        propertyLayout.resetStyle(e.target);
         info.update();
     }
     function zoomToFeature(e) {
