@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@welcome');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/taxpayer/stats', 'TaxpayerController@stats');
+Route::get('/taxpayer/import', 'TaxpayerController@import');
 Route::resource('taxpayer', 'TaxpayerController');
   
 Auth::routes();

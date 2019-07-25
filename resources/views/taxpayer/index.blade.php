@@ -15,7 +15,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Type</th>
-                        <th>Address</th>
+                        <th>Region</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -24,7 +24,7 @@
                     <tr>
                         <td>{{ $rs->name }}</td>
                         <td>{{ $rs->type }}</td>
-                        <td>{{ $rs->address }}</td>
+                        <td>{{ $rs->region }}</td>
                         <td>
                             <a href="/taxpayer/{{ $rs->id }}">Details</a>
                         </td>

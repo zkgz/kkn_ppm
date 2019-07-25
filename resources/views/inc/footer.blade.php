@@ -43,8 +43,11 @@
     </footer>
     
     <style>
+        main {
+            min-height: 530px;
+        }
         .main-card{
-            min-height: 540px;
+            min-height: 530px;
         }
         .legend i {
             width: 18px;
