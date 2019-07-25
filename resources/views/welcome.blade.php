@@ -2,12 +2,27 @@
 @section('content')
 
 <main class="py-4 container">
-    
-    <div class="card">
-        <div class="card-body" id="mapid"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Maps</div>
+                <div class="card-body" id="mapid"></div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Information</div>
+                <div class="card-body" id="mapid"></div>
+            </div>
+        </div>
     </div>
+    
     <style>
-        #mapid { min-height: 500px; }
+        #mapid { 
+            min-height: 500px; 
+            transition: margin-left .5s;
+        }
     </style>
     @include('inc.leaflet.imports')
     @include('inc.leaflet.icons')

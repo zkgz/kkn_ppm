@@ -18,6 +18,10 @@ Please wait while we are finishing our work
 - Changed legend's color hue
 - Added toggle for markers
 
+## Tambahan Deo 15/07 - 17:34
+- Add minZoom
+- Change welcome view
+
 ## Tambahan ZKGZ 25/07 - 08:00
 - Refactor leaflet directories
 - Minor bug fix

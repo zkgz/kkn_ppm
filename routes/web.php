@@ -19,6 +19,5 @@ Route::resource('taxpayer', 'TaxpayerController');
   
 Auth::routes();
 
-
 Route::get('/upload', 'TaxpayerController@upload');
 Route::post('/upload/proses', 'TaxpayerController@proses_upload');

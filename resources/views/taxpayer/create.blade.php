@@ -74,14 +74,20 @@
                                 'Ujung Bulu'        => 'Ujung Bulu',
                                 'Ujung Sabbang'     => 'Ujung Sabbang'
                                 ],
-                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region']) }}
+                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region', 'id' => 'region']) }}
                 
+                    <script>
+                        var e = document.getElementById("region");
+                        var strUser = e.options[e.selectedIndex].value;
+                        console.log(strUser);
+                    </script>
                 @if($errors->has('region'))
                 <div class="text-danger">
                     {{ $errors->first('region') }}
                 </div>
                 @endif
             </div>
+            
             
             <div class="form-group">
                 {{ Form::label('alamat','Alamat') }}
@@ -102,7 +108,7 @@
                         @if(isset($_GET["latitude"]))
                         {{ Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Latitude', 'id' => 'latitude']) }}     
                         @else
-                        {{ Form::number('lat', -4.0185, ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude']) }}                  
+                        {{ Form::number('lat', '-4.0', ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude']) }}                  
                         @endif                  
                         
                         @if($errors->has('lat'))
@@ -120,7 +126,7 @@
                         @if(isset($_GET["longitude"]))
                         {{ Form::number('long', $_GET["longitude"], ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'longitude', 'id' => 'longitude']) }}     
                         @else
-                        {{ Form::number('long', 119.6710, ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude']) }}                  
+                        {{ Form::number('long', '119.6', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude']) }}                  
                         @endif                  
                         
                         @if($errors->has('long'))
