@@ -21,14 +21,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
+    public function index(){
         return view('home', ['title' => 'Home',]);
     }
+
     public function welcome() {
         $this->stats();
         return view('Welcome', ['title' => 'KKN PPM Unhas']);
     }
+    
     public function stats() {
         $tp = Taxpayer::all();
 
