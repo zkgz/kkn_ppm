@@ -3,26 +3,20 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card">
+        <div class="card main-card">
             <div class="card-header text-center">Maps</div>
             <div class="card-body" id="mapid"></div>
         </div>
     </div>
     
     <div class="col-md-6">
-        <div class="card">
+        <div class="card main-card">
             <div class="card-header text-center">Information</div>
             <canvas id="myChart"></canvas>
         </div>
     </div>
 </div>
 
-<style>
-    #mapid { 
-        min-height: 500px; 
-        transition: margin-left .5s;
-    }
-</style>
 @include('inc.leaflet.imports')
 @include('inc.leaflet.icons')
 <script>
@@ -71,9 +65,10 @@
         hotelMarkers = L.layerGroup(hotelMarkers);
         parkingMarkers = L.layerGroup(parkingMarkers);
         
-        var nonLabeledWorldStreet = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-            maxZoom: 19,
-            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+        var nonLabeledWorldStreet = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: 'abcd',
+            maxZoom: 19
         });
         var labeledWorldStreet = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -82,7 +77,7 @@
         
         var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
         var map = L.map('mapid', {
-            layers: [nonLabeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers]
+            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers]
         }).setView(mapCenter, 12);
         
         var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
@@ -179,30 +174,6 @@
     
     
 </script>
-
-<style>
-    .legend i {
-        width: 18px;
-        height: 18px;
-        float: left;
-        margin-right: 8px;
-        opacity: 0.7;
-    }
-    .info {
-        padding: 6px 8px;
-        background: white;
-        background: rgba(255,255,255,0.8);
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        border-radius: 5px;
-    }
-    .info h4 {
-        margin: 0 0 5px;
-        color: #777;
-    }
-    .leaflet-popup-pane, .leaflet-control {
-        cursor: auto;
-    }
-</style>
 
 
 @endsection

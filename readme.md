@@ -14,7 +14,12 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
 
-## Tambahan ZKGZ 25/07 - 19:40
+## Tambahan ZKGZ 25/07 - 22:00
+- Changed unlabeled map type
+- Moved `<style>` elements from welcome view to footer
+- Added dependency `maatwebsite/excel` (run `composer install`)
+
+## Tambahan ZKGZ 25/07 - 21:15
 - Added `chart.js` CDN
 - Added `chart.js` documentation to Documentations section
 - Added simple graph to welcome view

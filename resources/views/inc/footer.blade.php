@@ -4,14 +4,14 @@
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
+    
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
-
+    
     <!-- Datatable -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
     <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}"></script>
-
+    
     <!-- Script for Datatables -->
     <script>
         $(document).ready(function(){
@@ -34,18 +34,41 @@
             });
         });
     </script>
-
+    
+    <!-- Footer Bar -->
     <footer class="py-4 bg-dark text-white-50">
         <div class="text-center">
             <small>Copyright &copy; Team KKN PPM Program Pemetaan Spasial Pendapatan Daerah Kota Parepare</small>
         </div>
     </footer>
-
+    
     <style>
-        main{
+        .main-card{
             min-height: 540px;
         }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+        .info {
+            padding: 6px 8px;
+            background: white;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        .leaflet-popup-pane, .leaflet-control {
+            cursor: auto;
+        }
     </style>
+    
     <script>
         var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
