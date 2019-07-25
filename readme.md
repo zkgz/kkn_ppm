@@ -12,6 +12,12 @@ Please wait while we are finishing our work
 - Form documentation from [LaravelCollective](https://github.com/LaravelCollective/docs/blob/5.6/html.md)
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
+- Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
+
+## Tambahan ZKGZ 25/07 - 19:40
+- Added `chart.js` CDN
+- Added `chart.js` documentation to Documentations section
+- Added simple graph to welcome view
 
 ## Tambahan ZKGZ 25/07 - 19:40
 - Added layer group for each type of marker
