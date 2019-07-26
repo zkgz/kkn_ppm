@@ -227,7 +227,7 @@
         document.getElementById("taxpayer-info").innerHTML = '<h4>Wajib Pajak</h4>' +  
         marker.info.name + "<br/>" + 
         marker.info.type + "<br/>" + 
-        "kelurahan : " + marker.info.region + "<br/>" + 
+        "Kelurahan : " + marker.info.region + "<br/>" + 
         "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
         "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
     }
