@@ -3,15 +3,19 @@
         maxZoom: 19,
         attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
     });
+    
     var labeledWorldStreet = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
+
     var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
+    
     var map = L.map('mapid', {
         gestureHandling: true, 
         layers: [nonLabeledWorldStreet]
     })
+
     .setView(mapCenter, 12);
     var baseUrl = "{{ url('/') }}";
     var baseMaps = {
@@ -19,5 +23,4 @@
         "Streets": labeledWorldStreet
     };
 
-    
 </script>
