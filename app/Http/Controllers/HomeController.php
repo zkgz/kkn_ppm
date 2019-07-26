@@ -26,8 +26,8 @@ class HomeController extends Controller
     }
 
     public function welcome() {
-        $this->stats();
-        return view('Welcome', ['title' => 'KKN PPM Unhas']);
+        $taxpayers = $this->stats();
+        return view('Welcome', ['title' => 'KKN PPM Unhas', 'region' => $taxpayers]);
     }
     
     public function stats() {
@@ -48,6 +48,7 @@ class HomeController extends Controller
             $taxpayers[$value->region][$value->type] += $value->pajak_per_bulan;
         }
         $this->updateData($taxpayers);
+        return $taxpayers;
     }
 
     private function updateData($taxpayers) {
@@ -57,10 +58,20 @@ class HomeController extends Controller
         foreach($decoded["features"] as & $kelurahan) {
             $decoded["features"][$i]["properties"]["pajak_per_bulan"] = 0;
             $decoded["features"][$i]["properties"]["potensi_pajak_per_bulan"] = 0;
+
+            $decoded["features"][$i]["properties"]["hotel"] = 0;
+            $decoded["features"][$i]["properties"]["property"] = 0;
+            $decoded["features"][$i]["properties"]["parking"] = 0;
+            $decoded["features"][$i]["properties"]["restaurant"] = 0;
             foreach($taxpayers as $taxpayer) {
                 if($decoded["features"][$i]["properties"]["NAME_4"] == $taxpayer['Region']) {
                     $decoded["features"][$i]["properties"]["pajak_per_bulan"] = $taxpayer['Parking'] + $taxpayer['Hotel'] + $taxpayer['Property'] + $taxpayer['Restaurant'];
                     $decoded["features"][$i]["properties"]["potensi_pajak_per_bulan"] = $taxpayer['potensi_pajak_per_bulan'];
+
+                    $decoded["features"][$i]["properties"]["hotel"] = $taxpayer['Hotel'];
+                    $decoded["features"][$i]["properties"]["property"] = $taxpayer['Property'];
+                    $decoded["features"][$i]["properties"]["parking"] = $taxpayer['Parking'];
+                    $decoded["features"][$i]["properties"]["restaurant"] = $taxpayer['Restaurant'];
                     break;
                 }
             }

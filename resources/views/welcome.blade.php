@@ -119,7 +119,7 @@
             // Hover only
             info.update(layer.feature.properties);
             
-            createChart(layer.feature.properties);
+            regionCreateChart(layer.feature.properties);
         }
         
         function resetHighlight(e) {
@@ -197,6 +197,10 @@
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
             props.NAME_4 + "<br/>" +
             "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
+            "Hotel : " + props.hotel + "<br/>" +
+            "Restoran : " + props.restaurant + "<br/>" +
+            "Parkir : " + props.parking + "<br/>" +
+            "PBB : " + props.property + "<br/>" +
             "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
             : 'Arahkan kursor ke suatu wilayah');
         };
@@ -232,9 +236,44 @@
         "Kelurahan : " + marker.info.region + "<br/>" + 
         "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
         "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
-        createChart(marker.info);
+        markerCreateChart(marker.info);
     }
-    function createChart(props) {
+    function regionCreateChart(props) {
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Hotel', 'Restaurant', 'Property', 'Parking'],
+                datasets: [{
+                    label: 'Pajak',
+                    data: [props.hotel, props.restaurant, props.property, props.parking],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    }
+    function markerCreateChart(props) {
         var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
                 type: 'bar',
