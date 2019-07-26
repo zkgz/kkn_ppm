@@ -47,7 +47,7 @@
                     popupContent = popupContent.concat('<br><a href="/taxpayer/', geoJsonPoint.properties.id , '">View Details</a>');
                     return popupContent;
                 });
-                
+                marker.info = geoJsonPoint.properties;
                 if(geoJsonPoint.properties.type == "Restaurant")
                 restaurantMarkers.push(marker);
                 else if(geoJsonPoint.properties.type == "Hotel")
@@ -61,10 +61,10 @@
             
         });
         
-        restaurantMarkers = L.layerGroup(restaurantMarkers);
-        propertyMarkers = L.layerGroup(propertyMarkers);
-        hotelMarkers = L.layerGroup(hotelMarkers);
-        parkingMarkers = L.layerGroup(parkingMarkers);
+        restaurantMarkers = L.featureGroup(restaurantMarkers).on('mouseover', markerClick);
+        propertyMarkers = L.featureGroup(propertyMarkers).on('mouseover', markerClick);
+        hotelMarkers = L.featureGroup(hotelMarkers).on('mouseover', markerClick);
+        parkingMarkers = L.featureGroup(parkingMarkers).on('mouseover', markerClick);
         
         var nonLabeledWorldStreet = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -164,8 +164,11 @@
         
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
-            document.getElementById("taxpayer-info").innerHTML = '<h4>Testing</h4>' +  (props ?
-            props.NAME_4: 'Hover over a region');
+            console.log(props);
+            document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
+            props.NAME_4 + "<br/>" +
+            "Pajak per bulan : " + props.pajak_per_bulan + "<br/>"
+            : 'Hover over a region');
         };
         
         info.addTo(map);
@@ -191,7 +194,14 @@
         colors[0] ;
     }
     
-    
+    function markerClick(event) {
+        var marker = event.layer;
+        document.getElementById("taxpayer-info").innerHTML = '<h4>Wajib Pajak</h4>' +  
+        marker.info.name + "<br/>" + 
+        marker.info.type + "<br/>" + 
+        "kelurahan : " + marker.info.region + "<br/>" + 
+        "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>";
+    }
 </script>
 
 
