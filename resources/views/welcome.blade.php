@@ -20,6 +20,8 @@
 
 @include('inc.leaflet.imports')
 @include('inc.leaflet.icons')
+@include('inc.leaflet.gesture')
+
 <script>
     var restaurantMarkers = [];
     var propertyMarkers = [];
@@ -58,7 +60,6 @@
                 parkingMarkers.push(marker);
                 //marker.addTo(map);
             }
-            
         });
         
         restaurantMarkers = L.featureGroup(restaurantMarkers).on('mouseover', markerClick);
@@ -71,14 +72,16 @@
             subdomains: 'abcd',
             maxZoom: 19
         });
+
         var labeledWorldStreet = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
+            gestureHandling: true,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
         
         var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
         var map = L.map('mapid', {
-            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers]
+            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers],
         }).setView(mapCenter, 12);
         
         var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
@@ -88,6 +91,7 @@
             "Non-labeled Streets": nonLabeledWorldStreet,
             "Streets": labeledWorldStreet
         };
+
         //checkboxes
         var overlayMaps = {
             "Restaurant": restaurantMarkers,
@@ -115,6 +119,7 @@
             // Hover only
             info.update(layer.feature.properties);
         }
+
         function resetHighlight(e) {
             totalLayout.resetStyle(e.target);
             // Hover only
@@ -146,6 +151,7 @@
                 click: addMarker
             });
         }
+
         function style(feature) {
             return {
                 fillColor: getColor(feature.properties.pajak_per_bulan),
@@ -183,7 +189,7 @@
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
             props.NAME_4 + "<br/>" +
             "Pajak per bulan : " + props.pajak_per_bulan + "<br/>"
-            : 'Hover over a region');
+            : 'Arahkan kursor ke suatu wilayah');
         };
         
         info.addTo(map);

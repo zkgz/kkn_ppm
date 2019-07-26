@@ -2,14 +2,14 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-5">
+    <div class="col-md-8">
         <div class="card mt-5">
             <div class="card-header text-center">
                 Tambah Data Restoran
             </div>
             <div class="card-body">
                 
-                {{ Form::open(['action' => 'TaxpayerController@store', ]) }}
+                {{ Form::open(['action' => 'TaxpayerController@store', 'enctype' => 'multipart/form-data']) }}
                 {{ Form::token() }}
                 
                 <div class="form-group">
