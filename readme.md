@@ -14,6 +14,9 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
 
+## Tambahan ZKGZ 26/07 - 15:30
+- Added potensi pajak per bulan to hover info
+
 ## Tambahan ZKGZ 26/07 - 15:12
 - Refixed issue #9
 

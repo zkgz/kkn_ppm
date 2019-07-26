@@ -194,7 +194,8 @@
         info.update = function (props) {
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
             props.NAME_4 + "<br/>" +
-            "Pajak per bulan : " + props.pajak_per_bulan + "<br/>"
+            "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
+            "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
             : 'Arahkan kursor ke suatu wilayah');
         };
         
@@ -227,7 +228,8 @@
         marker.info.name + "<br/>" + 
         marker.info.type + "<br/>" + 
         "kelurahan : " + marker.info.region + "<br/>" + 
-        "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>";
+        "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
+        "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
     }
     
 </script>

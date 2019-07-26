@@ -41,6 +41,7 @@ class HomeController extends Controller
             $taxpayers[$value->region]['Property'] = 0;
             $taxpayers[$value->region]['Hotel'] = 0;
             $taxpayers[$value->region]['Region'] = $value->region;
+            $taxpayers[$value->region]['potensi_pajak_per_bulan'] = $value->potensi_pajak_per_bulan;
         }
         
         foreach($tp as $key => $value) {
@@ -55,9 +56,11 @@ class HomeController extends Controller
         $i = 0;
         foreach($decoded["features"] as & $kelurahan) {
             $decoded["features"][$i]["properties"]["pajak_per_bulan"] = 0;
+            $decoded["features"][$i]["properties"]["potensi_pajak_per_bulan"] = 0;
             foreach($taxpayers as $taxpayer) {
                 if($decoded["features"][$i]["properties"]["NAME_4"] == $taxpayer['Region']) {
                     $decoded["features"][$i]["properties"]["pajak_per_bulan"] = $taxpayer['Parking'] + $taxpayer['Hotel'] + $taxpayer['Property'] + $taxpayer['Restaurant'];
+                    $decoded["features"][$i]["properties"]["potensi_pajak_per_bulan"] = $taxpayer['potensi_pajak_per_bulan'];
                     break;
                 }
             }
