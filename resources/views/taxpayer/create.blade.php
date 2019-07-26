@@ -2,19 +2,19 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-md-5">
+    <div class="col-md-8">
         <div class="card mt-5">
             <div class="card-header text-center">
                 Add New Data
             </div>
             <div class="card-body">
                 
-                {{ Form::open(['action' => 'TaxpayerController@store', ]) }}
+                {{ Form::open(['action' => 'TaxpayerController@store', 'enctype' => 'multipart/form-data']) }}
                 {{ Form::token() }}
                 
                 <div class="form-group">
                     {{ Form::label('name','Name') }}
-                    {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name']) }}                  
+                    {{ Form::text('name', isset($_GET["region"])? $_GET["region"]:null, ['class' => 'form-control', 'placeholder' => 'Name']) }}                  
                     
                     @if($errors->has('name'))
                     <div class="text-danger">
@@ -74,7 +74,7 @@
                                 'Ujung Bulu'        => 'Ujung Bulu',
                                 'Ujung Sabbang'     => 'Ujung Sabbang'
                                 ],
-                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region', 'id' => 'region']) }}
+                    ], isset($_GET["region"])? $_GET["region"]:null, ['class' => 'form-control', 'placeholder' => 'Choose Region', 'id' => 'region']) }}
                 
                     <script>
                         var e = document.getElementById("region");
@@ -91,7 +91,7 @@
             
             <div class="form-group">
                 {{ Form::label('alamat','Alamat') }}
-                {{ Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Alamat', 'rows' => '4']) }}                  
+                {{ Form::textarea('address', isset($_GET["region"])? $_GET["region"]:null, ['class' => 'form-control', 'placeholder' => 'Alamat', 'rows' => '4']) }}                  
                 
                 @if($errors->has('address'))
                 <div class="text-danger">
@@ -108,7 +108,7 @@
                         @if(isset($_GET["latitude"]))
                         {{ Form::number('lat', $_GET["latitude"], ['class' => 'form-control', 'step' => 'any', 'placeholder' => 'Latitude', 'id' => 'latitude']) }}     
                         @else
-                        {{ Form::number('lat', -4.0185, ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude']) }}                  
+                        {{ Form::number('lat', '-4.0', ['class' => 'form-control', 'placeholder' => 'Latitude',  'step' => 'any', 'id' => 'latitude']) }}                  
                         @endif                  
                         
                         @if($errors->has('lat'))
@@ -126,7 +126,7 @@
                         @if(isset($_GET["longitude"]))
                         {{ Form::number('long', $_GET["longitude"], ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'longitude', 'id' => 'longitude']) }}     
                         @else
-                        {{ Form::number('long', 119.6710, ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude']) }}                  
+                        {{ Form::number('long', '119.6', ['class' => 'form-control',  'step' => 'any', 'placeholder' => 'Longitude', 'id' => 'longitude']) }}                  
                         @endif                  
                         
                         @if($errors->has('long'))

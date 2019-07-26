@@ -4,8 +4,8 @@
     var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
     var restaurantLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
     var hotelLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
-    var parkirLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
-    var taxpayerLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
+    var parkingLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
+    var propertyLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
     
     var layer = {
         "NONE"       : defaultLayout.addTo(map),
@@ -13,10 +13,10 @@
         "TOTAL "     : totalLayout,
         "RESTAURANT" : restaurantLayout,
         "HOTEL"      : hotelLayout,
-        "PARKIR"     : parkirLayout,
-        "PBB"        :taxpayerLayout
+        "PARKIR"     : parkingLayout,
+        "PBB"        : propertyLayout
     };
-    L.control.layers(layer).addTo(map);
+    L.control.layers(layer, overlayMaps).addTo(map);
     
     function highlightFeature(e) {
         var layer = e.target;
@@ -34,10 +34,9 @@
         //infosidebar.updatesidebar(layer.feature.properties);
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("mapid").style.marginLeft = "250px";
-        info.updatesidebar(layer.feature.properties);
-        
+        info.updatesidebar(layer.feature.properties); 
     }
-
+    
     function highlightNear(e) {
         var layer = e.target;
         
@@ -51,42 +50,41 @@
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
         }
-        
     }
-
+    
     function resetHighlight(e) {
         defaultLayout.resetStyle(e.target);
         regionLayout.resetStyle(e.target);
         totalLayout.resetStyle(e.target);
         restaurantLayout.resetStyle(e.target);
         hotelLayout.resetStyle(e.target);
-        parkirLayout.resetStyle(e.target);
+        parkingLayout.resetStyle(e.target);
         taxpayerLayout.resetStyle(e.target);
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mapid").style.marginLeft = "0";
         info.updatesidebar();
-       
     }
-
+    
     function closesidebar(){
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("mapid").style.marginLeft = "0";
         info.updatesidebar();
     }
-
+    
     function resetLine(e) {
         defaultLayout.resetStyle(e.target);
         regionLayout.resetStyle(e.target);
         totalLayout.resetStyle(e.target);
         restaurantLayout.resetStyle(e.target);
         hotelLayout.resetStyle(e.target);
-        parkirLayout.resetStyle(e.target);
+        parkingLayout.resetStyle(e.target);
         taxpayerLayout.resetStyle(e.target);
     }
-
+    
     function zoomToFeature(e) {
         map.fitBounds(e.target.getBounds());
     }
+    
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover : highlightNear,
@@ -94,6 +92,7 @@
             click: highlightFeature
         });
     }
+    
     function style(feature) {
         return {
             fillColor: getColor(feature.properties.pajak_per_bulan),
@@ -104,4 +103,5 @@
             fillOpacity: 0.7
         };
     }
+    
 </script>

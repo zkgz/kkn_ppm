@@ -17,6 +17,7 @@
     var map = L.map('mapid', {gestureHandling: true}).setView(mapCenter, 12);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        gestureHandling: true,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     

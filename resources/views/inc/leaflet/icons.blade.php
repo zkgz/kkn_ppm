@@ -11,7 +11,7 @@
     });
     
     var restaurantIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/restaurant-64.png")}}'}),
-    propertyIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/property-64.png")}}'}),
-    parkingIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/parking-64.png")}}'}),
-    hotelIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/hotel-64.png")}}'});
+    propertyIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/property-64-3.png")}}'}),
+    parkingIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/parking-64-2.png")}}'}),
+    hotelIcon = new Icons({iconUrl: '{{URL::asset("/map-marker/hotel-64-4.png")}}'});
 </script>

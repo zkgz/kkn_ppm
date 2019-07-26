@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Taxpayer;
 use File;
+use App\Imports\TaxpayersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TaxpayerController extends Controller{
 
@@ -14,7 +16,7 @@ class TaxpayerController extends Controller{
     }
 
     public function index(){
-        $taxpayer = Taxpayer::paginate(25);
+        $taxpayer = Taxpayer::all();
         return view('taxpayer.index', ['title' => 'Taxpayer', 'taxpayer' => $taxpayer,]);
     }
 
@@ -164,5 +166,10 @@ class TaxpayerController extends Controller{
 
         $newJsonString = json_encode($decoded);
         file_put_contents('taxpayer.json', $newJsonString);
+    }
+    public function import() {
+        \Excel::import(new TaxpayersImport, public_path('PajakBumiBangunan.xlsx'));
+        
+        return redirect('/')->with('success', 'All good!');
     }
 }

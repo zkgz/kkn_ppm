@@ -12,6 +12,65 @@ Please wait while we are finishing our work
 - Form documentation from [LaravelCollective](https://github.com/LaravelCollective/docs/blob/5.6/html.md)
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
+- Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
+
+## Tambahan ZKGZ 26/07 - 15:30
+- Added potensi pajak per bulan to hover info
+
+## Tambahan ZKGZ 26/07 - 15:12
+- Refixed issue #9
+
+## Tambahan ZKGZ 26/07 - 15:08
+- Updated `.gitignore`
+- Fixed geojson typo for some region
+- Automatically fill region form if you are creating taxpayers from the welcome view
+
+## Tambahan Deo 26/06 - 15:01
+- Fix add images in create.blade.php
+- Add footer text
+
+## Tambahan Deo 26/07 - 14:46
+- Fix some bugs (gestureHandling)
+- Change form size (create/edit)
+- Change "Tambahkan Restoran Baru" to "New Taxpayer"
+
+## Tambahan ZKGZ 26/07 - 10:30
+- Added more marker color for each type
+
+## Tambahan ZKGZ 26/07 - 10:12
+- Changed marker color for each type
+
+## Tambahan ZKGZ 26/07 - 10:00
+- Added hover info of markers to welcome view (WIP)
+- Added more hover info of layers to welcome view (WIP)
+
+## Tambahan ZKGZ 26/07 - 08:30
+- Added hover info of layers to welcome view (WIP)
+- Changed import order
+
+## Tambahan ZKGZ 26/07 - 06:15
+- Added import feature (`/taxpayer/import`)
+- Fixed taxpayer index view only showing maximum of 25 rows
+- Taxpayer index view now shows region instead of address
+
+## Tambahan ZKGZ 25/07 - 22:00
+- Changed unlabeled map type
+- Moved `<style>` elements from welcome view to footer
+- Added dependency `maatwebsite/excel` (run `composer install`)
+
+## Tambahan ZKGZ 25/07 - 21:15
+- Added `chart.js` CDN
+- Added `chart.js` documentation to Documentations section
+- Added simple graph to welcome view
+
+## Tambahan ZKGZ 25/07 - 19:40
+- Added layer group for each type of marker
+- Changed legend's color hue
+- Added toggle for markers
+
+## Tambahan Deo 15/07 - 17:34
+- Add minZoom
+- Change welcome view
 
 ## Tambahan ZKGZ 25/07 - 08:00
 - Refactor leaflet directories
