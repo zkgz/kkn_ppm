@@ -168,7 +168,7 @@
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
             props.NAME_4 + "<br/>" +
             "Pajak per bulan : " + props.pajak_per_bulan + "<br/>"
-            : 'Hover over a region');
+            : 'Arahkan kursor ke suatu wilayah');
         };
         
         info.addTo(map);
