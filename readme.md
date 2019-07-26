@@ -14,6 +14,9 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
 
+## Tambahan Deo 26/07 - 14:46
+- Fix some bugs (gestureHandling)
+
 ## Tambahan ZKGZ 26/07 - 10:30
 - Added more marker color for each type
 
