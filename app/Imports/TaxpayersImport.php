@@ -16,14 +16,14 @@ class TaxpayersImport implements ToModel
     {
         return new Taxpayer([
             'name'                       => $row[0],
-            'type'                       => 'Property',
-            'region'                     => $row[2],
-            'address'                    => $row[1],
-            'lat'                        => $row[3],
-            'long'                       => $row[4],
-            'pajak_per_bulan'            => $row[5],
-            'potensi_pajak_per_bulan'    => $row[6],
-            'information'                => $row[7],
+            'type'                       => $row[1],
+            'address'                    => $row[2],
+            'region'                     => $row[3],
+            'lat'                        => $row[4],
+            'long'                       => $row[5],
+            'pajak_per_bulan'            => $row[6],
+            'potensi_pajak_per_bulan'    => $row[7],
+            'information'                => $row[8],
             'photo'                      => null
         ]);
         

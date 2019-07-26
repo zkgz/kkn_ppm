@@ -78,13 +78,13 @@
             gestureHandling: true,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
-        
+
+        var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
         var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
         var map = L.map('mapid', {
-            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers],
+            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers, totalLayout],
         }).setView(mapCenter, 12);
         
-        var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
         
         //radio button
         var baseMaps = {
@@ -209,7 +209,7 @@
     //From Lighter to Darker color
     var colors = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#990000'];
     //From Low to High
-    var grades = [0, 500000, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000]
+    var grades = [0, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000, 100000000]
     
     function getColor(pajak) {
         return  pajak > grades[7] ? colors[7] :
