@@ -16,6 +16,7 @@ Please wait while we are finishing our work
 
 ## Tambahan Deo 26/06 - 15:01
 - Fix add images in create.blade.php
+- Add footer text
 
 ## Tambahan Deo 26/07 - 14:46
 - Fix some bugs (gestureHandling)
