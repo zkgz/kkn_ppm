@@ -17,6 +17,7 @@ Please wait while we are finishing our work
 ## Tambahan Deo 26/07 - 14:46
 - Fix some bugs (gestureHandling)
 - Change form size (create/edit)
+- Change "Tambahkan Restoran Baru" to "New Taxpayer"
 
 ## Tambahan ZKGZ 26/07 - 10:30
 - Added more marker color for each type

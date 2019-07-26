@@ -7,7 +7,7 @@
             Data Restoran di Kota Parepare
         </div>
         <div class="card-body">
-            <a href="/taxpayer/create" class="btn btn-primary">Input Restoran Baru</a>
+            <a href="/taxpayer/create" class="btn btn-primary">New Taxpayer</a>
             <br/>
             <br/>
             <table id="table" class="table table-striped table-bordered">
