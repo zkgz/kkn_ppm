@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
                 
-                {{ Form::open(['action' => 'TaxpayerController@store', ]) }}
+                {{ Form::open(['action' => 'TaxpayerController@store', 'enctype' => 'multipart/form-data']) }}
                 {{ Form::token() }}
                 
                 <div class="form-group">
