@@ -14,10 +14,12 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
 
-## Tambahan ZKGZ 26/07 - 08:30
-- Added hover info to welcome view (WIP)
-- Changed import order
+## Tambahan ZKGZ 26/07 - 10:00
+- Added hover info of markers to welcome view (WIP)
 
+## Tambahan ZKGZ 26/07 - 08:30
+- Added hover info of layers to welcome view (WIP)
+- Changed import order
 
 ## Tambahan ZKGZ 26/07 - 06:15
 - Added import feature (`/taxpayer/import`)
