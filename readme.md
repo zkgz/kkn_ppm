@@ -14,10 +14,14 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
 
+## Tambahan ZKGZ 26/07 - 15:12
+- Refixed issue #9
+
 ## Tambahan ZKGZ 26/07 - 15:08
 - Updated `.gitignore`
 - Fixed geojson typo for some region
 - Automatically fill region form if you are creating taxpayers from the welcome view
+
 ## Tambahan Deo 26/06 - 15:01
 - Fix add images in create.blade.php
 

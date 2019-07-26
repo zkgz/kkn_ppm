@@ -184,6 +184,12 @@
             return this.update();
         };
         
+        map.on('popupclose', function(e) {
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+        });
+        
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
