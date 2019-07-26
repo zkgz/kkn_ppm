@@ -168,7 +168,20 @@ class TaxpayerController extends Controller{
         file_put_contents('taxpayer.json', $newJsonString);
     }
     public function import() {
-        \Excel::import(new TaxpayersImport, public_path('PajakBumiBangunan.xlsx'));
+
+        return view('taxpayer.import', ['title' => 'Import']);
+    }
+    
+    public function importData(Request $request) {
+        if($request->choice == "Hotel") {
+            \Excel::import(new TaxpayersImport, public_path('hotel.xlsx'));
+        } else if($request->choice == "Restaurant") {
+            \Excel::import(new TaxpayersImport, public_path('restaurant.xlsx'));
+        } else if($request->choice == "Property") {
+            \Excel::import(new TaxpayersImport, public_path('property.xlsx'));
+        } else if($request->choice == "Parking") {
+            \Excel::import(new TaxpayersImport, public_path('parking.xlsx'));
+        }
         
         return redirect('/')->with('success', 'All good!');
     }
