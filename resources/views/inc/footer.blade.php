@@ -38,7 +38,7 @@
     <!-- Footer Bar -->
     <footer class="py-4 bg-dark text-white-50">
         <div class="text-center">
-            <small>Copyright &copy; Team KKN PPM Program Pemetaan Spasial Pendapatan Daerah Kota Parepare</small>
+            <small>Copyright &copy; Team KKN PPM Program Pemetaan Spasial Pendapatan Daerah Kota Parepare & KKN Tematik Pemerintah Kota Parepare Gelombang 102</small>
         </div>
     </footer>
     
