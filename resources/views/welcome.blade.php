@@ -72,13 +72,13 @@
             subdomains: 'abcd',
             maxZoom: 19
         });
-
+        
         var labeledWorldStreet = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             gestureHandling: true,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
-
+        
         var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
         var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
         var map = L.map('mapid', {
@@ -91,7 +91,7 @@
             "Non-labeled Streets": nonLabeledWorldStreet,
             "Streets": labeledWorldStreet
         };
-
+        
         //checkboxes
         var overlayMaps = {
             "Restaurant": restaurantMarkers,
@@ -118,14 +118,16 @@
             }
             // Hover only
             info.update(layer.feature.properties);
+            
+            createChart(layer.feature.properties);
         }
-
+        
         function resetHighlight(e) {
             totalLayout.resetStyle(e.target);
             // Hover only
             info.update();
         }
-
+        
         var theMarker;
         function addMarker(e) {
             console.log(e.target.feature.properties);
@@ -143,7 +145,7 @@
             theMarker.bindPopup(popupContent)
             .openPopup();
         }
-
+        
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature,
@@ -151,7 +153,7 @@
                 click: addMarker
             });
         }
-
+        
         function style(feature) {
             return {
                 fillColor: getColor(feature.properties.pajak_per_bulan),
@@ -230,8 +232,39 @@
         "Kelurahan : " + marker.info.region + "<br/>" + 
         "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
         "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
+        createChart(marker.info);
     }
-    
+    function createChart(props) {
+        var ctx = document.getElementById('myChart');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pajak per bulan', 'Potensi pajak per bulan'],
+                    datasets: [{
+                        label: 'Pajak',
+                        data: [props.pajak_per_bulan, props.potensi_pajak_per_bulan],
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+    }
 </script>
 
 
