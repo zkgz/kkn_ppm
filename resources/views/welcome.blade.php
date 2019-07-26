@@ -13,6 +13,7 @@
         <div class="card main-card">
             <div class="card-header text-center">Information</div>
             <canvas id="myChart"></canvas>
+            <div class="card-body" id="taxpayer-info"></div>
         </div>
     </div>
 </div>
@@ -111,9 +112,13 @@
             if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
                 layer.bringToFront();
             }
+            // Hover only
+            info.update(layer.feature.properties);
         }
         function resetHighlight(e) {
             totalLayout.resetStyle(e.target);
+            // Hover only
+            info.update();
         }
         function zoomToFeature(e) {
             map.fitBounds(e.target.getBounds());
@@ -150,6 +155,20 @@
             return div;
         };
         legend.addTo(map);
+        
+        var info = L.control();
+        
+        info.onAdd = function (map) {
+            return this.update();
+        };
+        
+        // method that we will use to update the control based on feature properties passed
+        info.update = function (props) {
+            document.getElementById("taxpayer-info").innerHTML = '<h4>Testing</h4>' +  (props ?
+            props.NAME_4: 'Hover over a region');
+        };
+        
+        info.addTo(map);
     })
     .catch(function (error) {
         console.log(error);

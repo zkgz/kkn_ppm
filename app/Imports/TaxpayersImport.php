@@ -21,9 +21,9 @@ class TaxpayersImport implements ToModel
             'address'                    => $row[1],
             'lat'                        => $row[3],
             'long'                       => $row[4],
-            'pajak_per_bulan'            => $row[6],
-            'potensi_pajak_per_bulan'    => $row[5],
-            'information'                => '',
+            'pajak_per_bulan'            => $row[5],
+            'potensi_pajak_per_bulan'    => $row[6],
+            'information'                => $row[7],
             'photo'                      => null
         ]);
         
