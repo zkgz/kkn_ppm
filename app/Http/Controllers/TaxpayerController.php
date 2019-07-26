@@ -168,7 +168,7 @@ class TaxpayerController extends Controller{
         file_put_contents('taxpayer.json', $newJsonString);
     }
     public function import() {
-        //\Excel::import(new TaxpayersImport, public_path('PajakHotel.xlsx'));
+        \Excel::import(new TaxpayersImport, public_path('PajakBumiBangunan.xlsx'));
         
         return redirect('/')->with('success', 'All good!');
     }

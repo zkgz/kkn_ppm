@@ -16,7 +16,7 @@ class TaxpayersImport implements ToModel
     {
         return new Taxpayer([
             'name'                       => $row[0],
-            'type'                       => 'Hotel',
+            'type'                       => 'Property',
             'region'                     => $row[2],
             'address'                    => $row[1],
             'lat'                        => $row[3],

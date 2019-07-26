@@ -126,15 +126,29 @@
             info.update();
         }
 
-        function zoomToFeature(e) {
-            map.fitBounds(e.target.getBounds());
+        var theMarker;
+        function addMarker(e) {
+            console.log(e.target.feature.properties);
+            let latitude = e.latlng.lat.toString().substring(0, 15);
+            let longitude = e.latlng.lng.toString().substring(0, 15);
+            
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+            var kelurahan = e.target.feature.properties.NAME_4;
+            var popupContent = "Your location : " + latitude + ", " + longitude + ".";
+            popupContent += '<br><a href="{{ route('taxpayer.create') }}?latitude=' + latitude + '&longitude=' + longitude + '&region='+kelurahan+'">Add new taxpayer here</a>';
+            
+            theMarker = L.marker([latitude, longitude]).addTo(map);
+            theMarker.bindPopup(popupContent)
+            .openPopup();
         }
 
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature,
                 mouseout: resetHighlight,
-                click: zoomToFeature
+                click: addMarker
             });
         }
 
@@ -170,12 +184,18 @@
             return this.update();
         };
         
+        map.on('popupclose', function(e) {
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+        });
+        
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
-            console.log(props);
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
             props.NAME_4 + "<br/>" +
-            "Pajak per bulan : " + props.pajak_per_bulan + "<br/>"
+            "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
+            "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
             : 'Arahkan kursor ke suatu wilayah');
         };
         
@@ -208,8 +228,10 @@
         marker.info.name + "<br/>" + 
         marker.info.type + "<br/>" + 
         "kelurahan : " + marker.info.region + "<br/>" + 
-        "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>";
+        "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
+        "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
     }
+    
 </script>
 
 

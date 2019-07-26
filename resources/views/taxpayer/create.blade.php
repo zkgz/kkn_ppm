@@ -14,7 +14,7 @@
                 
                 <div class="form-group">
                     {{ Form::label('name','Name') }}
-                    {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Name']) }}                  
+                    {{ Form::text('name', isset($_GET["region"])? $_GET["region"]:null, ['class' => 'form-control', 'placeholder' => 'Name']) }}                  
                     
                     @if($errors->has('name'))
                     <div class="text-danger">
@@ -74,7 +74,7 @@
                                 'Ujung Bulu'        => 'Ujung Bulu',
                                 'Ujung Sabbang'     => 'Ujung Sabbang'
                                 ],
-                    ], null, ['class' => 'form-control', 'placeholder' => 'Choose Region', 'id' => 'region']) }}
+                    ], isset($_GET["region"])? $_GET["region"]:null, ['class' => 'form-control', 'placeholder' => 'Choose Region', 'id' => 'region']) }}
                 
                     <script>
                         var e = document.getElementById("region");
@@ -91,7 +91,7 @@
             
             <div class="form-group">
                 {{ Form::label('alamat','Alamat') }}
-                {{ Form::textarea('address', '', ['class' => 'form-control', 'placeholder' => 'Alamat', 'rows' => '4']) }}                  
+                {{ Form::textarea('address', isset($_GET["region"])? $_GET["region"]:null, ['class' => 'form-control', 'placeholder' => 'Alamat', 'rows' => '4']) }}                  
                 
                 @if($errors->has('address'))
                 <div class="text-danger">
