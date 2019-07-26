@@ -16,7 +16,10 @@ Please wait while we are finishing our work
 
 ## Tambahan ZKGZ 26/07 - 10:00
 - Added hover info of markers to welcome view (WIP)
+<<<<<<< HEAD
 - Added more hover info of layers to welcome view (WIP)
+=======
+>>>>>>> 8b66412b6fc1648e9bd09726194598a5a7333ea3
 
 ## Tambahan ZKGZ 26/07 - 08:30
 - Added hover info of layers to welcome view (WIP)

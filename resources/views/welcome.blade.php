@@ -196,7 +196,11 @@
     
     function markerClick(event) {
         var marker = event.layer;
+<<<<<<< HEAD
         document.getElementById("taxpayer-info").innerHTML = '<h4>Wajib Pajak</h4>' +  
+=======
+        document.getElementById("taxpayer-info").innerHTML = '<h4>Testing</h4>' +  
+>>>>>>> 8b66412b6fc1648e9bd09726194598a5a7333ea3
         marker.info.name + "<br/>" + 
         marker.info.type + "<br/>" + 
         "kelurahan : " + marker.info.region + "<br/>" + 
