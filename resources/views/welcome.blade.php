@@ -20,6 +20,8 @@
 
 @include('inc.leaflet.imports')
 @include('inc.leaflet.icons')
+@include('inc.leaflet.gesture')
+
 <script>
     var restaurantMarkers = [];
     var propertyMarkers = [];
@@ -58,7 +60,6 @@
                 parkingMarkers.push(marker);
                 //marker.addTo(map);
             }
-            
         });
         
         restaurantMarkers = L.featureGroup(restaurantMarkers).on('mouseover', markerClick);
@@ -71,14 +72,16 @@
             subdomains: 'abcd',
             maxZoom: 19
         });
+
         var labeledWorldStreet = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
+            gestureHandling: true,
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         });
         
         var mapCenter = [{{  $taxpayer->lat ?? (request('latitude') ?? -4.0185)  }}, {{ $taxpayer->long ?? (request('longitude') ?? 119.6710) }}];
         var map = L.map('mapid', {
-            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers]
+            layers: [labeledWorldStreet, restaurantMarkers, propertyMarkers, parkingMarkers, hotelMarkers],
         }).setView(mapCenter, 12);
         
         var totalLayout = new L.GeoJSON.AJAX("{{URL::asset('taxpayer.json')}}",{style: style, onEachFeature: onEachFeature});
@@ -88,6 +91,7 @@
             "Non-labeled Streets": nonLabeledWorldStreet,
             "Streets": labeledWorldStreet
         };
+
         //checkboxes
         var overlayMaps = {
             "Restaurant": restaurantMarkers,
@@ -115,14 +119,17 @@
             // Hover only
             info.update(layer.feature.properties);
         }
+
         function resetHighlight(e) {
             totalLayout.resetStyle(e.target);
             // Hover only
             info.update();
         }
+
         function zoomToFeature(e) {
             map.fitBounds(e.target.getBounds());
         }
+
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature,
@@ -130,6 +137,7 @@
                 click: zoomToFeature
             });
         }
+
         function style(feature) {
             return {
                 fillColor: getColor(feature.properties.pajak_per_bulan),
