@@ -173,13 +173,13 @@ class TaxpayerController extends Controller{
     }
     
     public function importData(Request $request) {
-        if($request->choice == "Hotel") {
+        if($request->choice == "2") {
             \Excel::import(new TaxpayersImport, public_path('hotel.xlsx'));
-        } else if($request->choice == "Restaurant") {
+        } else if($request->choice == "1") {
             \Excel::import(new TaxpayersImport, public_path('restaurant.xlsx'));
-        } else if($request->choice == "Property") {
+        } else if($request->choice == "0") {
             \Excel::import(new TaxpayersImport, public_path('property.xlsx'));
-        } else if($request->choice == "Parking") {
+        } else if($request->choice == "3") {
             \Excel::import(new TaxpayersImport, public_path('parking.xlsx'));
         }
         

@@ -7,14 +7,15 @@
               top: 0; /* Stay at the top */
               left: 0;
               /*background-color: #777;  Black*/
-              overflow-x: hidden; /* Disable horizontal scroll */
+              overflow-y: auto; /* Disable horizontal scroll */
               padding-top: 60px; /* Place content 60px from the top */
               transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+              padding-left:10px;
           }
 
           /* The navigation menu links */
         .sidenav a {
-          padding: 8px 8px 8px 32px;
+          
           text-decoration: none;
           font-size: 25px;
           color: #818181;
@@ -36,8 +37,16 @@
           margin-left: 50px;
         }
 
-        @media screen and (max-height: 450px) {
-          .sidenav {padding-top: 15px;}
-          .sidenav a {font-size: 18px;}
+        @media screen and (max-width: 700px) {
+          .sidenav {
+            padding-top: 15px;
+          }
+          .sidenav a {
+            font-size: 18px;
+          }
+          .sidenav a:hover{
+            width:100%;
+          }
         }
+        
 </style>

@@ -16,7 +16,6 @@ class AddLatitudeToTaxpayersTable extends Migration
         Schema::table('taxpayers', function (Blueprint $table) {
             $table->double('latitude', 16, 12)->after('longitude');
             $table->string('information')->nullable()->change();
-            $table->string('type');
         });
     }
 
