@@ -16,6 +16,8 @@ Please wait while we are finishing our work
 
 ## Tambahan Deo 27/07 - 12:13
 - Perubahan tulisan.
+- Ganti ke font awal
+- Ganti Judul
 
 ## Tambahan ZKGZ 27/07 - 08:25
 - Fixed issue #15 and #16
