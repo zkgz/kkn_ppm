@@ -238,9 +238,14 @@
         "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
         markerCreateChart(marker.info);
     }
+    var myChart;
     function regionCreateChart(props) {
         var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
+        
+        if(myChart != undefined) {
+            myChart.destroy();
+        }
+        myChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['Hotel', 'Restaurant', 'Property', 'Parking'],
@@ -272,37 +277,43 @@
                 }
             }
         });
+        
+        
     }
     function markerCreateChart(props) {
         var ctx = document.getElementById('myChart');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Pajak per bulan', 'Potensi pajak per bulan'],
-                    datasets: [{
-                        label: 'Pajak',
-                        data: [props.pajak_per_bulan, props.potensi_pajak_per_bulan],
-                        backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)'
-                        ],
-                        borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)'
-                        ],
-                        borderWidth: 1
+        if(myChart != undefined) {
+            myChart.destroy();
+        }
+        myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Pajak per bulan', 'Potensi pajak per bulan'],
+                datasets: [{
+                    label: 'Pajak',
+                    data: [props.pajak_per_bulan, props.potensi_pajak_per_bulan],
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
                     }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
                 }
-            });
+            }
+        });
+        
     }
 </script>
 
