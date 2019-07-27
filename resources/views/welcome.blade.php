@@ -241,6 +241,11 @@
     }
     var myChart;
     function regionCreateChart(props) {
+        console.log(props);
+        console.log(props.potensiHotel);
+        console.log(props.potensiParking);
+        console.log(props.potensiRestaurant);
+        console.log(props.potensiProperty);
         var ctx = document.getElementById('myChart');
         
         if(myChart != undefined) {
@@ -249,10 +254,10 @@
         myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Hotel', 'Restaurant', 'Property', 'Parking'],
+                labels: ['Hotel', 'Restaurant', 'Property', 'Parking', 'Potensi Hotel', 'Potensi Restaurant', 'Potensi Property', 'Potensi Parking'],
                 datasets: [{
                     label: 'Pajak',
-                    data: [props.hotel, props.restaurant, props.property, props.parking],
+                    data: [props.hotel, props.restaurant, props.property, props.parking, props.potensiHotel, props.potensiRestaurant, props.potensiProperty, props.potensiParking],
                     backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
