@@ -27,7 +27,7 @@ class HomeController extends Controller
 
     public function welcome() {
         $taxpayers = $this->stats();
-        return view('Welcome', ['title' => 'KKN PPM Unhas', 'region' => $taxpayers]);
+        return view('Welcome', ['title' => 'Pemetaan Spasial Parepare', 'region' => $taxpayers]);
     }
     
     public function stats() {
