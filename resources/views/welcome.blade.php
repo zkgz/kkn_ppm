@@ -70,6 +70,7 @@
         var nonLabeledWorldStreet = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
             subdomains: 'abcd',
+            gestureHandling: true,
             maxZoom: 19
         });
         
@@ -194,15 +195,15 @@
         
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
-            document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan</h4>' +  (props ?
-            props.NAME_4 + "<br/>" +
+            document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan ' +  (props ?
+            props.NAME_4 + "</h4>" +
             "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
             "Hotel : " + props.hotel + "<br/>" +
             "Restoran : " + props.restaurant + "<br/>" +
             "Parkir : " + props.parking + "<br/>" +
             "PBB : " + props.property + "<br/>" +
             "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
-            : 'Arahkan kursor ke suatu wilayah');
+            : 'belum dipilih <br> Arahkan kursor ke suatu wilayah');
         };
         
         info.addTo(map);
