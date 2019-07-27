@@ -13,7 +13,14 @@
         <div class="card main-card">
             <div class="card-header text-center">Information</div>
             <canvas id="myChart"></canvas>
-            <div class="card-body" id="taxpayer-info"></div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="card-body" id="taxpayer-info"></div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body pt-4 mt-4" id="taxpayer-logo"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -196,132 +203,136 @@
         // method that we will use to update the control based on feature properties passed
         info.update = function (props) {
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan ' +  (props ?
-            props.NAME_4 + "</h4>" +
-            "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
-            "Hotel : " + props.hotel + "<br/>" +
-            "Restoran : " + props.restaurant + "<br/>" +
-            "Parkir : " + props.parking + "<br/>" +
-            "PBB : " + props.property + "<br/>" +
-            "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
-            : 'belum dipilih <br> Arahkan kursor ke suatu wilayah');
-        };
-        
-        info.addTo(map);
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-    //end of marker distributions
-    
-    //From Lighter to Darker color
-    var colors = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#990000'];
-    //From Low to High
-    var grades = [0, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000, 100000000]
-    
-    function getColor(pajak) {
-        return  pajak > grades[7] ? colors[7] :
-        pajak > grades[6] ? colors[6] :
-        pajak > grades[5] ? colors[5] :
-        pajak > grades[4] ? colors[4] :
-        pajak > grades[3] ? colors[3] :
-        pajak > grades[2] ? colors[2] :
-        pajak > grades[1] ? colors[1] :
-        colors[0] ;
-    }
-    
-    function markerClick(event) {
-        var marker = event.layer;
-        document.getElementById("taxpayer-info").innerHTML = '<h4>Wajib Pajak</h4>' +  
-        marker.info.name + "<br/>" + 
-        marker.info.type + "<br/>" + 
-        "Kelurahan : " + marker.info.region + "<br/>" + 
-        "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
-        "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
-        markerCreateChart(marker.info);
-    }
-    var myChart;
-    function regionCreateChart(props) {
-        console.log(props);
-        console.log(props.potensiHotel);
-        console.log(props.potensiParking);
-        console.log(props.potensiRestaurant);
-        console.log(props.potensiProperty);
-        var ctx = document.getElementById('myChart');
-        
-        if(myChart != undefined) {
-            myChart.destroy();
-        }
-        myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Hotel', 'Restaurant', 'Property', 'Parking', 'Potensi Hotel', 'Potensi Restaurant', 'Potensi Property', 'Potensi Parking'],
-                datasets: [{
-                    label: 'Pajak',
-                    data: [props.hotel, props.restaurant, props.property, props.parking, props.potensiHotel, props.potensiRestaurant, props.potensiProperty, props.potensiParking],
-                    backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
+                props.NAME_4 + "</h4>" +
+                "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
+                "Hotel : " + props.hotel + "<br/>" +
+                "Restoran : " + props.restaurant + "<br/>" +
+                "Parkir : " + props.parking + "<br/>" +
+                "PBB : " + props.property + "<br/>" +
+                "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
+                : 'belum dipilih <br> Arahkan kursor ke suatu wilayah');
+            };
+            
+            info.addTo(map);
+        })
+        .catch(function (error) {
+            console.log(error);
         });
+        //end of marker distributions
         
+        //From Lighter to Darker color
+        var colors = ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#990000'];
+        //From Low to High
+        var grades = [0, 1000000, 2500000, 5000000, 10000000, 25000000, 50000000, 100000000]
         
-    }
-    function markerCreateChart(props) {
-        var ctx = document.getElementById('myChart');
-        if(myChart != undefined) {
-            myChart.destroy();
+        function getColor(pajak) {
+            return  pajak > grades[7] ? colors[7] :
+            pajak > grades[6] ? colors[6] :
+            pajak > grades[5] ? colors[5] :
+            pajak > grades[4] ? colors[4] :
+            pajak > grades[3] ? colors[3] :
+            pajak > grades[2] ? colors[2] :
+            pajak > grades[1] ? colors[1] :
+            colors[0] ;
         }
-        myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Pajak per bulan', 'Potensi pajak per bulan'],
-                datasets: [{
-                    label: 'Pajak',
-                    data: [props.pajak_per_bulan, props.potensi_pajak_per_bulan],
-                    backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                    ],
-                    borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
         
-    }
-</script>
-
-
-@endsection
+        function markerClick(event) {
+            var marker = event.layer;
+            document.getElementById("taxpayer-info").innerHTML = '<h4>Wajib Pajak</h4>' +  
+            marker.info.name + "<br/>" + 
+            marker.info.type + "<br/>" + 
+            "Kelurahan : " + marker.info.region + "<br/>" + 
+            "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
+            "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
+            markerCreateChart(marker.info);
+        }
+        var myChart;
+        function regionCreateChart(props) {
+            var logo = document.getElementById('taxpayer-logo');
+            logo.innerHTML='';
+            var ctx = document.getElementById('myChart');
+            
+            if(myChart != undefined) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Hotel", "Restaurant", "Property", "Parking"],
+                    datasets: [
+                    {
+                        label: "Pajak",
+                        backgroundColor: "rgba(255, 99, 132, 0.5)",
+                        borderColor: ["rgba(255, 99, 132, 1)"],
+                        data: [props.hotel, props.restaurant, props.property, props.parking]
+                    }, {
+                        label: "Potensi Pajak",
+                        backgroundColor: "rgba(54, 162, 235, 0.5)",
+                        borderColor: ["rgba(54, 162, 235, 1)"],
+                        data: [props.potensiHotel, props.potensiRestaurant, props.potensiProperty, props.potensiParking]
+                    }],
+                     
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            
+            
+        }
+        function markerCreateChart(props) {
+            console.log(props);
+            var logo = document.getElementById('taxpayer-logo');
+            if(props.type=="Restaurant"){
+                logo.innerHTML='<img src="{{URL::asset('/map-marker/restaurant-64.png')}}" class="rounded" alt="Restaurant logo">';
+            } else if(props.type=="Hotel"){
+                logo.innerHTML='<img src="{{URL::asset('/map-marker/hotel-64-4.png')}}" class="rounded" alt="Restaurant logo">';
+            } else if(props.type=="Property"){
+                logo.innerHTML='<img src="{{URL::asset('/map-marker/property-64-3.png')}}" class="rounded" alt="Restaurant logo">';
+            } else if(props.type=="Parking"){
+                logo.innerHTML='<img src="{{URL::asset('/map-marker/parking-64-2.png')}}" class="rounded" alt="Restaurant logo">';
+            }
+            var ctx = document.getElementById('myChart');
+            if(myChart != undefined) {
+                myChart.destroy();
+            }
+            myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Pajak per bulan', 'Potensi pajak per bulan'],
+                    datasets: [{
+                        label: 'Pajak',
+                        data: [props.pajak_per_bulan, props.potensi_pajak_per_bulan],
+                        backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            
+        }
+    </script>
+    
+    
+    @endsection
