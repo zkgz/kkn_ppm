@@ -151,8 +151,24 @@ class TaxpayerController extends Controller{
             $taxpayers[$value->region][$value->type] += $value->pajak_per_bulan;
             $taxpayers[$value->region]['Potensi'.$value->type] += $value->potensi_pajak_per_bulan;
         }
+        $potensi = [];
+        $potensi['hotel'] = 0;
+        $potensi['restaurant'] = 0;
+        $potensi['parking'] = 0;
+        $potensi['property'] = 0;
+        foreach($tp as $taxpayer) {
+            if($taxpayer['type'] == "Hotel") {
+                $potensi['hotel'] += $taxpayer['potensi_pajak_per_bulan'];
+            } else if($taxpayer['type'] == "Restaurant") {
+                $potensi['restaurant'] += $taxpayer['potensi_pajak_per_bulan'];
+            } else if($taxpayer['type'] == "Property") {
+                $potensi['property'] += $taxpayer['potensi_pajak_per_bulan'];
+            } else if($taxpayer['type'] == "Parking") {
+                $potensi['parking'] += $taxpayer['potensi_pajak_per_bulan'];
+            }
+        }
         $this->updateData($taxpayers);
-        return view('taxpayer.stats', ['title' => 'Statistics', 'taxpayers' => $taxpayers]);
+        return view('taxpayer.stats', ['title' => 'Statistics', 'taxpayers' => $taxpayers, 'potensi' => $potensi]);
     }
 
     private function updateData($taxpayers) {

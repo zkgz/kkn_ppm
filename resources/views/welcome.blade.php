@@ -332,7 +332,7 @@
             });
             
         }
-    </script>
-    
-    
-    @endsection
+</script>
+
+
+@endsection
