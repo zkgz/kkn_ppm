@@ -2,8 +2,10 @@
     KKN PPM Pemetaan Spasial Potensi Pendapatan Daerah Kota Parepare
 </h1>
 
-## Under Construction
-Please wait while we are finishing our work
+## Installation
+- Run `composer install`
+- Rename `.envexample` to `.env` and configure it
+- Run `php artisan migrate`
 
 ## Documentations
 - Readme formatting docs from [Github](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
@@ -13,6 +15,15 @@ Please wait while we are finishing our work
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
+
+<h1 align="center">
+    Changelog
+</h1>
+
+## Tambahan ZKGZ 28/07 - 4:15
+- Removed under construction section from readme
+- Added installation section to readme
+- Added .envexample
 
 ## Tambahan ZKGZ 27/07 - 18:35
 - Added Charts to stats page
