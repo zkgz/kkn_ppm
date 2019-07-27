@@ -14,6 +14,9 @@ Please wait while we are finishing our work
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
 
+## Tambahan Deo 27/07 - 12:13
+- Perubahan tulisan.
+
 ## Tambahan ZKGZ 27/07 - 08:25
 - Fixed issue #15 and #16
 
