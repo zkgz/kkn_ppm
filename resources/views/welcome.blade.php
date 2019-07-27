@@ -3,15 +3,15 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card main-card">
-            <div class="card-header text-center">Maps</div>
+        <div class="card main-card shadow-sm">
+            <h5 class="card-header text-center font-weight-bold">Maps</h5>
             <div class="card-body" id="mapid"></div>
         </div>
     </div>
     
-    <div class="col-md-6">
-        <div class="card main-card">
-            <div class="card-header text-center">Information</div>
+    <div class="col-md-6" id="palatino">
+        <div class="card main-card shadow-sm">
+            <h5 class="card-header text-center font-weight-bold">Information</h5>
             <canvas id="myChart"></canvas>
             <div class="card-body" id="taxpayer-info"></div>
         </div>
