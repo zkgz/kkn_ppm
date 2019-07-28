@@ -116,7 +116,7 @@
                 borderWidth: 1
             },{
                 label: '2019 (Potensi)',
-                data: [{{$potensi['restaurant']}}, {{$potensi['hotel']}}, {{$potensi['property']*12}}, {{$potensi['parking']}}],
+                data: [{{$potensi['restaurant']*12}}, {{$potensi['hotel']*12}}, {{$potensi['property']*12}}, {{$potensi['parking']*12}}],
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1
