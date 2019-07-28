@@ -25,7 +25,7 @@ class ChangePhotoColumnToNullableInTaxpayersTable extends Migration
      */
     public function down()
     {
-        Schema::table('nullable_in_taxpayers', function (Blueprint $table) {
+        Schema::table('taxpayers', function (Blueprint $table) {
             $table->text('photo')->change();
         });
     }
