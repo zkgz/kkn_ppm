@@ -20,6 +20,10 @@
     Changelog
 </h1>
 
+## Tambahan ZKGZ 28/07 - 08:30
+- Clearing migrations - please delete your tables
+- Changed information form to be optional/nullable
+
 ## Tambahan ZKGZ 28/07 - 4:15
 - Removed under construction section from readme
 - Added installation section to readme
