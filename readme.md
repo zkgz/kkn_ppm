@@ -22,6 +22,9 @@
     Changelog
 </h1>
 
+## Tambahan ZKGZ 02/08 - 06:42
+- Fixed potensi pajak per bulan not showing correct amount in hover info
+
 ## Tambahan ZKGZ 28/07 - 08:30
 - Clearing migrations - please delete your tables
 - Changed information form to be optional/nullable

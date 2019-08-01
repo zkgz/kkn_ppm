@@ -46,12 +46,13 @@ class HomeController extends Controller
             $taxpayers[$value->region]['PotensiProperty'] = 0;
             $taxpayers[$value->region]['PotensiHotel'] = 0;
             $taxpayers[$value->region]['Region'] = $value->region;
-            $taxpayers[$value->region]['potensi_pajak_per_bulan'] = $value->potensi_pajak_per_bulan;
+            $taxpayers[$value->region]['potensi_pajak_per_bulan'] = 0;
         }
         
         foreach($tp as $key => $value) {
             $taxpayers[$value->region][$value->type] += $value->pajak_per_bulan;
             $taxpayers[$value->region]['Potensi'.$value->type] += $value->potensi_pajak_per_bulan;
+            $taxpayers[$value->region]['potensi_pajak_per_bulan'] = $value->potensi_pajak_per_bulan;
         }
         $this->updateData($taxpayers);
         return $taxpayers;
@@ -78,7 +79,7 @@ class HomeController extends Controller
             foreach($taxpayers as $taxpayer) {
                 if($decoded["features"][$i]["properties"]["NAME_4"] == $taxpayer['Region']) {
                     $decoded["features"][$i]["properties"]["pajak_per_bulan"] = $taxpayer['Parking'] + $taxpayer['Hotel'] + $taxpayer['Property'] + $taxpayer['Restaurant'];
-                    $decoded["features"][$i]["properties"]["potensi_pajak_per_bulan"] = $taxpayer['potensi_pajak_per_bulan'];
+                    $decoded["features"][$i]["properties"]["potensi_pajak_per_bulan"] = $taxpayer['PotensiHotel'] + $taxpayer['PotensiProperty'] + $taxpayer['PotensiParking'] + $taxpayer['PotensiRestaurant'];
 
                     $decoded["features"][$i]["properties"]["hotel"] = $taxpayer['Hotel'];
                     $decoded["features"][$i]["properties"]["property"] = $taxpayer['Property'];
