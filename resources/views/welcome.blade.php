@@ -137,6 +137,7 @@
         }
         
         var theMarker;
+    
         function addMarker(e) {
             console.log(e.target.feature.properties);
             let latitude = e.latlng.lat.toString().substring(0, 15);
@@ -148,12 +149,12 @@
             var kelurahan = e.target.feature.properties.NAME_4;
             var popupContent = "Your location : " + latitude + ", " + longitude + ".";
             popupContent += '<br><a href="{{ route('taxpayer.create') }}?latitude=' + latitude + '&longitude=' + longitude + '&region='+kelurahan+'">Add new taxpayer here</a>';
-            
             theMarker = L.marker([latitude, longitude]).addTo(map);
             theMarker.bindPopup(popupContent)
             .openPopup();
         }
-        
+      
+       
         function onEachFeature(feature, layer) {
             layer.on({
                 mouseover: highlightFeature,
@@ -204,12 +205,18 @@
         info.update = function (props) {
             document.getElementById("taxpayer-info").innerHTML = '<h4>Kelurahan ' +  (props ?
                 props.NAME_4 + "</h4>" +
-                "Pajak per bulan : " + props.pajak_per_bulan + "<br/>" +
-                "Hotel : " + props.hotel + "<br/>" +
-                "Restoran : " + props.restaurant + "<br/>" +
-                "Parkir : " + props.parking + "<br/>" +
-                "PBB : " + props.property + "<br/>" +
-                "Potensi pajak per bulan : " + props.potensi_pajak_per_bulan + "<br/>"
+                "Pajak per bulan : " + '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> ' +
+                numeral(props.pajak_per_bulan).format('0,0.00') + "<br/>" +
+                "Hotel : " + '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> ' +
+                numeral(props.hotel).format('0,0.00') + "<br/>" +
+                "Restoran : " + '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> ' +
+                numeral(props.restaurant).format('0,0.00') + "<br/>" +
+                "Parkir : " + '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> ' +
+                numeral(props.parking).format('0,0.00') + "<br/>" +
+                "PBB : " + '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> ' +
+                numeral(props.property).format('0,0.00') + "<br/>" +
+                "Potensi pajak per bulan : " + '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> ' +
+                numeral(props.potensi_pajak_per_bulan).format('0,0.00') + "<br/>"
                 : 'belum dipilih <br> Arahkan kursor ke suatu wilayah');
             };
             
@@ -242,8 +249,12 @@
             marker.info.name + "<br/>" + 
             marker.info.type + "<br/>" + 
             "Kelurahan : " + marker.info.region + "<br/>" + 
-            "Pajak Per Bulan : " +marker.info.pajak_per_bulan + "<br/>" +
-            "Potensi pajak Per Bulan : " +marker.info.potensi_pajak_per_bulan + "<br/>";
+            "Pajak Per Bulan : " +
+            '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label> '
+            + numeral(marker.info.pajak_per_bulan).format('0,0.00') + "</label><br/>" +
+            "Potensi pajak Per Bulan : " + 
+            '<label for="colFormLabelSm" class="col-form-label col-form-label-sm">Rp. </label>'
+            + numeral(marker.info.potensi_pajak_per_bulan).format('0,0.00') + "</label><br/>";
             markerCreateChart(marker.info);
         }
         var myChart;
@@ -277,9 +288,24 @@
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function(value, index, values) {
+                                    if(parseInt(value) >= 1000){
+                                        return 'Rp. ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00';
+                                    } else {
+                                        return 'Rp. ' + value+'.00';
+                                    }
+                                }
                             }
                         }]
+                    },tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return "Rp. " + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                                })+".00";
+                            }
+                        }
                     }
                 }
             });
@@ -324,9 +350,24 @@
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                beginAtZero: true,
+                                callback: function(value, index, values) {
+                                    if(parseInt(value) >= 1000){
+                                        return 'Rp. ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00';
+                                    } else {
+                                        return 'Rp. ' + value+'.00';
+                                    }
+                                }
                             }
                         }]
+                    },tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return "Rp. " + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                                })+".00";
+                            }
+                        }
                     }
                 }
             });

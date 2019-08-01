@@ -22,12 +22,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
-                @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-                @endif
-                @else
+                @endguest
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="/taxpayer/stats" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
                         Stats <span class="caret"></span>
@@ -55,7 +51,7 @@
                         </form>
                     </div>
                 </li>
-            @endguest
+            @endauth
             </ul>
         </div>
     </div>

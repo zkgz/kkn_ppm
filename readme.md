@@ -15,6 +15,8 @@
 - Datatable documentation from [Datatable](https://datatables.net/examples/index)
 - Leaflet documentation from [Leaflet](https://leafletjs.com/reference-1.5.0.html)
 - Chart.js documentation from [Chart.js](https://www.chartjs.org/docs/latest/)
+- Numeral.js documentation from [Numeral.js](https://http://numeraljs.com/)
+- jquery Mask documentation from [jQuery Mask Plugin](https://github.com/igorescobar/jQuery-Mask-Plugin)
 
 <h1 align="center">
     Changelog
