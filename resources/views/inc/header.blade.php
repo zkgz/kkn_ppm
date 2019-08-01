@@ -22,12 +22,15 @@
 
     <!-- jQuery first, then Popper, then Bootstrap -->
     <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    
+    <!--Numeral Format-->
+    <script src="{{ asset('js/numeral.min.js') }}"></script> 
+
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
-
+   
 </head>
 <body>
     <div id="app">

@@ -33,11 +33,11 @@
                     @foreach($taxpayers as $taxpayer)
                     <tr>
                         <td>{{$taxpayer['Region']}}</td>
-                        <td>{{$taxpayer['Restaurant']}}</td>
-                        <td>{{$taxpayer['Hotel']}}</td>
-                        <td>{{$taxpayer['Property']}}</td>
-                        <td>{{$taxpayer['Parking']}}</td>
-                        <td>{{$taxpayer['Parking'] + $taxpayer['Hotel'] + $taxpayer['Property'] + $taxpayer['Restaurant']}}</td>
+                        <td><label>Rp. </label><label class="uang">{{$taxpayer['Restaurant']}}+"00"</label></td>
+                        <td><label>Rp. </label><label class="uang">{{$taxpayer['Hotel']}}+"00"</label></td>
+                        <td><label>Rp. </label><label class="uang">{{$taxpayer['Property']}}+"00"</label></td>
+                        <td><label>Rp. </label><label class="uang">{{$taxpayer['Parking']}}+"00"</label></td>
+                        <td><label>Rp. </label><label class="uang">{{$taxpayer['Parking'] + $taxpayer['Hotel'] + $taxpayer['Property'] + $taxpayer['Restaurant']}}+"00"</label></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -95,9 +95,24 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        callback:function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                                return 'Rp. ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00';
+                            } else {
+                                return 'Rp. ' + value+'.00';
+                            }
+                        }
                     }
                 }]
+            },tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        return "Rp. " + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                    })+".00";
+                }
+            }
             }
         }
     });
@@ -126,9 +141,24 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        callback: function(value, index, values) {
+                            if(parseInt(value) >= 1000){
+                                return 'Rp. ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'.00';
+                            } else {
+                                return 'Rp. ' + value+'.00';
+                            }
+                        }
                     }
                 }]
+            },tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        return "Rp. " + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                    })+".00";
+                }
+            }
             }
         }
     });

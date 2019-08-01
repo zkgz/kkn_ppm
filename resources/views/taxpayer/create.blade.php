@@ -158,21 +158,19 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         {{ Form::label('Potensi Pajak Per Bulan') }}
-                        {{ Form::number('potensi_pajak_per_bulan', '', ['class' => 'form-control', 'placeholder' => 'Potensi Pajak Per Bulan', 'step' => 'any']) }}
+                        {{ Form::number('potensi_pajak_per_bulan', '', ['class' => 'formatuang form-control', 'placeholder' => 'Potensi Pajak Per Bulan', 'step' => 'any']) }}
                         @if($errors->has('potensi_pajak_per_bulan'))
                             <div class="text-danger">
                                 {{ $errors->first('potensi_pajak_per_bulan') }}
                             </div>
                         @endif
-                        
                     </div>
                 </div>
             </div>
             
             <div class="form-group">
                 {{ Form::label('information','Information') }}
-                {{ Form::textarea('information', '', ['class' => 'form-control', 'placeholder' => 'Keterangan', 'id' => 'information']) }}                  
-                
+                {{ Form::textarea('information', '', ['class' => ' form-control', 'placeholder' => 'Keterangan', 'id' => 'information']) }}                  
                 @if($errors->has('information'))
                     <div class="text-danger">
                         {{ $errors->first('information') }}

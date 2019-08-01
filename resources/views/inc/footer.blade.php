@@ -4,7 +4,12 @@
     <!-- Datatable -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datatables.min.css') }}"/>
     <script type="text/javascript" src="{{ asset('js/datatables.min.js') }}"></script>
-    
+    <!-- Format Input Money -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $( '.uang' ).mask('000.000.000.000,00', {reverse: true});
+        })
+    </script>
     <!-- Script for Datatables -->
     <script>
         $(document).ready(function(){

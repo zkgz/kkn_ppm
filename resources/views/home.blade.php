@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+<meta http-equiv="refresh" content="3;url={{ url('/') }}" />
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
